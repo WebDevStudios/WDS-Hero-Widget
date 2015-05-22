@@ -84,6 +84,18 @@ class WDS_Hero_Widget {
 
 		// Includes more files.
 		$this->includes();
+
+		// Enqueue styles
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
+	}
+
+	/**
+	 * Enqueue public facing styles.
+	 *
+	 * @return void
+	 */
+	public function enqueue_styles() {
+		wp_enqueue_style( 'wds-hero-widget', plugins_url( 'assets/css/wds-hero-widget.css', __FILE__ ), array(), $this->script_version(), 'screen' );
 	}
 
 	/**
