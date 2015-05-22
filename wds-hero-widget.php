@@ -9,8 +9,8 @@
 * Donate link: http://webdevstudios.com
 * License:     GPLv2
 * Text Domain: wds-hero-widget
- * Domain Path: /languages
- */
+* Domain Path: /languages
+*/
 
 /**
  * Copyright (c) 2015 WebDevStudios (email : contact@webdevstudios.com)
@@ -39,7 +39,9 @@
  */
 class WDS_Hero_Widget {
 
-	const VERSION = '1.0.0';
+	public    $plugin_headers;
+	public    $version;
+	public    $text_domain;
 
 	protected $url      = '';
 	protected $path     = '';
@@ -70,6 +72,42 @@ class WDS_Hero_Widget {
 
 		$this->plugin_classes();
 		$this->hooks();
+
+		$this->set_plugin_info();
+		$this->version = $this->get_plugin_info( 'Version' );
+		$this->text_domain = $this->get_plugin_info( 'Text Domain' );
+	}
+
+
+	/**
+	 * Set the plugin header info.
+	 *
+	 * @return void
+	 */
+	function set_plugin_info() {
+		$this->plugin_headers = get_file_data(
+			trailingslashit( dirname( __FILE__ ) ) . '../ryde-wp-ant-dashboard.php', array(
+				'Plugin Name' => 'Plugin Name',
+				'Plugin URI' => 'Plugin URI',
+				'Version' => 'Version',
+				'Description' => 'Description',
+				'Author' => 'Author',
+				'Author URI' => 'Author URI',
+				'Text Domain' => 'Text Domain',
+				'Domain Path' => 'Domain Path',
+			),
+		'plugin' );
+	}
+
+	/**
+	 * Get a particular header value.
+	 *
+	 * @param  string $key The value of the plugin header.
+	 *
+	 * @return void
+	 */
+	function get_plugin_info( $key ) {
+		return trim( $this->plugin_headers[ $key ] );
 	}
 
 	/**
@@ -109,6 +147,19 @@ class WDS_Hero_Widget {
 	function _deactivate() {}
 
 	/**
+	 * When debugging, disabled cache.
+	 *
+	 * @return string Timestamp when debugging, actual version when not.
+	 */
+	protected function script_version() {
+		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
+			return time();
+		} else {
+			return $this->version;
+		}
+	}
+
+	/**
 	 * Init hooks
 	 * @since  1.0.0
 	 * @return null
@@ -142,7 +193,7 @@ class WDS_Hero_Widget {
 		if ( ! $this->meets_requirements() ) {
 			// Display our error
 			echo '<div id="message" class="error">';
-			echo '<p>' . sprintf( __( 'WDS Hero Widget is missing requirements and has been <a href="%s">deactivated</a>. Please make sure all requirements are available.', 'wds-hero-widget' ), admin_url( 'plugins.php' ) ) . '</p>';
+				echo '<p>' . sprintf( __( 'WDS Hero Widget is missing requirements and has been <a href="%s">deactivated</a>. Please make sure all requirements are available.', 'wds-hero-widget' ), admin_url( 'plugins.php' ) ) . '</p>';
 			echo '</div>';
 			// Deactivate our plugin
 			deactivate_plugins( $this->basename );
@@ -164,7 +215,7 @@ class WDS_Hero_Widget {
 	public function __get( $field ) {
 		switch ( $field ) {
 			case 'version':
-				return self::VERSION;
+				return self::$this->version;
 			case 'basename':
 			case 'url':
 			case 'path':
