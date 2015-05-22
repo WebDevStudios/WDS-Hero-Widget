@@ -21,43 +21,60 @@ module.exports = function( grunt ) {
 
 		pkg: pkg,
 
-		watch:  {
-			styles: {
-				files: [
-					'assets/sass/**/*.scss'
-				],
-				tasks: ['sass'],
-				options: {
-					spawn: false,
-					livereload: true,
-					debounceDelay: 500
-				}
+		autoprefixer: {
+			options: {
+				browsers: ['last 2 versions', 'ie 9']
 			},
-			php: {
-				files: ['**/*.php', '!vendor/**.*.php'],
-				tasks: ['php'],
-				options: {
-					spawn: false,
-					debounceDelay: 500
+			dist: {
+				src: ['assets/css/wds-hero-widget.css', '!*.min.css', '!bower_components', '!node_modules']
+			}
+		},
+
+		cmq: {
+			options: {
+				log: false
+			},
+			dist: {
+				files: {
+					'assets/css/wds-hero-widget.css': 'assets/css/wds-hero-widget.css'
 				}
+			}
+		},
+
+		csscomb: {
+			dist: {
+				files: [{
+					expand: true,
+					cwd: '',
+					src: ['assets/css/wds-hero-widget.css', '!*.min.css', '!bower_components', '!node_modules'],
+					dest: '',
+				}]
+			}
+		},
+
+		cssmin: {
+			minify: {
+				expand: true,
+				cwd: '',
+				src: ['assets/css/wds-hero-widget.css', '!*.min.css', '!bower_components', '!node_modules'],
+				dest: '',
+				ext: '.min.css'
 			}
 		},
 
 		sass: {
 			options: {
+				sourceMap: true,
 				outputStyle: 'expanded',
 				lineNumbers: true,
 				includePaths: [
-					'bower_components/bourbon/app/assets/stylesheets',
-					'bower_components/neat/app/assets/stylesheets'
+					'assets/bower/bourbon/app/assets/stylesheets',
+					'assets/bower/neat/app/assets/stylesheets'
 				]
 			},
 			dist: {
 				files: {
-					'assets/css/wds-hero-widget.css': [
-						'assets/sass/mixins/media-queries.scss',
-						'assets/sass/public/wds-hero-widget.scss',
-					]
+					'assets/css/wds-hero-widget.css': 'assets/sass/wds-hero-widget.scss'
 				}
 			}
 		},
@@ -83,12 +100,34 @@ module.exports = function( grunt ) {
 					}
 				}
 			}
-		}
+		},
+
+		watch:  {
+			styles: {
+				files: [
+					'assets/**/*.scss'
+				],
+				tasks: ['sass'],
+				options: {
+					spawn: false,
+					livereload: true,
+					debounceDelay: 500
+				}
+			},
+			php: {
+				files: ['**/*.php', '!vendor/**.*.php'],
+				tasks: ['php'],
+				options: {
+					spawn: false,
+					debounceDelay: 500
+				}
+			}
+		},
 
 	} );
 
 	// Default task.
-	grunt.registerTask( 'styles', [ 'sass' ] );
+	grunt.registerTask( 'styles', [ 'sass', 'autoprefixer', 'cmq', 'csscomb', 'cssmin' ] );
 	grunt.registerTask( 'php', [ 'addtextdomain', 'makepot' ] );
 	grunt.registerTask( 'default', ['styles', 'php'] );
 
