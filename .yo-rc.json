@@ -1,0 +1,17 @@
+{
+  "generator-plugin-wp": {
+    "name": "WDS Hero Widget",
+    "homepage": "http://webdevstudios.com",
+    "description": "Allows you to add Hero images and videos using Widgets, Shortcodes and template tags!",
+    "version": "1.0.0",
+    "author": "WebDevStudios",
+    "authoremail": "contact@webdevstudios.com",
+    "authorurl": "http://webdevstudios.com",
+    "license": "GPLv2",
+    "slug": "wds-hero-widget",
+    "classname": "WDS_Hero_Widget",
+    "classprefix": "WDSHW_",
+    "prefix": "wds_hero_widget",
+    "year": 2015
+  }
+}
