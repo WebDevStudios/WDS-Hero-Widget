@@ -21,11 +21,10 @@ module.exports = function( grunt ) {
 
 		pkg: pkg,
 
-
 		watch:  {
 			styles: {
 				files: ['assets/**/*.css','assets/**/*.scss'],
-				tasks: ['styles'],
+				tasks: ['sass'],
 				options: {
 					spawn: false,
 					livereload: true,
@@ -47,6 +46,22 @@ module.exports = function( grunt ) {
 				options: {
 					spawn: false,
 					debounceDelay: 500
+				}
+			}
+		},
+
+		sass: {
+			options: {
+				outputStyle: 'expanded',
+				lineNumbers: true,
+				includePaths: [
+					'bower_components/bourbon/app/assets/stylesheets',
+					'bower_components/neat/app/assets/stylesheets'
+				]
+			},
+			dist: {
+				files: {
+					'assets/css/wds-hero-widget.css': 'assets/sass/**/*.scss',
 				}
 			}
 		},
@@ -78,7 +93,7 @@ module.exports = function( grunt ) {
 
 	// Default task.
 	grunt.registerTask( 'scripts', [] );
-	grunt.registerTask( 'styles', [] );
+	grunt.registerTask( 'styles', [ 'sass' ] );
 	grunt.registerTask( 'php', [ 'addtextdomain', 'makepot' ] );
 	grunt.registerTask( 'default', ['styles', 'scripts', 'php'] );
 

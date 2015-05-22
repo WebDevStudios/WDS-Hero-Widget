@@ -1,0 +1,119 @@
+# Copyright (C) 2015 WebDevStudios
+# This file is distributed under the GPLv2.
+msgid ""
+msgstr ""
+"Project-Id-Version: WDS Hero Widget 1.0.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/wds-hero-widget\n"
+"POT-Creation-Date: 2015-05-22 17:02:45+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2015-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Generator: grunt-wp-i18n 0.5.2\n"
+
+#: includes/widget.php:73 includes/widget.php:74
+msgid "Hero"
+msgstr ""
+
+#: includes/widget.php:86
+msgid "Hero widget."
+msgstr ""
+
+#: includes/widget.php:108
+msgid "Classes"
+msgstr ""
+
+#: includes/widget.php:110
+msgid "Any additional classes you would like to add to this Hero."
+msgstr ""
+
+#: includes/widget.php:115
+msgid "Background Image URL"
+msgstr ""
+
+#: includes/widget.php:122
+msgid "Background Video URL"
+msgstr ""
+
+#: includes/widget.php:124
+msgid "Must be a .mp4 video."
+msgstr ""
+
+#: includes/widget.php:129
+msgid "Primary Heading"
+msgstr ""
+
+#: includes/widget.php:132
+msgid "My Heading"
+msgstr ""
+
+#: includes/widget.php:136 includes/widget.php:139
+msgid "Sub Heading"
+msgstr ""
+
+#: includes/widget.php:138
+msgid "Displayed directly below Primary Heading."
+msgstr ""
+
+#: includes/widget.php:143 includes/widget.php:146
+msgid "Button Text"
+msgstr ""
+
+#: includes/widget.php:145
+msgid "Displayed below headings."
+msgstr ""
+
+#: includes/widget.php:150
+msgid "Button URL"
+msgstr ""
+
+#: includes/widget.php:152
+msgid "What URL should the button open?"
+msgstr ""
+
+#: includes/widget.php:157
+msgid "Overlay Transparency"
+msgstr ""
+
+#: includes/widget.php:159
+msgid "Will automatically calculate CSS safe value."
+msgstr ""
+
+#: includes/widget.php:164
+msgid "Overlay Color"
+msgstr ""
+
+#: includes/widget.php:166
+msgid "The color of the overlay. Include # or use colors like \"red\""
+msgstr ""
+
+#: includes/widget.php:345
+msgid "Hero Type"
+msgstr ""
+
+#: wds-hero-widget.php:439
+msgid ""
+"WDS Hero Widget is missing requirements and has been <a "
+"href=\"%s\">deactivated</a>. Please make sure all requirements are "
+"available."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "WDS Hero Widget"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://webdevstudios.com"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Allows you to add Hero images and videos using Widgets, Shortcodes and "
+"template tags!"
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "WebDevStudios"
+msgstr ""

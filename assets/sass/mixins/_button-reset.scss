@@ -1,0 +1,35 @@
+// ----------------------------------------------------------------------
+
+  // Button Reset
+
+// ----------------------------------------------------------------------
+
+////
+/// @author Greg Rickaby
+/// @group wds
+////
+
+/// Resets all button styles
+///
+/// @example scss - Basic Usage Sass
+///    .foo-button {
+///			@include button-reset;
+///    }
+///
+/// @example scss - Basic Usage CSS Output
+///    .foo-button {
+///         border: none;
+///         cursor: pointer;
+///         margin: 0;
+///         outline: none;
+///         padding: 0;
+///         text-transform: none;
+///    }
+@mixin button-reset {
+	@include margin-padding-reset;
+	
+	border: none;
+	cursor: pointer;
+	outline: none;
+	text-transform: none;
+}

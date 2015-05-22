@@ -1,0 +1,185 @@
+.hero {
+	overflow: hidden;
+	position: relative;
+
+	.content-wrapper {
+		position: relative;
+		z-index: 2;
+	}
+
+	h1, h2 {
+		margin: 0;
+	}
+
+	&.primary-hero {
+		padding: rem(75);
+		text-align: center;
+
+		@include wider-than(tablet-portrait) {
+			padding: rem(150);
+		}
+
+		h1 {
+			color: $color-black-haze;
+			font-size: rem(24);
+
+			@include wider-than(tablet-portrait) {
+				font-size: rem(72);
+			}
+		}
+
+		p {
+			color: $color-black-haze;
+			margin: 0 0 rem(20) 0;
+			font-size: rem(16);
+			font-weight: 400;
+			line-height: 24px;
+
+			@include wider-than(tablet-portrait) {
+				font-size: rem(30);
+				line-height: 36px;
+			}
+		}
+
+	}
+
+	&.secondary-paralaxed-hero {
+		padding: rem(85);
+		text-align: center;
+
+		@include wider-than(tablet-portrait) {
+			padding: rem(100);
+		}
+
+		& .content-wrapper {
+			@include outer-container;
+		}
+
+		.content-headings {
+			@include wider-than(tablet-portrait) {
+				@include span-columns(8);
+			}
+
+			h2 {
+				line-height: rem(30);
+
+				@include wider-than(tablet-portrait) {
+					display: block;
+					font-size: rem(36);
+					line-height: rem(63);
+					margin-bottom: 0;
+				}
+			}
+
+			h2,
+			p {
+				@include wider-than(tablet-portrait) {
+					text-align: left;
+				}
+			}
+
+			p {
+				display: none;
+			}
+		}
+
+		.content-button {
+
+			@include wider-than(tablet-portrait) {
+				@include span-columns(4);
+				@include omega;
+
+				text-align: right;
+			}
+
+		}
+
+		.image {
+			background-attachment: scroll;
+			z-index: -1;
+
+			@include wider-than(tablet-landscape) {
+				background-attachment: fixed;
+			}
+		}
+
+		video {
+			position: fixed;
+			z-index: -1;
+		}
+
+	}
+
+	&.secondary-hero,
+	&.secondary-paralaxed-hero {
+		padding: rem(75);
+		text-align: center;
+
+		@include wider-than(tablet-portrait) {
+			padding: rem(100);
+		}
+
+		h2 {
+			color: $color-white;
+			font-size: rem(24);
+			font-weight: 700;
+			line-height: 22px;
+			margin-bottom: rem(20);
+
+			@include wider-than(tablet-portrait) {
+				font-size: rem(48);
+				line-height: 45px;
+			}
+		}
+
+		p {
+			color: $color-black-haze;
+			font-size: rem(16);
+			font-weight: 400;
+			line-height: 20px;
+			margin: 0 0 rem(20) 0;
+			padding: 0;
+
+			@include wider-than(tablet-portrait) {
+				font-size: rem(24);
+				line-height: 30px;
+			}
+		}
+	}
+
+	button {
+		font-size: rem(12);
+
+		@include wider-than(tablet-portrait) {
+			font-size: rem(16);
+		}
+	}
+
+	video,
+	.overlay,
+	.image {
+		left: 0;
+		min-width: 100%;
+		min-height: 100%;
+		position: absolute;
+		top: 0;
+	}
+
+	.image {
+		background-position: center center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		height: 100%;
+	}
+
+	.overlay {
+		background-color: $color-black;
+		height: 100%;
+		z-index: 1;
+	}
+
+	video,
+	.image {
+		z-index: 0;
+	}
+}

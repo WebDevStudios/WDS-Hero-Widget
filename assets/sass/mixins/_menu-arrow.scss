@@ -1,0 +1,53 @@
+// ----------------------------------------------------------------------
+
+  // Menu Arrows
+
+// ----------------------------------------------------------------------
+
+////
+/// @author Greg Rickaby
+/// @group wds
+////
+
+/// Would you like to add an up arrow?
+/// @param {String} $color [auto]
+///     `auto` | `manual` | `none`
+///
+
+/// @example scss - Basic Usage Sass
+///    .foo-menu-item {
+///        @include menu-up-arrow($color-blue-trout)
+///    }
+///
+/// @example scss - Basic Usage CSS Output
+///    .foo-menu-item:before {
+///        content: "";
+///        speak: none;
+///        font-style: normal;
+///        font-weight: normal;
+///        font-family: "FontAwesome";
+///     }
+///
+///    .foo-menu-item:before {
+///        font-size: 3.125rem;
+///
+///        position: absolute;
+///        top: -45px;
+///        left: 43%;
+///
+///        float: left;
+///     }
+
+
+@mixin menu-up-arrow( $color ) {
+	@include icon(before, caret-up);	
+
+	color: $color;
+
+	&:before {
+		@include position(absolute, -45px null null 43%);
+
+		float: left;
+		font-size: rem(50);
+	}
+}

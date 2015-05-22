@@ -77,6 +77,7 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 			$this->default_widget_title = esc_html__( $widget_name, 'wds-hero-widget' );
 		}
 
+		// WordPress Widget startup!
 		parent::__construct(
 			$this->widget_slug,
 			$this->widget_name,
@@ -86,9 +87,12 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 			)
 		);
 
+		// Some widget specific hooks.
 		add_action( 'save_post',    array( $this, 'flush_widget_cache' ) );
 		add_action( 'deleted_post', array( $this, 'flush_widget_cache' ) );
 		add_action( 'switch_theme', array( $this, 'flush_widget_cache' ) );
+
+		// Make sure we can use this as a shortcode too!
 		add_shortcode( $this->shortcode, array( $this, 'get_widget' ) );
 
 		// Types of Heros
@@ -183,7 +187,6 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 	 * @param  array  $instance  The widget settings as set by user.
 	 */
 	public function widget( $args, $instance ) {
-
 		$args = array(
 			'before_widget' => $args['before_widget'],
 			'after_widget'  => $args['after_widget'],
@@ -191,8 +194,10 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 			'after_title'   => $args['after_title'],
 		);
 
+		// The inputs
 		$inputs = $this->get_all_the_input_slugs();
 
+		// Add the inputs.
 		foreach ( $inputs as $input_slug ) {
 			if ( isset( $instance[ $input_slug ] ) ) {
 				$args[ $input_slug ] = $instance[ $input_slug ];
@@ -203,7 +208,7 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 	}
 
 	/**
-	 * Return the widget/shortcode output
+	 * Return the widget/shortcode output.
 	 *
 	 * @param  array  $atts Array of widget/shortcode attributes/args
 	 * @return string       Widget output
@@ -214,6 +219,7 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 		// Before widget hook
 		$widget .= $atts['before_widget'];
 
+			// This function does the magic!
 			$widget .= $this->plugin->wds_hero( array(
 				'type'                  => ( isset( $atts['type'] ) && ! empty( $atts['type'] ) ) ? $atts['type'] : 'primary',
 				'class'                 => ( isset( $atts['class'] ) && ! empty( $atts['class'] ) ) ? $atts['class'] : false,
@@ -245,7 +251,7 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 	 * @return array Simplified inputs
 	 */
 	function get_all_the_input_slugs() {
-		$inputs[] = 'type'; // Type inputs (not a basic text input)
+		$inputs[] = 'type'; // Type inputs (not a basic text input).
 		foreach ( $this->text_inputs as $input ) {
 			$inputs[] = $input['slug'];
 		}
@@ -282,6 +288,7 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 		$this->flush_widget_cache();
 
 		return $instance;
+
 	}
 
 	/**

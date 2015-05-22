@@ -1,0 +1,32 @@
+// ----------------------------------------------------------------------
+
+  // Alternate Colors
+
+// ----------------------------------------------------------------------
+
+////
+/// @author Greg Rickaby
+/// @group wds
+////
+
+/// Provides an alternate color state
+///
+/// @example scss - Basic Usage Sass
+///    .primary-hero {
+///			p {
+///				@include alt;
+///			}
+///    }
+///
+/// @example scss - Basic Usage CSS Output
+///    .primary-hero {
+///			p {
+///				color: #f7f78f6;
+///			}
+///    }
+@mixin alternate-style {
+	
+	&.alt {
+		color: $color-black-haze;
+	}
+}
