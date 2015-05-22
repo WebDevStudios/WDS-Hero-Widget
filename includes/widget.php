@@ -37,7 +37,7 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 	 *
 	 * @var string
 	 */
-	protected static $shortcode = 'wds_hero';
+	protected $shortcode = 'wds_hero';
 
 	/**
 	 * All the text inputs used in the Widget
@@ -54,12 +54,28 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 	protected $types;
 
 	/**
+	 * The plugin.
+	 *
+	 * @var object
+	 */
+	public $plugin;
+
+	/**
 	 * Contruct widget.
 	 */
-	public function __construct() {
+	public function __construct( $widget_name = false ) {
 
-		$this->widget_name          = esc_html__( 'Hero', 'wds-hero-widget' );
-		$this->default_widget_title = esc_html__( 'Hero', 'wds-hero-widget' );
+		// The plugin.
+		$this->plugin = wds_hero_widget();
+
+		// For backwards compatibility.
+		if ( ! $widget_name ) {
+			$this->widget_name          = esc_html__( 'Hero', 'wds-hero-widget' );
+			$this->default_widget_title = esc_html__( 'Hero', 'wds-hero-widget' );
+		} else {
+			$this->widget_name          = esc_html__( $widget_name, 'wds-hero-widget' );
+			$this->default_widget_title = esc_html__( $widget_name, 'wds-hero-widget' );
+		}
 
 		parent::__construct(
 			$this->widget_slug,
@@ -73,7 +89,7 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 		add_action( 'save_post',    array( $this, 'flush_widget_cache' ) );
 		add_action( 'deleted_post', array( $this, 'flush_widget_cache' ) );
 		add_action( 'switch_theme', array( $this, 'flush_widget_cache' ) );
-		add_shortcode( self::$shortcode, array( __CLASS__, 'get_widget' ) );
+		add_shortcode( $this->shortcode, array( $this, 'get_widget' ) );
 
 		// Types of Heros
 		$this->types = array(
@@ -183,7 +199,7 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 			}
 		}
 
-		echo self::get_widget( $args );
+		echo $this->get_widget( $args );
 	}
 
 	/**
@@ -192,14 +208,13 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 	 * @param  array  $atts Array of widget/shortcode attributes/args
 	 * @return string       Widget output
 	 */
-	public static function get_widget( $atts ) {
+	public function get_widget( $atts ) {
 		$widget = '';
 
 		// Before widget hook
 		$widget .= $atts['before_widget'];
 
-		if ( function_exists( 'wds_hero' ) ) {
-			$widget .= wds_hero( array(
+			$widget .= $this->plugin->wds_hero( array(
 				'type'                  => ( isset( $atts['type'] ) && ! empty( $atts['type'] ) ) ? $atts['type'] : 'primary',
 				'class'                 => ( isset( $atts['class'] ) && ! empty( $atts['class'] ) ) ? $atts['class'] : false,
 				'image'                 => ( isset( $atts['image'] ) && ! empty( $atts['image'] ) ) ? $atts['image'] : false,
@@ -217,7 +232,6 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 				'overlay'               => ( isset( $atts['overlay'] ) && ! empty( $atts['overlay'] ) ) ? $atts['overlay'] : false,
 				'overlay_color'         => ( isset( $atts['overlay_color'] ) && ! empty( $atts['overlay_color'] ) ) ? $atts['overlay_color'] : '#000',
 			) );
-		}
 
 		// After widget hook
 		$widget .= $atts['after_widget'];

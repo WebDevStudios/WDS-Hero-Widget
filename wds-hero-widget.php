@@ -93,7 +93,7 @@ class WDS_Hero_Widget {
 	 *
 	 * Template Tag Example:
 	 *
-	 *     <?php wds_mcf_hero( array(
+	 *     <?php wds_hero( array(
 	 *         'type'                  => 'primary',
 	 *         'class'                 => 'my-class',
 	 *         'image'                 => 'https://mysite.com/my-background.png', // Background image
@@ -147,7 +147,7 @@ class WDS_Hero_Widget {
 	 *
 	 * @return void
 	 */
-	function wds_mcf_hero( $args = array(), $content = false ) {
+	function wds_hero( $args = array(), $content = false ) {
 
 		// HTML arguments.
 		$args_setup = array(
@@ -212,7 +212,7 @@ class WDS_Hero_Widget {
 				<span class="content-custom-content">
 					<?php if ( $args['custom_content_action'] ) : ?>
 
-						<!-- Content added via wds_mcf_hero_inner_html action -->
+						<!-- Content added via wds_hero_inner_html action -->
 						<?php do_action( $args['custom_content_action'] ); ?>
 
 					<?php endif; ?>
@@ -363,7 +363,7 @@ class WDS_Hero_Widget {
 		add_action( 'widgets_init', array( $this, 'wds_hero_widget_widget' ) );
 
 		// Template tag shortcode
-		add_shortcode( 'hero', array( $this, 'wds_mcf_hero' ) );
+		add_shortcode( 'hero', array( $this, 'wds_hero' ) );
 	}
 
 	/**
