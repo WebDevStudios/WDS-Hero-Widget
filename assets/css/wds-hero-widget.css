@@ -10,6 +10,11 @@ html
     box-sizing: inherit;
 }
 
+.widget.wds-mcf-hero-widget
+{
+    margin: 0;
+}
+
 .hero
 {
     position: relative;
