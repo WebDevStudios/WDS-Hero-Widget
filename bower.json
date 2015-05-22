@@ -15,6 +15,7 @@
   ],
   "dependencies": {
     "bourbon": "latest",
-    "neat": "latest"
+    "neat": "latest",
+    "slick.js": "~1.5.5"
   }
 }
