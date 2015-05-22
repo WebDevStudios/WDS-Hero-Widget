@@ -23,17 +23,8 @@ module.exports = function( grunt ) {
 
 		watch:  {
 			styles: {
-				files: ['assets/**/*.css','assets/**/*.scss'],
+				files: ['assets/**/*.scss'],
 				tasks: ['sass'],
-				options: {
-					spawn: false,
-					livereload: true,
-					debounceDelay: 500
-				}
-			},
-			scripts: {
-				files: ['assets/**/*.js'],
-				tasks: ['scripts'],
 				options: {
 					spawn: false,
 					livereload: true,
@@ -61,7 +52,7 @@ module.exports = function( grunt ) {
 			},
 			dist: {
 				files: {
-					'assets/css/wds-hero-widget.css': 'assets/sass/**/*.scss',
+					'assets/css/wds-hero-widget.css': 'assets/sass/**/*.scss'
 				}
 			}
 		},
@@ -92,10 +83,9 @@ module.exports = function( grunt ) {
 	} );
 
 	// Default task.
-	grunt.registerTask( 'scripts', [] );
 	grunt.registerTask( 'styles', [ 'sass' ] );
 	grunt.registerTask( 'php', [ 'addtextdomain', 'makepot' ] );
-	grunt.registerTask( 'default', ['styles', 'scripts', 'php'] );
+	grunt.registerTask( 'default', ['styles', 'php'] );
 
 	grunt.util.linefeed = '\n';
 };
