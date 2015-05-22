@@ -23,7 +23,9 @@ module.exports = function( grunt ) {
 
 		watch:  {
 			styles: {
-				files: ['assets/**/*.scss'],
+				files: [
+					'assets/sass/**/*.scss'
+				],
 				tasks: ['sass'],
 				options: {
 					spawn: false,
@@ -52,7 +54,10 @@ module.exports = function( grunt ) {
 			},
 			dist: {
 				files: {
-					'assets/css/wds-hero-widget.css': 'assets/sass/**/*.scss'
+					'assets/css/wds-hero-widget.css': [
+						'assets/sass/mixins/media-queries.scss',
+						'assets/sass/public/wds-hero-widget.scss',
+					]
 				}
 			}
 		},
