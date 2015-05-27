@@ -104,7 +104,7 @@ class WDS_Hero_Widget {
 	 * @return void
 	 */
 	public function enqueue_styles() {
-			wp_enqueue_style( 'wds-hero-widget', plugins_url( 'assets/css/wds-hero-widget.css', __FILE__ ), array(), $this->script_version(), 'screen' );
+		wp_enqueue_style( 'wds-hero-widget', plugins_url( 'assets/css/wds-hero-widget.css', __FILE__ ), array(), $this->script_version(), 'screen' );
 	}
 
 	/**
