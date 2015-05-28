@@ -63,26 +63,27 @@ class WDS_Slider_CPT {
 	 */
 	public function images_cmb2_init() {
 		$box = new_cmb2_box( array(
-			'id'            => 'wds_hero_slider_metabox',
-			'title'         => __( 'Hero Slider', $this->core->text_domain ),
-			'object_types'  => array( 'wds-hero-slider', ), // Post type
-			'context'       => 'normal',
-			'priority'      => 'high',
-			'show_names'    => true,
+			'id'              => 'wds_hero_slider_metabox',
+			'title'           => __( 'Hero Slider', $this->core->text_domain ),
+			'object_types'    => array( 'wds-hero-slider', ), // Post type
+			'context'         => 'normal',
+			'priority'        => 'high',
+			'show_names'      => true,
 		) );
 
 		$box->add_field( array(
-			'name'       => __( 'Images', $this->core->text_domain ),
-			'id'         => 'wds_hero_slider_images',
-			'type'       => 'file_list',
+			'name'            => __( 'Images', $this->core->text_domain ),
+			'id'              => 'wds_hero_slider_images',
+			'type'            => 'file_list',
+			'preview_size'         => array( 200, '200' ),
 		) );
 
 		$box->add_field( array(
-			'name'       => __( 'Slider Speed in Seconds', $this->core->text_domain ),
-			'id'         => 'wds_hero_slider_speed',
-			'type'       => 'text',
+			'name'            => __( 'Slider Speed in Seconds', $this->core->text_domain ),
+			'id'              => 'wds_hero_slider_speed',
+			'type'            => 'text',
 			'sanitization_cb' => array( $this, 'sanitize_slider_speed' ),
-			'desc'       => __( 'Each image will slide in every <code>&times</code> seconds.', $this->core->text_domain ),
+			'desc'            => __( 'Each image will slide in every <code>&times</code> seconds.', $this->core->text_domain ),
 		) );
 	}
 

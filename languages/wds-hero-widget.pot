@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WDS Hero Widget 1.0-dev\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/wds-hero-widget\n"
-"POT-Creation-Date: 2015-05-28 17:58:03+00:00\n"
+"POT-Creation-Date: 2015-05-28 17:59:27+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -479,7 +479,7 @@ msgstr ""
 msgid "Select / Deselect All"
 msgstr ""
 
-#: includes/cmb2/includes/helper-functions.php:249 includes/slider-cpt.php:147
+#: includes/cmb2/includes/helper-functions.php:249 includes/slider-cpt.php:148
 msgid "Save"
 msgstr ""
 
@@ -527,15 +527,15 @@ msgstr ""
 msgid "Images"
 msgstr ""
 
-#: includes/slider-cpt.php:81
+#: includes/slider-cpt.php:82
 msgid "Slider Speed in Seconds"
 msgstr ""
 
-#: includes/slider-cpt.php:85
+#: includes/slider-cpt.php:86
 msgid "Each image will slide in every <code>&times</code> seconds."
 msgstr ""
 
-#: includes/slider-cpt.php:150
+#: includes/slider-cpt.php:151
 msgid "Saved"
 msgstr ""
 
