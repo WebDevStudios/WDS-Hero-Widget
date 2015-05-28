@@ -201,48 +201,26 @@ class WDS_Hero_Widget {
 	 *
 	 * @return void
 	 */
-	function wds_hero( $args = array(), $content = false ) {
+	function wds_hero( $args = array()) {
 
-		// HTML arguments.
-		$args_setup = array(
-
-			// A primary or secondary
-			'type' => ( isset( $args['type'] ) )  ? $args['type'] : 'primary',
-
-			// Extra classes
-			'class'=> ( isset( $args['class'] ) )  ? $args['class'] : '',
-
-			// Add a playable video (YouTube) to the hero.
-			'video'=> ( isset( $args['video'] ) )  ? $args['video'] : false,
-
-			// Want us to echo it out (on by default for shortcodes).
-			'echo' => ( isset( $args['echo'] ) )   ? $args['echo'] : false,
-
-			// Add an action filter so additional content can be added.
-			'custom_content_action' => ( isset( $args['custom_content_action'] ) ) ? $args['custom_content_action'] : false,
-
-			// Ability to set element background image.
-			'image' => ( isset( $args['image'] ) ) ? $args['image'] : false,
-
-			// Overlay
-			'overlay' => ( isset( $args['overlay'] ) ) ? (float) $args['overlay']  : false,
-
-			// Overlay
-			'overlay_color' => ( isset( $args['overlay_color'] ) ) ? $args['overlay_color']  : '#000',
-
-			// Slider CPT
-			'slider_id' => ( isset( $args['slider_id'] ) ) ? $args['slider_id']  : 'false',
+		$defaults = array(
+			'type'                  => 'primary',
+			'class'                 => '',
+			'video'                 => false,
+			'echo'                  => false,
+			'custom_content_action' => false,
+			'image'                 => false,
+			'overlay'               => false,
+			'overlay_color'         => '#000',
+			'slider_id'             => false,
+			'heading'               => false,
+			'sub_heading'           => false,
+			'button_text'           => false,
+			'button_link'           => false,
+			'content'               => false,
 		);
 
-		// Arguments for content.
-		$args_content = array(
-			'heading'      => ( isset( $args['heading'] ) )      ? $args['heading']     : false,
-			'sub_heading'  => ( isset( $args['sub_heading'] ) )  ? $args['sub_heading'] : false,
-			'button_text'  => ( isset( $args['button_text'] ) )  ? $args['button_text'] : false,
-			'button_link'  => ( isset( $args['button_link'] ) )  ? $args['button_link'] : false,
-		);
-
-		$args = array_merge( $args_setup, $args_content );
+		$args = wp_parse_args( $args, $defaults );
 
 		ob_start();
 		?>
@@ -276,19 +254,19 @@ class WDS_Hero_Widget {
 			<div class="content-wrapper">
 				<span class="content-headings">
 					<?php if ( $args['heading'] && 'primary' == $args['type'] ) : ?>
-						<h1><?php echo wp_kses( $args['heading'], wp_kses_allowed_html( 'post' ) ); ?></h1>
+						<h1><?php echo wp_kses_post( $args['heading'] ); ?></h1>
 					<?php else: ?>
-						<h2><?php echo wp_kses( $args['heading'], wp_kses_allowed_html( 'post' ) ); ?></h2>
+						<h2><?php echo wp_kses_post( $args['heading'] ); ?></h2>
 					<?php endif; ?>
 
 					<?php if ( $args['sub_heading'] ) : ?>
-						<p><?php echo wp_kses( $args['sub_heading'], wp_kses_allowed_html( 'post' ) ); ?></p>
+						<p><?php echo wp_kses_post( $args['sub_heading'] ); ?></p>
 					<?php endif; ?>
 				</span>
 
 				<span class="content-button">
 					<?php if ( $args['button_text'] ) : ?>
-						<?php if( $args['button_link'] ): ?><a href="<?php echo esc_url( $args['button_link'] ); ?>"><?php endif; ?><button><?php echo wp_kses( $args['button_text'], wp_kses_allowed_html( 'post' ) ); ?></button><?php if( $args['button_link'] ): ?></a><?php endif; ?>
+						<?php if( $args['button_link'] ) : ?><a href="<?php echo esc_url( $args['button_link'] ); ?>"><?php endif; ?><button><?php echo esc_html( $args['button_text'] ); ?></button><?php if ( $args['button_link'] ) : ?></a><?php endif; ?>
 					<?php endif; ?>
 				</span>
 
@@ -299,12 +277,9 @@ class WDS_Hero_Widget {
 						<?php do_action( $args['custom_content_action'] ); ?>
 
 					<?php endif; ?>
-
-					<?php if ( $content ) : ?>
-
+					<?php if ( $args['content'] ) : ?>
 						<!-- Content passed via shortcode -->
-						<?php echo $content; ?>
-
+						<?php echo wp_kses_post( $args['content'] ); ?>
 					<?php endif; ?>
 				</span>
 			</div>
@@ -316,7 +291,7 @@ class WDS_Hero_Widget {
 			<?php if ( $args['video'] ): ?>
 				<!-- To be used as the background if a video is supplied -->
 				<video loop autoplay muted>
-					<source src="<?php echo $args['video'] ?>" type="video/<?php echo pathinfo( basename( $args['video'] ), PATHINFO_EXTENSION ); ?>" />
+					<source src="<?php echo esc_url( $args['video'] ); ?>" type="video/<?php echo pathinfo( basename( $args['video'] ), PATHINFO_EXTENSION ); ?>" />
 				</video>
 			<?php endif; ?>
 
@@ -352,7 +327,7 @@ class WDS_Hero_Widget {
 			return;
 		}
 
-		echo "background-image: url($background_url);";
+		echo 'background-image: url(' . esc_url( $background_url ) . ');';
 	}
 
 	/**
@@ -367,11 +342,11 @@ class WDS_Hero_Widget {
 			return;
 		}
 
-		$css = "opacity: " . $args['overlay'] . ";";
+		$css = "opacity: " . esc_attr( $args['overlay'] ) . ";";
 
 		// Overlay color
 		if ( $args['overlay_color'] ) {
-			$css .= " background-color: " . $args['overlay_color'] . ";";
+			$css .= " background-color: " . esc_attr( $args['overlay_color'] ) . ";";
 		}
 
 		echo $css;
@@ -408,11 +383,11 @@ class WDS_Hero_Widget {
 		$this->plugin_headers = get_file_data(
 			__FILE__, array(
 				'Plugin Name' => 'Plugin Name',
-				'Plugin URI' => 'Plugin URI',
-				'Version' => 'Version',
+				'Plugin URI'  => 'Plugin URI',
+				'Version'     => 'Version',
 				'Description' => 'Description',
-				'Author' => 'Author',
-				'Author URI' => 'Author URI',
+				'Author'      => 'Author',
+				'Author URI'  => 'Author URI',
 				'Text Domain' => 'Text Domain',
 				'Domain Path' => 'Domain Path',
 			),
@@ -498,7 +473,7 @@ class WDS_Hero_Widget {
 	 */
 	public function init() {
 		if ( $this->check_requirements() ) {
-			load_plugin_textdomain( 'wds-hero-widget', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+			load_plugin_textdomain( 'wds-hero-widget', false, dirname( $this->basename ) . '/languages/' );
 		}
 	}
 
