@@ -232,7 +232,7 @@ class WDS_Hero_Widget {
 
 		<div class="hero <?php echo esc_attr( $args['type'] ); ?>-hero <?php echo esc_attr( $args['class'] ); ?>">
 
-			<?php if ( isset( $args['slider_id'] ) ) :
+			<?php if ( $args['slider_id'] ) :
 
 				// Get the images stored for the slider id set/passed.
 				$images = get_post_meta( $args['slider_id'], 'wds_hero_slider_images', true );
