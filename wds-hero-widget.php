@@ -340,11 +340,11 @@ class WDS_Hero_Widget {
 		$this->plugin_headers = get_file_data(
 			__FILE__, array(
 				'Plugin Name' => 'Plugin Name',
-				'Plugin URI' => 'Plugin URI',
-				'Version' => 'Version',
+				'Plugin URI'  => 'Plugin URI',
+				'Version'     => 'Version',
 				'Description' => 'Description',
-				'Author' => 'Author',
-				'Author URI' => 'Author URI',
+				'Author'      => 'Author',
+				'Author URI'  => 'Author URI',
 				'Text Domain' => 'Text Domain',
 				'Domain Path' => 'Domain Path',
 			),
