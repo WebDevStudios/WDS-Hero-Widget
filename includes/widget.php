@@ -356,7 +356,7 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 				</label>
 				<select id="<?php echo esc_attr( $this->get_field_id( 'type' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'type' ) ); ?>">
 					<?php foreach( $this->types as $type ) : ?>
-						<option value="<?php echo esc_attr( $type ); ?>" <?php echo ( $type == $instance[ 'type' ] ) ? 'selected="selected"' : ''; ?>><?php echo esc_attr( ucwords( str_replace( '-', ' ', $type ) ) ); ?></option>
+						<option value="<?php echo esc_attr( $type ); ?>" <?php selected( $type, $instance['type'] ); ?>><?php echo esc_attr( ucwords( str_replace( '-', ' ', $type ) ) ); ?></option>
 					<?php endforeach; ?>
 				</select>
 			</p>
@@ -373,7 +373,7 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 					<!-- Logo Train ID -->
 					<?php if ( is_array( $sliders ) ) : ?>
 						<?php foreach( $sliders as $slider_id ) : ?>
-							<option value="<?php echo esc_attr( $slider_id ); ?>" <?php echo ( $slider_id == $instance['slider_id'] ) ? 'selected="selected"' : ''; ?>><?php echo get_the_title( $slider_id ); ?></option>
+							<option value="<?php echo esc_attr( $slider_id ); ?>" <?php selected( $slider_id, $instance['slider_id'] ); ?>><?php echo get_the_title( $slider_id ); ?></option>
 						<?php endforeach; ?>
 					<?php endif; ?>
 				</select>
