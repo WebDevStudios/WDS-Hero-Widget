@@ -240,12 +240,15 @@ html {
   left: 0;
   top: 0;
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 150%;
+  margin-left: -25%;
 }
 
-.hero .sliders .slick-track img {
-  width: 100%;
+@media (min-width: 48em) {
+  .hero .sliders {
+    width: 100%;
+    margin-left: auto;
+  }
 }
 
 /*# sourceMappingURL=wds-hero-widget.css.map */
