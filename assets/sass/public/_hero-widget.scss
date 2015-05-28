@@ -196,7 +196,7 @@
 		width: 150%;
 		margin-left: -25%;
 
-		@include wider-than(tablet-portrait) {
+		@include wider-than(tablet-landscape) {
 			width: 100%;
 			margin-left: auto;
 		}
