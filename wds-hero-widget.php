@@ -430,7 +430,7 @@ class WDS_Hero_Widget {
 	 */
 	public function init() {
 		if ( $this->check_requirements() ) {
-			load_plugin_textdomain( 'wds-hero-widget', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+			load_plugin_textdomain( 'wds-hero-widget', false, dirname( $this->basename ) . '/languages/' );
 		}
 	}
 
