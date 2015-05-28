@@ -47,6 +47,7 @@ class WDS_Hero_Widget {
 	public    $plugin_headers;
 	public    $version;
 	public    $text_domain;
+	public    $slider_cpt;
 
 	protected $url      = '';
 	protected $path     = '';
@@ -71,6 +72,9 @@ class WDS_Hero_Widget {
 	 * @since  1.0.0
 	 */
 	protected function __construct() {
+		// Includes more files.
+		$this->includes();
+
 		$this->basename = plugin_basename( __FILE__ );
 		$this->url      = plugin_dir_url( __FILE__ );
 		$this->path     = plugin_dir_path( __FILE__ );
@@ -81,9 +85,6 @@ class WDS_Hero_Widget {
 		$this->set_plugin_info();
 		$this->version = $this->get_plugin_info( 'Version' );
 		$this->text_domain = $this->get_plugin_info( 'Text Domain' );
-
-		// Includes more files.
-		$this->includes();
 
 		// Enqueue styles
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
@@ -313,20 +314,18 @@ class WDS_Hero_Widget {
 
 	/**
 	 * Include a file from the includes directory
+	 *
 	 * @since  1.0
-	 * @param  string $filename Name of the file to be included
 	 */
-	public static function includes( $filename = false ) {
-		if ( $filename ) {
-			$file = self::dir( './includes/'. $filename .'.php' );
-			if ( file_exists( $file ) ) {
-				return include_once( $file );
-			}
-		}
-		foreach ( new DirectoryIterator( trailingslashit( dirname( __FILE__ ) ) . 'includes' ) as $fileInfo ) {
-			if( ! $fileInfo->isDot() ) {
-				require_once trailingslashit( $fileInfo->getPath() ) . $fileInfo->getFilename();
-			}
+	public static function includes() {
+		$files = array(
+			'includes/slider-cpt.php',
+			'includes/widget.php',
+			'includes/template-tags.php',
+		);
+
+		foreach ( $files as $file ) {
+			require_once( $file );
 		}
 	}
 
@@ -366,8 +365,7 @@ class WDS_Hero_Widget {
 	 * @since 1.0.0
 	 */
 	function plugin_classes() {
-		// Attach other plugin classes to the base plugin class.
-		// $this->admin = new WDSHW_Admin( $this );
+		$this->slider_cpt = new WDS_Slider_CPT( $this );
 	}
 
 	/**
@@ -440,10 +438,6 @@ class WDS_Hero_Widget {
 	 * @return boolean
 	 */
 	public static function meets_requirements() {
-		// Do checks for required classes / functions
-		// function_exists('') & class_exists('')
-
-		// We have met all requirements
 		return true;
 	}
 
@@ -489,17 +483,6 @@ class WDS_Hero_Widget {
 		}
 	}
 
-	/**
-	 * Include a file from the includes directory
-	 * @since  1.0.0
-	 * @param  string $filename Name of the file to be included
-	 */
-	public static function include_file( $filename ) {
-		$file = self::dir( 'includes/'. $filename .'.php' );
-		if ( file_exists( $file ) ) {
-			return include_once( $file );
-		}
-	}
 }
 
 /**

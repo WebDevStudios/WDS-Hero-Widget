@@ -337,6 +337,16 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 			'type'  => 'primary', // Default hero type.
 		) ) );
 
+		$sliders = get_posts( array(
+			'posts_per_page'   => -1,
+			'orderby'          => 'title',
+			'order'            => 'ASC',
+			'post_type'        => 'wds-hero-slider',
+			'post_status'      => 'publish',
+			'suppress_filters' => true,
+			'fields'           => 'ids',
+		) );
+
 		?>
 
 			<!-- Type input (select) -->
@@ -348,6 +358,24 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 					<?php foreach( $this->types as $type ) : ?>
 						<option value="<?php echo $type; ?>" <?php echo ( $type == $instance[ 'type' ] ) ? 'selected="selected"' : ''; ?>><?php echo ucwords( str_replace( '-', ' ', $type ) ); ?></option>
 					<?php endforeach; ?>
+				</select>
+			</p>
+
+			<!-- Sliders -->
+			<p>
+				<label for="<?php echo esc_attr( $this->get_field_id( 'post_id' ) ); ?>">
+					<?php _e( 'Choose Hero Slider:', 'wds-logo-train' ); ?>
+				</label>
+
+				<select id="<?php echo esc_attr( $this->get_field_id( 'post_id' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'post_id' ) ); ?>" style="max-width: 100%; min-width: 100%;">
+					<option><?php _e( '&mdash; None &mdash;', 'wds-logo-train' ); ?></option>
+
+					<!-- Logo Train ID -->
+					<?php if ( is_array( $sliders ) ) : ?>
+						<?php foreach( $sliders as $post_id ) : ?>
+							<option value="<?php echo $post_id; ?>" <?php echo ( $post_id == $instance['post_id'] ) ? 'selected="selected"' : ''; ?>><?php echo get_the_title( $post_id ); ?></option>
+						<?php endforeach; ?>
+					<?php endif; ?>
 				</select>
 			</p>
 
