@@ -97,6 +97,10 @@ class WDS_Hero_Widget {
 	 * @return void
 	 */
 	public function enqueue_scripts() {
+		// Slick logo train animations.
+		wp_enqueue_script( 'slick-js', plugins_url( 'assets/bower/slick.js/slick/slick.js', __FILE__ ), array(
+			'jquery',
+		), $this->script_version(), true );
 	}
 
 	/**
@@ -106,6 +110,10 @@ class WDS_Hero_Widget {
 	 */
 	public function enqueue_styles() {
 		wp_enqueue_style( 'wds-hero-widget', plugins_url( 'assets/css/wds-hero-widget.css', __FILE__ ), array(), $this->script_version(), 'screen' );
+
+		// Slick logo train animations.
+		wp_enqueue_style( 'slick-css', plugins_url( 'assets/bower/slick.js/slick/slick.css', __FILE__ ), array(), $this->script_version() );
+		wp_enqueue_style( 'slick-css-theme', plugins_url( 'assets/bower/slick.js/slick/slick-theme.css', __FILE__ ), array( 'slick-css' ), $this->script_version() );
 	}
 
 	/**
