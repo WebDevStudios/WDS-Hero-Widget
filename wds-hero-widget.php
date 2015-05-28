@@ -117,6 +117,30 @@ class WDS_Hero_Widget {
 	}
 
 	/**
+	 * Get the details of a logo (attachment).
+	 *
+	 * @param  int $attachment_id   The ID of the attachment.
+	 *
+	 * @return array                Details for the attachment/logo.
+	 */
+	function get_attachment_details( $attachment_id, $size = 'large' ) {
+
+		// Get the desired attachment src for the size we want.
+		$details['src'] = wp_get_attachment_image_src( $attachment_id, $size );
+
+		$details['src'] = ( isset( $details['src'][0] ) ) ? $details['src'][0] : $details['src'];
+
+		// Meta alt tag.
+		$details['alt'] = get_post_meta( $attachment_id, '_wp_attachment_image_alt', true );
+
+		// We want to get the description (have to hack post_content for that).
+		$attachment = get_post( $attachment_id );
+		$details['url'] = $attachment->post_content;
+
+		return $details;
+	}
+
+	/**
 	 * Shows a Hero.
 	 *
 	 * Can be used as a template tag or added via a shortcode.
@@ -224,6 +248,31 @@ class WDS_Hero_Widget {
 		?>
 
 		<div class="hero <?php echo esc_attr( $args['type'] ); ?>-hero <?php echo esc_attr( $args['class'] ); ?>">
+
+
+		<?php if ( isset( $args['slider_id'] ) ) :
+
+			// Get the images stored for the slider id set/passed.
+			$images = get_post_meta( $args['slider_id'], 'wds_hero_slider_images', true );
+		?>
+			<div class="sliders">
+				<?php foreach ( $images as $attachment_id => $src ) :
+
+					// Attachment details.
+					$details = $this->get_attachment_details( $attachment_id, $args['size'] );
+					$src = $details['src']; // A better URL
+					$alt = $details['alt'];
+				?>
+
+					<div class="slider" style="background-image: url(<?php echo $src; ?>);">
+						<img src="<?php echo $src; ?>" alt="<?php echo $alt; ?>" />
+					</div>
+
+				<?php endforeach; ?>
+			</div>
+
+		<?php endif; ?>
+
 			<div class="content-wrapper">
 				<span class="content-headings">
 					<?php if ( $args['heading'] && 'primary' == $args['type'] ) : ?>
@@ -236,11 +285,13 @@ class WDS_Hero_Widget {
 						<p><?php echo wp_kses( $args['sub_heading'], wp_kses_allowed_html( 'post' ) ); ?></p>
 					<?php endif; ?>
 				</span>
+
 				<span class="content-button">
 					<?php if ( $args['button_text'] ) : ?>
 						<?php if( $args['button_link'] ): ?><a href="<?php echo esc_url( $args['button_link'] ); ?>"><?php endif; ?><button><?php echo wp_kses( $args['button_text'], wp_kses_allowed_html( 'post' ) ); ?></button><?php if( $args['button_link'] ): ?></a><?php endif; ?>
 					<?php endif; ?>
 				</span>
+
 				<span class="content-custom-content">
 					<?php if ( $args['custom_content_action'] ) : ?>
 
@@ -248,12 +299,16 @@ class WDS_Hero_Widget {
 						<?php do_action( $args['custom_content_action'] ); ?>
 
 					<?php endif; ?>
+
 					<?php if ( $content ) : ?>
+
 						<!-- Content passed via shortcode -->
 						<?php echo $content; ?>
+
 					<?php endif; ?>
 				</span>
 			</div>
+
 			<?php if ( $args['image'] ): ?>
 				<div class="image"  style="<?php $this->wds_hero_bg_image( $args['image'] ) ?>"></div>
 			<?php endif; ?>
