@@ -197,18 +197,18 @@ class WDS_Hero_Widget {
 			<div class="content-wrapper">
 				<span class="content-headings">
 					<?php if ( $args['heading'] && 'primary' == $args['type'] ) : ?>
-						<h1><?php echo wp_kses( $args['heading'], wp_kses_allowed_html( 'post' ) ); ?></h1>
+						<h1><?php echo wp_kses_post( $args['heading'] ); ?></h1>
 					<?php else: ?>
-						<h2><?php echo wp_kses( $args['heading'], wp_kses_allowed_html( 'post' ) ); ?></h2>
+						<h2><?php echo wp_kses_post( $args['heading'] ); ?></h2>
 					<?php endif; ?>
 
 					<?php if ( $args['sub_heading'] ) : ?>
-						<p><?php echo wp_kses( $args['sub_heading'], wp_kses_allowed_html( 'post' ) ); ?></p>
+						<p><?php echo wp_kses_post( $args['sub_heading'] ); ?></p>
 					<?php endif; ?>
 				</span>
 				<span class="content-button">
 					<?php if ( $args['button_text'] ) : ?>
-						<?php if( $args['button_link'] ): ?><a href="<?php echo esc_url( $args['button_link'] ); ?>"><?php endif; ?><button><?php echo wp_kses( $args['button_text'], wp_kses_allowed_html( 'post' ) ); ?></button><?php if( $args['button_link'] ): ?></a><?php endif; ?>
+						<?php if( $args['button_link'] ) : ?><a href="<?php echo esc_url( $args['button_link'] ); ?>"><?php endif; ?><button><?php echo esc_html( $args['button_text'] ); ?></button><?php if ( $args['button_link'] ) : ?></a><?php endif; ?>
 					<?php endif; ?>
 				</span>
 				<span class="content-custom-content">
@@ -267,7 +267,7 @@ class WDS_Hero_Widget {
 			return;
 		}
 
-		echo "background-image: url($background_url);";
+		echo 'background-image: url(' . esc_url( $background_url ) . ');';
 	}
 
 	/**
@@ -282,11 +282,11 @@ class WDS_Hero_Widget {
 			return;
 		}
 
-		$css = "opacity: " . $args['overlay'] . ";";
+		$css = "opacity: " . esc_attr( $args['overlay'] ) . ";";
 
 		// Overlay color
 		if ( $args['overlay_color'] ) {
-			$css .= " background-color: " . $args['overlay_color'] . ";";
+			$css .= " background-color: " . esc_attr( $args['overlay_color'] ) . ";";
 		}
 
 		echo $css;
