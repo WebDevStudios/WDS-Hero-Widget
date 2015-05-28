@@ -337,6 +337,11 @@ class WDS_Hero_Widget {
 		foreach ( $files as $file ) {
 			require_once( $file );
 		}
+
+		// CMB2
+		if ( ! class_exists( 'CMB2' ) ) {
+			require_once( 'includes/cmb2/init.php' );
+		}
 	}
 
 	/**
