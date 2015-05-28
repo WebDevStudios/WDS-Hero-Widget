@@ -55,19 +55,6 @@ class WDS_Hero_Widget {
 	protected static $single_instance = null;
 
 	/**
-	 * Creates or returns an instance of this class.
-	 * @since  0.1.0
-	 * @return WDS_Hero_Widget A single instance of this class.
-	 */
-	public static function get_instance() {
-		if ( null === self::$single_instance ) {
-			self::$single_instance = new self();
-		}
-
-		return self::$single_instance;
-	}
-
-	/**
 	 * Sets up our plugin
 	 * @since  1.0.0
 	 */
@@ -92,11 +79,28 @@ class WDS_Hero_Widget {
 	}
 
 	/**
+	 * Creates or returns an instance of this class.
+	 * @since  0.1.0
+	 * @return WDS_Hero_Widget A single instance of this class.
+	 */
+	public static function get_instance() {
+		if ( null === self::$single_instance ) {
+			self::$single_instance = new self();
+		}
+
+		return self::$single_instance;
+	}
+
+	/**
 	 * Enqueue JS scripts.
 	 *
 	 * @return void
 	 */
 	public function enqueue_scripts() {
+		// Slick logo train animations.
+		wp_enqueue_script( 'slick-js', plugins_url( 'assets/bower/slick.js/slick/slick.js', __FILE__ ), array(
+			'jquery',
+		), $this->script_version(), true );
 	}
 
 	/**
@@ -106,6 +110,10 @@ class WDS_Hero_Widget {
 	 */
 	public function enqueue_styles() {
 		wp_enqueue_style( 'wds-hero-widget', $this->url . 'assets/css/wds-hero-widget.css', array(), $this->script_version(), 'screen' );
+
+		// Slick logo train animations.
+		wp_enqueue_style( 'slick-css', plugins_url( 'assets/bower/slick.js/slick/slick.css', __FILE__ ), array(), $this->script_version() );
+		wp_enqueue_style( 'slick-css-theme', plugins_url( 'assets/bower/slick.js/slick/slick-theme.css', __FILE__ ), array( 'slick-css' ), $this->script_version() );
 	}
 
 	/**
@@ -297,7 +305,7 @@ class WDS_Hero_Widget {
 	 *
 	 * @since  1.0
 	 */
-	public static function includes() {
+	public function includes() {
 		$files = array(
 			'includes/slider-cpt.php',
 			'includes/widget.php',
@@ -306,6 +314,11 @@ class WDS_Hero_Widget {
 
 		foreach ( $files as $file ) {
 			require_once( $file );
+		}
+
+		// CMB2
+		if ( ! class_exists( 'CMB2' ) ) {
+			require_once( 'includes/cmb2/init.php' );
 		}
 	}
 

@@ -237,6 +237,8 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 
 				'overlay'               => ( isset( $atts['overlay'] ) && ! empty( $atts['overlay'] ) ) ? $atts['overlay'] : false,
 				'overlay_color'         => ( isset( $atts['overlay_color'] ) && ! empty( $atts['overlay_color'] ) ) ? $atts['overlay_color'] : '#000',
+
+				'slider_id'         => ( isset( $atts['slider_id'] ) && ! empty( $atts['slider_id'] ) ) ? $atts['slider_id'] : false,
 			) );
 
 		// After widget hook
@@ -283,6 +285,9 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 		foreach ( $inputs as $slug ) {
 			$instance[ $slug ] = apply_filters( "wds_widget_update_$slug", $new_instance[ $slug ] );
 		}
+
+		// Save the slider_id input.
+		$instance[ 'slider_id' ] = apply_filters( 'wds_widget_update_slider_id', $new_instance[ 'slider_id' ] );
 
 		// Flush cache
 		$this->flush_widget_cache();
