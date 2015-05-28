@@ -169,48 +169,26 @@ class WDS_Hero_Widget {
 	 *
 	 * @return void
 	 */
-	function wds_hero( $args = array(), $content = false ) {
+	function wds_hero( $args = array()) {
 
-		// HTML arguments.
-		$args_setup = array(
-
-			// A primary or secondary
-			'type' => ( isset( $args['type'] ) )  ? $args['type'] : 'primary',
-
-			// Extra classes
-			'class'=> ( isset( $args['class'] ) )  ? $args['class'] : '',
-
-			// Add a playable video (YouTube) to the hero.
-			'video'=> ( isset( $args['video'] ) )  ? $args['video'] : false,
-
-			// Want us to echo it out (on by default for shortcodes).
-			'echo' => ( isset( $args['echo'] ) )   ? $args['echo'] : false,
-
-			// Add an action filter so additional content can be added.
-			'custom_content_action' => ( isset( $args['custom_content_action'] ) ) ? $args['custom_content_action'] : false,
-
-			// Ability to set element background image.
-			'image' => ( isset( $args['image'] ) ) ? $args['image'] : false,
-
-			// Overlay
-			'overlay' => ( isset( $args['overlay'] ) ) ? (float) $args['overlay']  : false,
-
-			// Overlay
-			'overlay_color' => ( isset( $args['overlay_color'] ) ) ? $args['overlay_color']  : '#000',
-
-			// Slider CPT
-			'slider_id' => ( isset( $args['slider_id'] ) ) ? $args['slider_id']  : 'false',
+		$defaults = array(
+			'type'                  => 'primary',
+			'class'                 => '',
+			'video'                 => false,
+			'echo'                  => false,
+			'custom_content_action' => false,
+			'image'                 => false,
+			'overlay'               => false,
+			'overlay_color'         => '#000',
+			'slider_id'             => false,
+			'heading'               => false,
+			'sub_heading'           => false,
+			'button_text'           => false,
+			'button_link'           => false,
+			'content'               => false,
 		);
 
-		// Arguments for content.
-		$args_content = array(
-			'heading'      => ( isset( $args['heading'] ) )      ? $args['heading']     : false,
-			'sub_heading'  => ( isset( $args['sub_heading'] ) )  ? $args['sub_heading'] : false,
-			'button_text'  => ( isset( $args['button_text'] ) )  ? $args['button_text'] : false,
-			'button_link'  => ( isset( $args['button_link'] ) )  ? $args['button_link'] : false,
-		);
-
-		$args = array_merge( $args_setup, $args_content );
+		$args = wp_parse_args( $args, $defaults );
 
 		ob_start();
 		?>
@@ -240,9 +218,9 @@ class WDS_Hero_Widget {
 						<?php do_action( $args['custom_content_action'] ); ?>
 
 					<?php endif; ?>
-					<?php if ( $content ) : ?>
+					<?php if ( $args['content'] ) : ?>
 						<!-- Content passed via shortcode -->
-						<?php echo wp_kses_post( $content ); ?>
+						<?php echo wp_kses_post( $args['content'] ); ?>
 					<?php endif; ?>
 				</span>
 			</div>
