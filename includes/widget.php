@@ -237,6 +237,8 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 
 				'overlay'               => ( isset( $atts['overlay'] ) && ! empty( $atts['overlay'] ) ) ? $atts['overlay'] : false,
 				'overlay_color'         => ( isset( $atts['overlay_color'] ) && ! empty( $atts['overlay_color'] ) ) ? $atts['overlay_color'] : '#000',
+
+				'slider_id'         => ( isset( $atts['slider_id'] ) && ! empty( $atts['slider_id'] ) ) ? $atts['slider_id'] : false,
 			) );
 
 		// After widget hook
