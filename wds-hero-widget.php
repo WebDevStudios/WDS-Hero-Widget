@@ -253,7 +253,7 @@ class WDS_Hero_Widget {
 			<?php if ( $args['video'] ): ?>
 				<!-- To be used as the background if a video is supplied -->
 				<video loop autoplay muted>
-					<source src="<?php echo $args['video'] ?>" type="video/<?php echo pathinfo( basename( $args['video'] ), PATHINFO_EXTENSION ); ?>" />
+					<source src="<?php echo esc_url( $args['video'] ); ?>" type="video/<?php echo pathinfo( basename( $args['video'] ), PATHINFO_EXTENSION ); ?>" />
 				</video>
 			<?php endif; ?>
 
