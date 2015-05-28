@@ -374,7 +374,6 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 				<label for="<?php echo esc_attr( $this->get_field_id( 'slider_id' ) ); ?>">
 					<?php _e( 'Choose Hero Slider:', $this->plugin->text_domain ); ?>
 				</label>
-
 				<select id="<?php echo esc_attr( $this->get_field_id( 'slider_id' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'slider_id' ) ); ?>" style="max-width: 100%; min-width: 100%;">
 					<option><?php _e( '&mdash; None &mdash;', $this->plugin->text_domain ); ?></option>
 
@@ -391,7 +390,6 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 
 			<!-- Text inputs -->
 			<?php foreach( $this->text_inputs as $input ): ?>
-
 				<p>
 					<label for="<?php echo esc_attr( $this->get_field_id( $input['slug'] ) ); ?>">
 						<?php echo esc_html( $input['label'] ) . ': '; ?>
@@ -402,7 +400,6 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 				<?php if ( $input['description'] ): ?>
 					<p class="description"><?php echo esc_html( $input['description' ] ); ?></p>
 				<?php endif; ?>
-
 			<?php endforeach; ?>
 
 		<?php

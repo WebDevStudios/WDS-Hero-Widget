@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WDS Hero Widget 1.0.0\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/wds-hero-widget\n"
-"POT-Creation-Date: 2015-05-22 18:20:57+00:00\n"
+"POT-Creation-Date: 2015-05-28 17:54:42+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,6 +12,532 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 0.5.2\n"
+
+#: includes/cmb2/example-functions.php:82
+#: includes/cmb2/tests/test-cmb-field.php:206
+msgid "Test Metabox"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:93
+#: includes/cmb2/example-functions.php:380
+msgid "Test Text"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:94
+#: includes/cmb2/example-functions.php:106
+#: includes/cmb2/example-functions.php:114
+#: includes/cmb2/example-functions.php:122
+#: includes/cmb2/example-functions.php:131
+#: includes/cmb2/example-functions.php:139
+#: includes/cmb2/example-functions.php:153
+#: includes/cmb2/example-functions.php:160
+#: includes/cmb2/example-functions.php:168
+#: includes/cmb2/example-functions.php:185
+#: includes/cmb2/example-functions.php:194
+#: includes/cmb2/example-functions.php:202
+#: includes/cmb2/example-functions.php:209
+#: includes/cmb2/example-functions.php:216
+#: includes/cmb2/example-functions.php:230
+#: includes/cmb2/example-functions.php:243
+#: includes/cmb2/example-functions.php:256
+#: includes/cmb2/example-functions.php:268
+#: includes/cmb2/example-functions.php:277
+#: includes/cmb2/example-functions.php:285
+#: includes/cmb2/example-functions.php:294
+#: includes/cmb2/example-functions.php:301
+#: includes/cmb2/example-functions.php:315
+#: includes/cmb2/example-functions.php:381
+#: includes/cmb2/example-functions.php:475
+#: includes/cmb2/example-functions.php:483
+#: includes/cmb2/example-functions.php:490
+#: includes/cmb2/example-functions.php:497
+#: includes/cmb2/example-functions.php:504
+#: includes/cmb2/example-functions.php:511
+#: includes/cmb2/example-functions.php:518
+#: includes/cmb2/example-functions.php:556
+#: includes/cmb2/tests/test-cmb-field.php:218
+msgid "field description (optional)"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:105
+msgid "Test Text Small"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:113
+msgid "Test Text Medium"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:121
+msgid "Website URL"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:130
+msgid "Test Text Email"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:138
+msgid "Test Time"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:145
+#: includes/cmb2/example-functions.php:146
+msgid "Time zone"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:152
+msgid "Test Date Picker"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:159
+msgid "Test Date Picker (UNIX timestamp)"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:167
+msgid "Test Date/Time Picker Combo (UNIX timestamp)"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:184
+msgid "Test Money"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:193
+msgid "Test Color Picker"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:201
+msgid "Test Text Area"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:208
+msgid "Test Text Area Small"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:215
+msgid "Test Text Area for Code"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:222
+msgid "Test Title Weeeee"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:223
+msgid "This is a title description"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:229
+msgid "Test Select"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:235
+#: includes/cmb2/example-functions.php:248
+#: includes/cmb2/example-functions.php:260
+msgid "Option One"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:236
+#: includes/cmb2/example-functions.php:249
+#: includes/cmb2/example-functions.php:261
+msgid "Option Two"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:237
+#: includes/cmb2/example-functions.php:250
+#: includes/cmb2/example-functions.php:262
+msgid "Option Three"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:242
+msgid "Test Radio inline"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:255
+msgid "Test Radio"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:267
+msgid "Test Taxonomy Radio"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:276
+msgid "Test Taxonomy Select"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:284
+msgid "Test Taxonomy Multi Checkbox"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:293
+msgid "Test Checkbox"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:300
+#: includes/cmb2/tests/test-cmb-field.php:217
+msgid "Test Multi Checkbox"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:306
+#: includes/cmb2/tests/test-cmb-field.php:223
+msgid "Check One"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:307
+#: includes/cmb2/tests/test-cmb-field.php:224
+msgid "Check Two"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:308
+#: includes/cmb2/tests/test-cmb-field.php:225
+msgid "Check Three"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:314
+msgid "Test wysiwyg"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:322
+msgid "Test Image"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:323
+msgid "Upload an image or enter a URL."
+msgstr ""
+
+#: includes/cmb2/example-functions.php:329
+msgid "Multiple Files"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:330
+msgid "Upload or add multiple images/attachments."
+msgstr ""
+
+#: includes/cmb2/example-functions.php:337
+msgid "oEmbed"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:338
+msgid ""
+"Enter a youtube, twitter, or instagram URL. Supports services listed at <a "
+"href=\"http://codex.wordpress.org/Embeds\">http://codex.wordpress.org/"
+"Embeds</a>."
+msgstr ""
+
+#: includes/cmb2/example-functions.php:371
+msgid "About Page Metabox"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:402
+msgid "Repeating Field Group"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:410
+msgid "Generates reusable form entries"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:412
+msgid "Entry {#}"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:413
+msgid "Add Another Entry"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:414
+msgid "Remove Entry"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:426
+msgid "Entry Title"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:433
+msgid "Description"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:434
+msgid "Write a short description for this entry"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:440
+msgid "Entry Image"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:446
+msgid "Image Caption"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:467
+msgid "User Profile Metabox"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:474
+msgid "Extra Info"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:482
+msgid "Avatar"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:489
+msgid "Facebook URL"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:496
+msgid "Twitter URL"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:503
+msgid "Google+ URL"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:510
+msgid "Linkedin URL"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:517
+msgid "User Field"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:540
+msgid "Theme Options Metabox"
+msgstr ""
+
+#: includes/cmb2/example-functions.php:555
+msgid "Site Background Color"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2.php:119
+msgid "Metabox configuration is required to have an ID parameter"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2.php:316
+msgid "Click to toggle"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_Ajax.php:40
+msgid "Please Try Again"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_Ajax.php:135
+#: includes/cmb2/tests/test-cmb-types.php:774
+msgid "Remove Embed"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_Ajax.php:139
+#: includes/cmb2/tests/test-cmb-types.php:775
+msgid "No oEmbed Results Found for %s. View more info at"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_Field.php:893
+msgid "Add Group"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_Field.php:894
+msgid "Remove Group"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_Field.php:916
+#: includes/cmb2/includes/CMB2_Field.php:920
+#: includes/cmb2/tests/test-cmb-field.php:178
+msgid "None"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_Types.php:297
+msgid "Add Row"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_Types.php:356
+#: includes/cmb2/includes/CMB2_Types.php:989
+#: includes/cmb2/includes/CMB2_hookup.php:194
+#: includes/cmb2/tests/test-cmb-types.php:155
+#: includes/cmb2/tests/test-cmb-types.php:163
+#: includes/cmb2/tests/test-cmb-types.php:723
+#: includes/cmb2/tests/test-cmb-types.php:748
+msgid "Remove"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_Types.php:725
+#: includes/cmb2/includes/CMB2_Types.php:773
+msgid "No terms"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_Types.php:838
+#: includes/cmb2/tests/test-cmb-types.php:699
+#: includes/cmb2/tests/test-cmb-types.php:725
+msgid "Add or Upload Files"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_Types.php:896
+#: includes/cmb2/tests/test-cmb-types.php:735
+#: includes/cmb2/tests/test-cmb-types.php:750
+msgid "Add or Upload File"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_Types.php:970
+#: includes/cmb2/includes/CMB2_hookup.php:193
+msgid "Remove Image"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_Types.php:984
+#: includes/cmb2/includes/CMB2_hookup.php:195
+#: includes/cmb2/tests/test-cmb-types.php:724
+#: includes/cmb2/tests/test-cmb-types.php:749
+msgid "File:"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_Types.php:987
+#: includes/cmb2/includes/CMB2_hookup.php:196
+#: includes/cmb2/tests/test-cmb-types.php:722
+#: includes/cmb2/tests/test-cmb-types.php:747
+msgid "Download"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_hookup.php:139
+#: includes/cmb2/includes/CMB2_hookup.php:176
+msgid "Clear"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_hookup.php:140
+msgid "Default"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_hookup.php:141
+msgid "Select Color"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_hookup.php:142
+msgid "Current Color"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_hookup.php:167
+msgid "Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_hookup.php:168
+msgid "Su, Mo, Tu, We, Th, Fr, Sa"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_hookup.php:169
+msgid "Sun, Mon, Tue, Wed, Thu, Fri, Sat"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_hookup.php:170
+msgid ""
+"January, February, March, April, May, June, July, August, September, "
+"October, November, December"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_hookup.php:171
+msgid "Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_hookup.php:172
+msgid "Next"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_hookup.php:173
+msgid "Prev"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_hookup.php:174
+msgid "Today"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_hookup.php:175
+#: includes/cmb2/includes/CMB2_hookup.php:185
+msgid "Done"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_hookup.php:179
+msgid "Choose Time"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_hookup.php:180
+msgid "Time"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_hookup.php:181
+msgid "Hour"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_hookup.php:182
+msgid "Minute"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_hookup.php:183
+msgid "Second"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_hookup.php:184
+msgid "Now"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_hookup.php:192
+msgid "Use this file"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_hookup.php:197
+msgid "Select / Deselect All"
+msgstr ""
+
+#: includes/cmb2/includes/helper-functions.php:249 includes/slider-cpt.php:147
+msgid "Save"
+msgstr ""
+
+#: includes/slider-cpt.php:36
+msgid "Add New Hero Slider"
+msgstr ""
+
+#: includes/slider-cpt.php:37
+msgid "New Hero Slider"
+msgstr ""
+
+#: includes/slider-cpt.php:38
+msgid "Edit Hero Slider"
+msgstr ""
+
+#: includes/slider-cpt.php:39
+msgid "View Hero Slider"
+msgstr ""
+
+#: includes/slider-cpt.php:40
+msgid "All Hero Sliders"
+msgstr ""
+
+#: includes/slider-cpt.php:41
+msgid "Search Hero Sliders"
+msgstr ""
+
+#: includes/slider-cpt.php:42
+msgid "Parent Hero Sliders:"
+msgstr ""
+
+#: includes/slider-cpt.php:43
+msgid "No Hero Slider found."
+msgstr ""
+
+#: includes/slider-cpt.php:44
+msgid "No Hero Slider found in Trash."
+msgstr ""
+
+#: includes/slider-cpt.php:67
+msgid "Hero Slider"
+msgstr ""
+
+#: includes/slider-cpt.php:75
+msgid "Images"
+msgstr ""
+
+#: includes/slider-cpt.php:81
+msgid "Slider Speed in Seconds"
+msgstr ""
+
+#: includes/slider-cpt.php:85
+msgid "Each image will slide in every <code>&times</code> seconds."
+msgstr ""
+
+#: includes/slider-cpt.php:150
+msgid "Saved"
+msgstr ""
 
 #: includes/widget.php:73 includes/widget.php:74
 msgid "Hero"
@@ -33,6 +559,10 @@ msgstr ""
 msgid "Background Image URL"
 msgstr ""
 
+#: includes/widget.php:117
+msgid "The image to apply as the background image."
+msgstr ""
+
 #: includes/widget.php:122
 msgid "Background Video URL"
 msgstr ""
@@ -45,6 +575,10 @@ msgstr ""
 msgid "Primary Heading"
 msgstr ""
 
+#: includes/widget.php:131
+msgid "Large Heading (top)"
+msgstr ""
+
 #: includes/widget.php:132
 msgid "My Heading"
 msgstr ""
@@ -54,7 +588,7 @@ msgid "Sub Heading"
 msgstr ""
 
 #: includes/widget.php:138
-msgid "Displayed directly below Primary Heading."
+msgid "Smaller Heading (below primary)"
 msgstr ""
 
 #: includes/widget.php:143 includes/widget.php:146
@@ -89,11 +623,23 @@ msgstr ""
 msgid "The color of the overlay. Include # or use colors like \"red\""
 msgstr ""
 
-#: includes/widget.php:345
+#: includes/widget.php:363
 msgid "Hero Type"
 msgstr ""
 
-#: wds-hero-widget.php:439
+#: includes/widget.php:375
+msgid "Choose Hero Slider:"
+msgstr ""
+
+#: includes/widget.php:378
+msgid "&mdash; None &mdash;"
+msgstr ""
+
+#: includes/widget.php:389
+msgid "Uses any <em>Hero Slider</em> to slide images in the background."
+msgstr ""
+
+#: wds-hero-widget.php:505
 msgid ""
 "WDS Hero Widget is missing requirements and has been <a "
 "href=\"%s\">deactivated</a>. Please make sure all requirements are "
@@ -116,4 +662,41 @@ msgstr ""
 
 #. Author of the plugin/theme
 msgid "WebDevStudios"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_hookup.php:166
+msgctxt "Valid formatDate string for jquery-ui datepicker"
+msgid "mm/dd/yy"
+msgstr ""
+
+#: includes/cmb2/includes/CMB2_hookup.php:186
+msgctxt ""
+"Valid formatting string, as per "
+"http://trentrichardson.com/examples/timepicker/"
+msgid "hh:mm TT"
+msgstr ""
+
+#: includes/slider-cpt.php:31
+msgctxt "post type general name"
+msgid "Hero Sliders"
+msgstr ""
+
+#: includes/slider-cpt.php:32
+msgctxt "post type singular name"
+msgid "Hero Slider"
+msgstr ""
+
+#: includes/slider-cpt.php:33
+msgctxt "admin menu"
+msgid "Hero Sliders"
+msgstr ""
+
+#: includes/slider-cpt.php:34
+msgctxt "add new on admin bar"
+msgid "Hero Slider"
+msgstr ""
+
+#: includes/slider-cpt.php:35
+msgctxt "book"
+msgid "Add New"
 msgstr ""

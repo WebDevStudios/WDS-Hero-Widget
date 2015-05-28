@@ -97,10 +97,12 @@ class WDS_Hero_Widget {
 	 * @return void
 	 */
 	public function enqueue_scripts() {
-		// Slick logo train animations.
-		wp_enqueue_script( 'slick-js', plugins_url( 'assets/bower/slick.js/slick/slick.js', __FILE__ ), array(
-			'jquery',
-		), $this->script_version(), true );
+
+		// Slick animations.
+		wp_enqueue_script( 'slick-js', plugins_url( 'assets/bower/slick.js/slick/slick.js', __FILE__ ), array( 'jquery' ), $this->script_version(), true );
+
+		// Setup slick on sliders.
+		wp_enqueue_script( 'wds-hero-widget', plugins_url( 'assets/js/wds-hero-widget.js', __FILE__ ), array( 'jquery', 'slick-js' ), $this->script_version(), true );
 	}
 
 	/**
@@ -111,7 +113,7 @@ class WDS_Hero_Widget {
 	public function enqueue_styles() {
 		wp_enqueue_style( 'wds-hero-widget', plugins_url( 'assets/css/wds-hero-widget.css', __FILE__ ), array(), $this->script_version(), 'screen' );
 
-		// Slick logo train animations.
+		// Slick animations.
 		wp_enqueue_style( 'slick-css', plugins_url( 'assets/bower/slick.js/slick/slick.css', __FILE__ ), array(), $this->script_version() );
 		wp_enqueue_style( 'slick-css-theme', plugins_url( 'assets/bower/slick.js/slick/slick-theme.css', __FILE__ ), array( 'slick-css' ), $this->script_version() );
 	}
@@ -230,29 +232,30 @@ class WDS_Hero_Widget {
 
 		<div class="hero <?php echo esc_attr( $args['type'] ); ?>-hero <?php echo esc_attr( $args['class'] ); ?>">
 
+			<?php if ( isset( $args['slider_id'] ) ) :
 
-		<?php if ( isset( $args['slider_id'] ) ) :
+				// Get the images stored for the slider id set/passed.
+				$images = get_post_meta( $args['slider_id'], 'wds_hero_slider_images', true );
 
-			// Get the images stored for the slider id set/passed.
-			$images = get_post_meta( $args['slider_id'], 'wds_hero_slider_images', true );
-		?>
-			<div class="sliders">
-				<?php foreach ( $images as $attachment_id => $src ) :
+				$speed_meta = get_post_meta( $args['slider_id'], 'wds_hero_slider_speed', true );
+				$speed = $speed_meta ? absint( $speed_meta ) : 5000;
+			?>
+				<div class="sliders" data-slider-speed="<?php echo esc_attr( $speed ); ?>">
+					<?php foreach ( $images as $attachment_id => $src ) :
 
-					// Attachment details.
-					$details = $this->get_attachment_details( $attachment_id, $args['size'] );
-					$src = $details['src']; // A better URL
-					$alt = $details['alt'];
-				?>
+						// Attachment details.
+						$details = $this->get_attachment_details( $attachment_id, $args['size'] );
+						$src = $details['src']; // A better URL
+						$alt = $details['alt'];
+					?>
 
-					<div class="slider" style="background-image: url(<?php echo $src; ?>);">
-						<img src="<?php echo $src; ?>" alt="<?php echo $alt; ?>" />
-					</div>
+						<div class="slider">
+							<img src="<?php echo $src; ?>" alt="<?php echo $alt; ?>" />
+						</div>
 
-				<?php endforeach; ?>
-			</div>
-
-		<?php endif; ?>
+					<?php endforeach; ?>
+				</div>
+			<?php endif; ?>
 
 			<div class="content-wrapper">
 				<span class="content-headings">

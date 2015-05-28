@@ -28,20 +28,20 @@ class WDS_Slider_CPT {
 	 */
 	public function register_cpt() {
 		$labels = array(
-			'name'               => _x( 'Hero Sliders', 'post type general name', 'mcf' ),
-			'singular_name'      => _x( 'Hero Slider', 'post type singular name', 'mcf' ),
-			'menu_name'          => _x( 'Hero Sliders', 'admin menu', 'mcf' ),
-			'name_admin_bar'     => _x( 'Hero Slider', 'add new on admin bar', 'mcf' ),
-			'add_new'            => _x( 'Add New', 'book', 'mcf' ),
-			'add_new_item'       => __( 'Add New Hero Slider', 'mcf' ),
-			'new_item'           => __( 'New Hero Slider', 'mcf' ),
-			'edit_item'          => __( 'Edit Hero Slider', 'mcf' ),
-			'view_item'          => __( 'View Hero Slider', 'mcf' ),
-			'all_items'          => __( 'All Hero Sliders', 'mcf' ),
-			'search_items'       => __( 'Search Hero Sliders', 'mcf' ),
-			'parent_item_colon'  => __( 'Parent Hero Sliders:', 'mcf' ),
-			'not_found'          => __( 'No Hero Slider found.', 'mcf' ),
-			'not_found_in_trash' => __( 'No Hero Slider found in Trash.', 'mcf' )
+			'name'               => _x( 'Hero Sliders', 'post type general name', $this->core->text_domain ),
+			'singular_name'      => _x( 'Hero Slider', 'post type singular name', $this->core->text_domain ),
+			'menu_name'          => _x( 'Hero Sliders', 'admin menu', $this->core->text_domain ),
+			'name_admin_bar'     => _x( 'Hero Slider', 'add new on admin bar', $this->core->text_domain ),
+			'add_new'            => _x( 'Add New', 'book', $this->core->text_domain ),
+			'add_new_item'       => __( 'Add New Hero Slider', $this->core->text_domain ),
+			'new_item'           => __( 'New Hero Slider', $this->core->text_domain ),
+			'edit_item'          => __( 'Edit Hero Slider', $this->core->text_domain ),
+			'view_item'          => __( 'View Hero Slider', $this->core->text_domain ),
+			'all_items'          => __( 'All Hero Sliders', $this->core->text_domain ),
+			'search_items'       => __( 'Search Hero Sliders', $this->core->text_domain ),
+			'parent_item_colon'  => __( 'Parent Hero Sliders:', $this->core->text_domain ),
+			'not_found'          => __( 'No Hero Slider found.', $this->core->text_domain ),
+			'not_found_in_trash' => __( 'No Hero Slider found in Trash.', $this->core->text_domain )
 		);
 
 		$args = array(
@@ -64,7 +64,7 @@ class WDS_Slider_CPT {
 	public function images_cmb2_init() {
 		$box = new_cmb2_box( array(
 			'id'            => 'wds_hero_slider_metabox',
-			'title'         => __( 'Hero Slider', 'mcf' ),
+			'title'         => __( 'Hero Slider', $this->core->text_domain ),
 			'object_types'  => array( 'wds-hero-slider', ), // Post type
 			'context'       => 'normal',
 			'priority'      => 'high',
@@ -72,10 +72,22 @@ class WDS_Slider_CPT {
 		) );
 
 		$box->add_field( array(
-			'name'       => __( 'Images', 'mcf' ),
+			'name'       => __( 'Images', $this->core->text_domain ),
 			'id'         => 'wds_hero_slider_images',
 			'type'       => 'file_list',
 		) );
+
+		$box->add_field( array(
+			'name'       => __( 'Slider Speed in Seconds', $this->core->text_domain ),
+			'id'         => 'wds_hero_slider_speed',
+			'type'       => 'text',
+			'sanitization_cb' => array( $this, 'sanitize_slider_speed' ),
+			'desc'       => __( 'Each image will slide in every <code>&times</code> seconds.', $this->core->text_domain ),
+		) );
+	}
+
+	function sanitize_slider_speed( $value ) {
+		return absint( $value );
 	}
 
 	/**
