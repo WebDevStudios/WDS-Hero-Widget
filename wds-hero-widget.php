@@ -160,11 +160,12 @@ class WDS_Hero_Widget {
 	 *         'custom_content_action' => 'my_content_action_filter',
 	 *         'overlay'               => 0.2, // Sets an overlay to 0.2 (20%)
 	 *         'overlay_color'         => '#000', // Black
+	 *         'slider_id'             => false, // The slider post id of the CPT "Hero Sliders."
 	 *     ) ); ?>
 	 *
 	 * Shortcode Example:
 	 *
-	 *     [hero type="primary" class="my-class" video="http://mysite.com/my-video.mp4" heading="My Heading" sub_heading="My Sub Heading" button_text="My Button" button_link="http://webdevstudios.com" custom_content_action="my_content_action_filter" image="http://mysite.com/my-image.png" overlay="0.2" overlay_color="#fff"]
+	 *     [hero type="primary" class="my-class" video="http://mysite.com/my-video.mp4" heading="My Heading" sub_heading="My Sub Heading" button_text="My Button" button_link="http://webdevstudios.com" custom_content_action="my_content_action_filter" image="http://mysite.com/my-image.png" overlay="0.2" overlay_color="#fff" slider_id="2"]
 	 *         Additional Content
 	 *     [/hero]
 	 *
@@ -182,6 +183,7 @@ class WDS_Hero_Widget {
 	 *     'custom_content_action' => false,
 	 *     'overlay'               => false,
 	 *     'overlay_color'         => '#000',
+	 *     'slider_id'             => false,
 	 *
 	 * Adding your own content using an action is simple. If you're using the
 	 * example template tag or shortcode from above:
@@ -218,6 +220,7 @@ class WDS_Hero_Widget {
 			'button_text'           => false,
 			'button_link'           => false,
 			'content'               => false,
+			'slider_id'             => false,
 		);
 
 		$args = wp_parse_args( $args, $defaults );
