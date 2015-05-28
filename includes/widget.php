@@ -114,7 +114,7 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 			array(
 				'label'       => __( 'Background Image URL', 'wds-hero-widget' ),
 				'slug'        => 'image',
-				'description' => false,
+				'description' => __( 'The image to apply as the background image.', 'wds-hero-widget' ),
 				'placeholder' => 'http://example.com/background-image.png',
 				'default'     => '',
 			),
@@ -128,14 +128,14 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 			array(
 				'label'       => __( 'Primary Heading', 'wds-hero-widget' ),
 				'slug'        => 'heading',
-				'description' => false,
+				'description' => __( 'Large Heading (top)', 'wds-hero-widget' ),
 				'placeholder' => __( 'My Heading', 'wds-hero-widget' ),
 				'default'     => '',
 			),
 			array(
 				'label'       => __( 'Sub Heading', 'wds-hero-widget' ),
 				'slug'        => 'sub_heading',
-				'description' => __( 'Displayed directly below Primary Heading.', 'wds-hero-widget' ),
+				'description' => __( 'Smaller Heading (below primary)', 'wds-hero-widget' ),
 				'placeholder' => __( 'Sub Heading', 'wds-hero-widget' ),
 				'default'     => '',
 			),
@@ -372,11 +372,11 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 			<!-- Sliders -->
 			<p>
 				<label for="<?php echo esc_attr( $this->get_field_id( 'slider_id' ) ); ?>">
-					<?php _e( 'Choose Hero Slider:', 'wds-logo-train' ); ?>
+					<?php _e( 'Choose Hero Slider:', $this->plugin->text_domain ); ?>
 				</label>
 
 				<select id="<?php echo esc_attr( $this->get_field_id( 'slider_id' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'slider_id' ) ); ?>" style="max-width: 100%; min-width: 100%;">
-					<option><?php _e( '&mdash; None &mdash;', 'wds-logo-train' ); ?></option>
+					<option><?php _e( '&mdash; None &mdash;', $this->plugin->text_domain ); ?></option>
 
 					<!-- Logo Train ID -->
 					<?php if ( is_array( $sliders ) ) : ?>
@@ -387,6 +387,8 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 				</select>
 			</p>
 
+			<p class="description"><?php _e( 'Uses any <em>Hero Slider</em> to slide images in the background.', $this->plugin->text_domain ) ?></p>
+
 			<!-- Text inputs -->
 			<?php foreach( $this->text_inputs as $input ): ?>
 
@@ -395,10 +397,11 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 						<?php echo esc_html( $input['label'] ) . ': '; ?>
 					</label>
 					<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( $input['slug'] ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( $input['slug'] ) ); ?>" value="<?php echo esc_attr( $instance[ $input['slug'] ] ); ?>" placeholder="<?php echo esc_attr( $input['placeholder'] ); ?>" /><br />
-					<?php if ( $input['description'] ): ?>
-						<small class="description"><?php echo esc_html( $input['description' ] ); ?></small>
-					<?php endif; ?>
 				</p>
+
+				<?php if ( $input['description'] ): ?>
+					<p class="description"><?php echo esc_html( $input['description' ] ); ?></p>
+				<?php endif; ?>
 
 			<?php endforeach; ?>
 
