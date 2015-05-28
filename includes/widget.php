@@ -363,17 +363,17 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 
 			<!-- Sliders -->
 			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'post_id' ) ); ?>">
+				<label for="<?php echo esc_attr( $this->get_field_id( 'slider_id' ) ); ?>">
 					<?php _e( 'Choose Hero Slider:', 'wds-logo-train' ); ?>
 				</label>
 
-				<select id="<?php echo esc_attr( $this->get_field_id( 'post_id' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'post_id' ) ); ?>" style="max-width: 100%; min-width: 100%;">
+				<select id="<?php echo esc_attr( $this->get_field_id( 'slider_id' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'slider_id' ) ); ?>" style="max-width: 100%; min-width: 100%;">
 					<option><?php _e( '&mdash; None &mdash;', 'wds-logo-train' ); ?></option>
 
 					<!-- Logo Train ID -->
 					<?php if ( is_array( $sliders ) ) : ?>
-						<?php foreach( $sliders as $post_id ) : ?>
-							<option value="<?php echo $post_id; ?>" <?php echo ( $post_id == $instance['post_id'] ) ? 'selected="selected"' : ''; ?>><?php echo get_the_title( $post_id ); ?></option>
+						<?php foreach( $sliders as $slider_id ) : ?>
+							<option value="<?php echo $slider_id; ?>" <?php echo ( $slider_id == $instance['slider_id'] ) ? 'selected="selected"' : ''; ?>><?php echo get_the_title( $slider_id ); ?></option>
 						<?php endforeach; ?>
 					<?php endif; ?>
 				</select>

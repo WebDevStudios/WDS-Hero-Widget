@@ -198,6 +198,8 @@ class WDS_Hero_Widget {
 			// Overlay
 			'overlay_color' => ( isset( $args['overlay_color'] ) ) ? $args['overlay_color']  : '#000',
 
+			// Slider CPT
+			'slider_id' => ( isset( $args['slider_id'] ) ) ? $args['slider_id']  : 'false',
 		);
 
 		// Arguments for content.
