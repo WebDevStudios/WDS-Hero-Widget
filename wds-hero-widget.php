@@ -55,19 +55,6 @@ class WDS_Hero_Widget {
 	protected static $single_instance = null;
 
 	/**
-	 * Creates or returns an instance of this class.
-	 * @since  0.1.0
-	 * @return WDS_Hero_Widget A single instance of this class.
-	 */
-	public static function get_instance() {
-		if ( null === self::$single_instance ) {
-			self::$single_instance = new self();
-		}
-
-		return self::$single_instance;
-	}
-
-	/**
 	 * Sets up our plugin
 	 * @since  1.0.0
 	 */
@@ -89,6 +76,19 @@ class WDS_Hero_Widget {
 		// Enqueue styles
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+	}
+
+	/**
+	 * Creates or returns an instance of this class.
+	 * @since  0.1.0
+	 * @return WDS_Hero_Widget A single instance of this class.
+	 */
+	public static function get_instance() {
+		if ( null === self::$single_instance ) {
+			self::$single_instance = new self();
+		}
+
+		return self::$single_instance;
 	}
 
 	/**
@@ -327,7 +327,7 @@ class WDS_Hero_Widget {
 	 *
 	 * @since  1.0
 	 */
-	public static function includes() {
+	public function includes() {
 		$files = array(
 			'includes/slider-cpt.php',
 			'includes/widget.php',
