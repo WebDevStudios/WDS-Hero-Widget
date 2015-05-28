@@ -242,7 +242,7 @@ class WDS_Hero_Widget {
 					<?php endif; ?>
 					<?php if ( $content ) : ?>
 						<!-- Content passed via shortcode -->
-						<?php echo $content; ?>
+						<?php echo wp_kses_post( $content ); ?>
 					<?php endif; ?>
 				</span>
 			</div>
