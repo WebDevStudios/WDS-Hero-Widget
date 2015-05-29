@@ -218,7 +218,6 @@ class WDS_Hero_Widget {
 			'image'                 => false,
 			'overlay'               => false,
 			'overlay_color'         => '#000',
-			'size'                  => false,
 			'slider_id'             => false,
 			'slider_id'             => false,
 			'sub_heading'           => false,
@@ -245,7 +244,7 @@ class WDS_Hero_Widget {
 					<?php foreach ( $images as $attachment_id => $src ) :
 
 						// Attachment details.
-						$details = $this->get_attachment_details( $attachment_id, $args['size'] );
+						$details = $this->get_attachment_details( $attachment_id, 'large' );
 						$src = $details['src']; // A better URL
 						$alt = $details['alt'];
 					?>
