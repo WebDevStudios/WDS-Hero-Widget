@@ -205,7 +205,11 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 		}
 
 		// Add the slider_id
-		$args[ 'slider_id' ] = $instance[ 'slider_id' ];
+		if ( isset( $instance[ 'slider_id' ] ) ) {
+			$args[ 'slider_id' ] = $instance[ 'slider_id' ];
+		} else {
+			$args[ 'slider_id' ] = false;
+		}
 
 		echo $this->get_widget( $args );
 	}
