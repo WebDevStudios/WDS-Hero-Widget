@@ -208,21 +208,22 @@ class WDS_Hero_Widget {
 	function wds_hero( $args = array()) {
 
 		$defaults = array(
-			'type'                  => 'primary',
+			'button_link'           => false,
+			'button_text'           => false,
 			'class'                 => '',
-			'video'                 => false,
-			'echo'                  => false,
+			'content'               => false,
 			'custom_content_action' => false,
+			'echo'                  => false,
+			'heading'               => false,
 			'image'                 => false,
 			'overlay'               => false,
 			'overlay_color'         => '#000',
+			'size'                  => false,
 			'slider_id'             => false,
-			'heading'               => false,
+			'slider_id'             => false,
 			'sub_heading'           => false,
-			'button_text'           => false,
-			'button_link'           => false,
-			'content'               => false,
-			'slider_id'             => false,
+			'type'                  => 'primary',
+			'video'                 => false,
 		);
 
 		$args = wp_parse_args( $args, $defaults );
