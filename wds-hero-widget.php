@@ -241,19 +241,21 @@ class WDS_Hero_Widget {
 				$speed = $speed_meta ? absint( $speed_meta ) : 5000;
 			?>
 				<div class="sliders" data-slider-speed="<?php echo esc_attr( $speed ); ?>">
-					<?php foreach ( $images as $attachment_id => $src ) :
+					<?php if( isset( $images ) && is_array( $images ) ) : ?>
+						<?php foreach ( $images as $attachment_id => $src ) :
 
-						// Attachment details.
-						$details = $this->get_attachment_details( $attachment_id, 'large' );
-						$src = $details['src']; // A better URL
-						$alt = $details['alt'];
-					?>
+							// Attachment details.
+							$details = $this->get_attachment_details( $attachment_id, 'large' );
+							$src = $details['src']; // A better URL
+							$alt = $details['alt'];
+						?>
 
-						<div class="slider">
-							<img src="<?php echo $src; ?>" alt="<?php echo $alt; ?>" />
-						</div>
+							<div class="slider">
+								<img src="<?php echo $src; ?>" alt="<?php echo $alt; ?>" />
+							</div>
 
-					<?php endforeach; ?>
+						<?php endforeach; ?>
+					<?php endif; ?>
 				</div>
 			<?php endif; ?>
 
