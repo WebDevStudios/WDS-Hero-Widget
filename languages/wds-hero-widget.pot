@@ -3,8 +3,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WDS Hero Widget 1.0-dev\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/wds-hero-widget\n"
-"POT-Creation-Date: 2015-05-28 18:29:52+00:00\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/WDS-Hero-Widget\n"
+"POT-Creation-Date: 2015-06-01 15:38:14+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -479,7 +479,7 @@ msgstr ""
 msgid "Select / Deselect All"
 msgstr ""
 
-#: includes/cmb2/includes/helper-functions.php:249 includes/slider-cpt.php:148
+#: includes/cmb2/includes/helper-functions.php:249 includes/slider-cpt.php:214
 msgid "Save"
 msgstr ""
 
@@ -519,23 +519,58 @@ msgstr ""
 msgid "No Hero Slider found in Trash."
 msgstr ""
 
-#: includes/slider-cpt.php:67
+#: includes/slider-cpt.php:69
 msgid "Hero Slider"
 msgstr ""
 
-#: includes/slider-cpt.php:75
+#: includes/slider-cpt.php:77
 msgid "Images"
 msgstr ""
 
-#: includes/slider-cpt.php:82
+#: includes/slider-cpt.php:84
 msgid "Slider Speed in Seconds"
 msgstr ""
 
-#: includes/slider-cpt.php:86
+#: includes/slider-cpt.php:88
 msgid "Each image will slide in every <code>&times</code> seconds."
 msgstr ""
 
-#: includes/slider-cpt.php:151
+#: includes/slider-cpt.php:103
+msgid "Add this as a <a href=\"widgets.php\">Widget</a>, or using a shortcode:"
+msgstr ""
+
+#: includes/slider-cpt.php:105
+msgid "Primary Hero Example"
+msgstr ""
+
+#: includes/slider-cpt.php:113
+msgid "Secondary Hero Example"
+msgstr ""
+
+#: includes/slider-cpt.php:121
+msgid "Parallaxed Horizontal Hero Example"
+msgstr ""
+
+#: includes/slider-cpt.php:129
+msgid ""
+"Note that the paralaxed version does not work with video. The layout of "
+"this option puts the button on the right, and the Heading on the left w/out "
+"the sub-heading."
+msgstr ""
+
+#: includes/slider-cpt.php:131
+msgid "Adding a Video Example"
+msgstr ""
+
+#: includes/slider-cpt.php:139
+msgid "The video is added using HTML5. Using a YouTube video is not supported."
+msgstr ""
+
+#: includes/slider-cpt.php:141
+msgid "Adding an Overlay"
+msgstr ""
+
+#: includes/slider-cpt.php:217
 msgid "Saved"
 msgstr ""
 
@@ -623,19 +658,19 @@ msgstr ""
 msgid "The color of the overlay. Include # or use colors like \"red\""
 msgstr ""
 
-#: includes/widget.php:368
+#: includes/widget.php:372
 msgid "Hero Type"
 msgstr ""
 
-#: includes/widget.php:380
+#: includes/widget.php:384
 msgid "Choose Hero Slider:"
 msgstr ""
 
-#: includes/widget.php:383
+#: includes/widget.php:387
 msgid "&mdash; None &mdash;"
 msgstr ""
 
-#: includes/widget.php:394
+#: includes/widget.php:398
 msgid "Uses any <em>Hero Slider</em> to slide images in the background."
 msgstr ""
 

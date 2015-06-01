@@ -98,6 +98,7 @@ html {
 
 .hero.secondary-paralaxed-hero .content-headings h2 {
   line-height: 1.875rem;
+  margin: 0 0 1.25rem 0;
 }
 
 @media (min-width: 48em) {
@@ -105,7 +106,6 @@ html {
     display: block;
     font-size: 2.25rem;
     line-height: 3.9375rem;
-    margin-bottom: 0;
   }
 }
 
@@ -136,7 +136,7 @@ html {
 
 .hero.secondary-paralaxed-hero .image {
   background-attachment: scroll;
-  z-index: -1;
+  z-index: 0;
 }
 
 @media (min-width: 64em) {
@@ -229,11 +229,6 @@ html {
   background-color: #000;
   height: 100%;
   z-index: 1;
-}
-
-.hero video,
-.hero .image {
-  z-index: 0;
 }
 
 .hero .sliders {

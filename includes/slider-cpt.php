@@ -62,6 +62,8 @@ class WDS_Slider_CPT {
 	 * @return void
 	 */
 	public function images_cmb2_init() {
+		$slider_id = ( isset( $_GET['post'] ) ) ? $_GET['post'] : '0';
+
 		$box = new_cmb2_box( array(
 			'id'              => 'wds_hero_slider_metabox',
 			'title'           => __( 'Hero Slider', $this->core->text_domain ),
@@ -84,7 +86,71 @@ class WDS_Slider_CPT {
 			'type'            => 'text',
 			'sanitization_cb' => array( $this, 'sanitize_slider_speed' ),
 			'desc'            => __( 'Each image will slide in every <code>&times</code> seconds.', $this->core->text_domain ),
+			'after_row'     => $this->slider_instructions( $slider_id ),
 		) );
+	}
+
+	/**
+	 * Output's some basic instructions on how to get the slider on a page.
+	 *
+	 * @return string HTML passed back to CMB2
+	 */
+	function slider_instructions( $slider_id ) {
+		ob_start();
+		?>
+
+		<div style="clear: both;">
+			<h2><?php _e( 'Add this as a <a href="widgets.php">Widget</a>, or using a shortcode:', $this->core->text_domain ); ?></h2>
+
+			<h3><?php _e( 'Primary Hero Example', $this->core->text_domain ); ?></h3>
+
+			<p style="background-color: #eee; padding: 20px;">
+				<code>
+					[hero slider_id="<?php echo absint( $slider_id ); ?>" type="<strong>primary</strong>" class="my-class" heading="My Heading" sub_heading="My Sub Heading" button_text="My Button" button_link="#" image="my-image.png"]
+				</code>
+			</p>
+
+			<h3><?php _e( 'Secondary Hero Example', $this->core->text_domain ); ?></h3>
+
+			<p style="background-color: #eee; padding: 20px;">
+				<code>
+					[hero slider_id="<?php echo absint( $slider_id ); ?>" type="<strong>secondary</strong>" class="my-class" video="" heading="My Heading" sub_heading="My Sub Heading" button_text="My Button" button_link="#" image="my-image.png"]
+				</code>
+			</p>
+
+			<h3><?php _e( 'Parallaxed Horizontal Hero Example', $this->core->text_domain ); ?></h3>
+
+			<p style="background-color: #eee; padding: 20px;">
+				<code>
+					[hero slider_id="<?php echo absint( $slider_id ); ?>" type="<strong>secondary-paralaxed</strong>" class="my-class" heading="My Heading" sub_heading="My Sub Heading" button_text="My Button" button_link="#" image="my-image.png"]
+				</code>
+			</p>
+
+			<p><em><?php _e( 'Note that the paralaxed version does not work with video. The layout of this option puts the button on the right, and the Heading on the left w/out the sub-heading.', $this->core->text_domain ); ?></em></p>
+
+			<h3><?php _e( 'Adding a Video Example', $this->core->text_domain ); ?></h3>
+
+			<p style="background-color: #eee; padding: 20px;">
+				<code>
+					[hero slider_id="<?php echo absint( $slider_id ); ?>" type="primary" class="my-class" <strong>video="http://example.com/wp-content/uploads/2015/05/13/my-video.mp4"</strong> heading="My Heading" sub_heading="My Sub Heading" button_text="My Button" button_link="#"]
+				</code>
+			</p>
+
+			<p><em><?php _e( 'The video is added using HTML5. Using a YouTube video is not supported.', $this->core->text_domain ); ?></em></p>
+
+			<h3><?php _e( 'Adding an Overlay', $this->core->text_domain ); ?></h3>
+
+			<p style="background-color: #eee; padding: 20px;">
+				<code>
+					[hero slider_id="<?php echo absint( $slider_id ); ?>" type="primary" class="my-class" heading="My Heading" sub_heading="My Sub Heading" button_text="My Button" button_link="#" image="my-image.png" <strong>overlay="0.2" overlay_color="#000"</strong>]
+				</code>
+			</p>
+		</div>
+
+		<?php
+		$html = ob_get_contents();
+		ob_end_clean();
+		return $html;
 	}
 
 	function sanitize_slider_speed( $value ) {
