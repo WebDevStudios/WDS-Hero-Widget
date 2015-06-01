@@ -205,7 +205,7 @@ class WDS_Hero_Widget {
 	 *
 	 * @return void
 	 */
-	function wds_hero( $args = array()) {
+	function wds_hero( $args = array(), $content = false ) {
 
 		$defaults = array(
 			'button_link'           => false,
@@ -283,10 +283,18 @@ class WDS_Hero_Widget {
 						<?php do_action( $args['custom_content_action'] ); ?>
 
 					<?php endif; ?>
+
 					<?php if ( $args['content'] ) : ?>
-						<!-- Content passed via shortcode -->
+						<!-- Content passed via shortcode content="" -->
 						<?php echo wp_kses_post( $args['content'] ); ?>
 					<?php endif; ?>
+
+					<!-- Shortcode Content -->
+					<?php if ( $content ) : ?>
+						<?php echo wp_kses_post( $content ); ?>
+					<?php endif; ?>
+
+
 				</span>
 			</div>
 

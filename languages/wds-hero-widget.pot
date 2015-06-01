@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WDS Hero Widget 1.0-dev\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/WDS-Hero-Widget\n"
-"POT-Creation-Date: 2015-06-01 15:39:43+00:00\n"
+"POT-Creation-Date: 2015-06-01 16:11:09+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -678,7 +678,7 @@ msgstr ""
 msgid "Uses any <em>Hero Slider</em> to slide images in the background."
 msgstr ""
 
-#: wds-hero-widget.php:505
+#: wds-hero-widget.php:513
 msgid ""
 "WDS Hero Widget is missing requirements and has been <a "
 "href=\"%s\">deactivated</a>. Please make sure all requirements are "
