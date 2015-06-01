@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WDS Hero Widget 1.0-dev\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/WDS-Hero-Widget\n"
-"POT-Creation-Date: 2015-06-01 15:38:14+00:00\n"
+"POT-Creation-Date: 2015-06-01 15:39:43+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -536,7 +536,11 @@ msgid "Each image will slide in every <code>&times</code> seconds."
 msgstr ""
 
 #: includes/slider-cpt.php:103
-msgid "Add this as a <a href=\"widgets.php\">Widget</a>, or using a shortcode:"
+msgid ""
+"Add this as a <a href=\"widgets.php\">Widget</a>, as a <a "
+"href=\"https://github.com/WebDevStudios/WDS-Hero-Widget/blob/master/wds-"
+"hero-widget.php#L145\" target=\"_blank\">template tag</a>, or using a "
+"shortcode:"
 msgstr ""
 
 #: includes/slider-cpt.php:105

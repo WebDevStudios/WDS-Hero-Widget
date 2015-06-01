@@ -100,7 +100,7 @@ class WDS_Slider_CPT {
 		?>
 
 		<div style="clear: both;">
-			<h2><?php _e( 'Add this as a <a href="widgets.php">Widget</a>, or using a shortcode:', $this->core->text_domain ); ?></h2>
+			<h2><?php _e( 'Add this as a <a href="widgets.php">Widget</a>, as a <a href="https://github.com/WebDevStudios/WDS-Hero-Widget/blob/master/wds-hero-widget.php#L145" target="_blank">template tag</a>, or using a shortcode:', $this->core->text_domain ); ?></h2>
 
 			<h3><?php _e( 'Primary Hero Example', $this->core->text_domain ); ?></h3>
 
