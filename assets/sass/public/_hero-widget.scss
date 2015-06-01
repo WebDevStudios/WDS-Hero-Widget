@@ -27,6 +27,7 @@
 		h1 {
 			color: $color-black-haze;
 			font-size: rem(24);
+			margin: 0 0 rem(20) 0;
 
 			@include wider-than(tablet-portrait) {
 				font-size: rem(72);
