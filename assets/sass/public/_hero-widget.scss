@@ -11,6 +11,14 @@
 		z-index: 2;
 	}
 
+	br {
+		display: none;
+
+		@include wider-than(tablet-landscape) {
+			display: inline;
+		}
+	}
+
 	h1,
 	h2 {
 		margin: 0;
