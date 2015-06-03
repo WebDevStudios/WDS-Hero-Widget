@@ -219,7 +219,6 @@ class WDS_Hero_Widget {
 			'overlay'               => false,
 			'overlay_color'         => '#000',
 			'slider_id'             => false,
-			'slider_id'             => false,
 			'sub_heading'           => false,
 			'type'                  => 'primary',
 			'video'                 => false,

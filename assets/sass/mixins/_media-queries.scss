@@ -22,7 +22,7 @@
 
 @mixin wider-than($screen-size) {
 	@if map-has-key($breakpoints, $screen-size) {
-		@media (min-width: map-get($breakpoints, $screen-size)) {
+		@media (min-width: map-get($breakpoints, $screen-size) + 1) {
 			@content;
 		}
 	} @else if ($screen-size) {
