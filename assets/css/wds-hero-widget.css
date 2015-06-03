@@ -192,7 +192,7 @@ html
     width: 100%;
 }
 
-@media (min-width: 48em)
+@media (min-width: 49em)
 {
     .hero.primary-hero
     {
@@ -286,7 +286,7 @@ html
     }
 }
 
-@media (min-width: 64em)
+@media (min-width: 65em)
 {
     .hero br
     {
