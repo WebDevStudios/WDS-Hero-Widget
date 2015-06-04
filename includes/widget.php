@@ -348,8 +348,8 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 		foreach ( $this->text_inputs as $input ) {
 			$widget_meta[ $input['slug'] ] = ( isset( $input[ 'default' ] ) ? $input[ 'default' ] : '' );
 		}
+		$widget_meta['slider_id'] = ( isset( $input[ 'slider_id' ] ) ? $input[ 'slider_id' ] : '' );
 		$instance = wp_parse_args( (array) $instance, array_merge( $widget_meta, array(
-
 			// Type isn't added via the basic text inputs because it is a <select>.
 			'type'  => 'primary', // Default hero type.
 		) ) );
