@@ -187,6 +187,10 @@ class WDS_Slider_CPT {
 
 		global $current_screen;
 
+		if ( ! $current_screen ) {
+			return;
+		}
+
 		// Only on this CPT
 		if( $current_screen->post_type != 'wds-hero-slider' ) {
 			return $actions;
