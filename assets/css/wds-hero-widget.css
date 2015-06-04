@@ -1,306 +1,265 @@
-html
-{
-    box-sizing: border-box;
+html {
+  box-sizing: border-box;
 }
 
 *,
 *::after,
-*::before
-{
-    box-sizing: inherit;
+*::before {
+  box-sizing: inherit;
 }
 
-.hero
-{
-    position: relative;
-
-    overflow: hidden;
+.hero {
+  overflow: hidden;
+  position: relative;
 }
 
-.hero .content-wrapper
-{
-    position: relative;
-    z-index: 2;
+.hero .content-wrapper {
+  position: relative;
+  z-index: 2;
 }
 
-.hero br
-{
-    display: none;
+.hero br {
+  display: none;
+}
+
+@media (min-width: 65em) {
+  .hero br {
+    display: inline;
+  }
 }
 
 .hero h1,
-.hero h2
-{
-    margin: 0;
+.hero h2 {
+  margin: 0;
 }
 
-.hero.primary-hero
-{
-    padding: 4.6875rem;
-
-    text-align: center;
+.hero.primary-hero {
+  padding: 4.6875rem;
+  text-align: center;
 }
 
-.hero.primary-hero h1
-{
-    font-size: 1.5rem;
-
-    margin: 0 0 1.25rem 0;
-
-    color: #f7f8f8;
+@media (min-width: 49em) {
+  .hero.primary-hero {
+    padding: 9.375rem;
+  }
 }
 
-.hero.primary-hero p
-{
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 24px;
-
-    margin: 0 0 1.25rem 0;
-
-    color: #f7f8f8;
+.hero.primary-hero h1 {
+  color: #f7f8f8;
+  font-size: 1.5rem;
+  margin: 0 0 1.25rem 0;
 }
 
-.hero.secondary-paralaxed-hero
-{
-    padding: 5.3125rem;
-
-    text-align: center;
+@media (min-width: 49em) {
+  .hero.primary-hero h1 {
+    font-size: 4.5rem;
+  }
 }
 
-.hero.secondary-paralaxed-hero .content-wrapper
-{
-    max-width: 68em;
-    margin-right: auto;
-    margin-left: auto;
+.hero.primary-hero p {
+  color: #f7f8f8;
+  margin: 0 0 1.25rem 0;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 24px;
 }
 
-.hero.secondary-paralaxed-hero .content-wrapper::after
-{
-    display: table;
-    clear: both;
-
-    content: '';
+@media (min-width: 49em) {
+  .hero.primary-hero p {
+    font-size: 1.875rem;
+    line-height: 36px;
+  }
 }
 
-.hero.secondary-paralaxed-hero .content-headings h2
-{
-    line-height: 1.875rem;
-
-    margin: 0 0 1.25rem 0;
+.hero.secondary-paralaxed-hero {
+  padding: 5.3125rem;
+  text-align: center;
 }
 
-.hero.secondary-paralaxed-hero .content-headings p
-{
-    display: none;
+@media (min-width: 49em) {
+  .hero.secondary-paralaxed-hero {
+    padding: 6.25rem;
+  }
 }
 
-.hero.secondary-paralaxed-hero .image
-{
-    z-index: 0;
-
-    background-attachment: scroll;
+.hero.secondary-paralaxed-hero .content-wrapper {
+  max-width: 68em;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.hero.secondary-paralaxed-hero video
-{
-    position: fixed;
-    z-index: -1;
+.hero.secondary-paralaxed-hero .content-wrapper::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+@media (min-width: 49em) {
+  .hero.secondary-paralaxed-hero .content-headings {
+    float: left;
+    display: block;
+    margin-right: 2.3576515979%;
+    width: 65.8807828007%;
+  }
+  .hero.secondary-paralaxed-hero .content-headings:last-child {
+    margin-right: 0;
+  }
+}
+
+.hero.secondary-paralaxed-hero .content-headings h2 {
+  line-height: 1.875rem;
+  margin: 0;
+}
+
+@media (min-width: 49em) {
+  .hero.secondary-paralaxed-hero .content-headings h2 {
+    display: block;
+    font-size: 2.25rem;
+    line-height: 3.9375rem;
+  }
+}
+
+@media (min-width: 49em) {
+  .hero.secondary-paralaxed-hero .content-headings h2,
+  .hero.secondary-paralaxed-hero .content-headings p {
+    text-align: left;
+  }
+}
+
+.hero.secondary-paralaxed-hero .content-headings p {
+  display: none;
+  margin-top: 1.25rem;
+}
+
+@media (min-width: 49em) {
+  .hero.secondary-paralaxed-hero .content-button {
+    float: left;
+    display: block;
+    margin-right: 2.3576515979%;
+    width: 31.7615656014%;
+    margin-right: 0;
+    text-align: right;
+  }
+  .hero.secondary-paralaxed-hero .content-button:last-child {
+    margin-right: 0;
+  }
+}
+
+.hero.secondary-paralaxed-hero .image {
+  background-attachment: scroll;
+  z-index: 0;
+}
+
+@media (min-width: 65em) {
+  .hero.secondary-paralaxed-hero .image {
+    background-attachment: fixed;
+  }
+}
+
+.hero.secondary-paralaxed-hero video {
+  position: fixed;
+  z-index: -1;
 }
 
 .hero.secondary-hero,
-.hero.secondary-paralaxed-hero
-{
-    padding: 4.6875rem;
+.hero.secondary-paralaxed-hero {
+  padding: 4.6875rem;
+  text-align: center;
+}
 
-    text-align: center;
+@media (min-width: 49em) {
+  .hero.secondary-hero,
+  .hero.secondary-paralaxed-hero {
+    padding: 6.25rem;
+  }
 }
 
 .hero.secondary-hero h2,
-.hero.secondary-paralaxed-hero h2
-{
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 22px;
+.hero.secondary-paralaxed-hero h2 {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 22px;
+  margin-bottom: 1.25rem;
+}
 
-    margin-bottom: 1.25rem;
-
-    color: #fff;
+@media (min-width: 49em) {
+  .hero.secondary-hero h2,
+  .hero.secondary-paralaxed-hero h2 {
+    font-size: 3rem;
+    line-height: 45px;
+  }
 }
 
 .hero.secondary-hero p,
-.hero.secondary-paralaxed-hero p
-{
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 20px;
-
-    margin: 0 0 1.25rem 0;
-    padding: 0;
-
-    color: #f7f8f8;
+.hero.secondary-paralaxed-hero p {
+  color: #f7f8f8;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 20px;
+  margin: 0 0 1.25rem 0;
+  padding: 0;
 }
 
-.hero button
-{
-    font-size: .75rem;
+@media (min-width: 49em) {
+  .hero.secondary-hero p,
+  .hero.secondary-paralaxed-hero p {
+    font-size: 1.5rem;
+    line-height: 30px;
+  }
+}
+
+.hero button {
+  font-size: 0.75rem;
+}
+
+@media (min-width: 49em) {
+  .hero button {
+    font-size: 1rem;
+  }
 }
 
 .hero video,
 .hero .overlay,
-.hero .image
-{
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    min-width: 100%;
-    min-height: 100%;
+.hero .image {
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 0;
 }
 
-.hero .image
-{
-    height: 100%;
-
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
+.hero .image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
 }
 
-.hero .overlay
-{
-    z-index: 1;
-
-    height: 100%;
-
-    background-color: #000;
+.hero .overlay {
+  background-color: #000;
+  height: 100%;
+  z-index: 1;
 }
 
-.hero .sliders
-{
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-
-    width: 150%;
-    margin-left: -25%;
+.hero .sliders {
+  z-index: 1;
+  left: 0;
+  top: 0;
+  position: absolute;
+  width: 150%;
+  margin-left: -25%;
 }
 
-.hero .sliders img
-{
+@media (min-width: 65em) {
+  .hero .sliders {
     width: 100%;
+    margin-left: auto;
+  }
 }
 
-@media (min-width: 49em)
-{
-    .hero.primary-hero
-    {
-        padding: 9.375rem;
-    }
-
-    .hero.primary-hero h1
-    {
-        font-size: 4.5rem;
-    }
-
-    .hero.primary-hero p
-    {
-        font-size: 1.875rem;
-        line-height: 36px;
-    }
-
-    .hero.secondary-paralaxed-hero
-    {
-        padding: 6.25rem;
-    }
-
-    .hero.secondary-paralaxed-hero .content-headings
-    {
-        display: block;
-        float: left;
-
-        width: 65.8807828007%;
-        margin-right: 2.3576515979%;
-    }
-
-    .hero.secondary-paralaxed-hero .content-headings:last-child
-    {
-        margin-right: 0;
-    }
-
-    .hero.secondary-paralaxed-hero .content-headings h2
-    {
-        font-size: 2.25rem;
-        line-height: 3.9375rem;
-
-        display: block;
-    }
-
-    .hero.secondary-paralaxed-hero .content-headings h2,
-    .hero.secondary-paralaxed-hero .content-headings p
-    {
-        text-align: left;
-    }
-
-    .hero.secondary-paralaxed-hero .content-button
-    {
-        display: block;
-        float: left;
-
-        width: 31.7615656014%;
-        margin-right: 2.3576515979%;
-        margin-right: 0;
-
-        text-align: right;
-    }
-
-    .hero.secondary-paralaxed-hero .content-button:last-child
-    {
-        margin-right: 0;
-    }
-
-    .hero.secondary-hero,
-    .hero.secondary-paralaxed-hero
-    {
-        padding: 6.25rem;
-    }
-
-    .hero.secondary-hero h2,
-    .hero.secondary-paralaxed-hero h2
-    {
-        font-size: 3rem;
-        line-height: 45px;
-    }
-
-    .hero.secondary-hero p,
-    .hero.secondary-paralaxed-hero p
-    {
-        font-size: 1.5rem;
-        line-height: 30px;
-    }
-
-    .hero button
-    {
-        font-size: 1rem;
-    }
+.hero .sliders img {
+  width: 100%;
 }
 
-@media (min-width: 65em)
-{
-    .hero br
-    {
-        display: inline;
-    }
-
-    .hero.secondary-paralaxed-hero .image
-    {
-        background-attachment: fixed;
-    }
-
-    .hero .sliders
-    {
-        width: 100%;
-        margin-left: auto;
-    }
-}
+/*# sourceMappingURL=wds-hero-widget.css.map */

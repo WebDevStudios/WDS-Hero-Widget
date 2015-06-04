@@ -76,7 +76,7 @@
 
 			h2 {
 				line-height: rem(30);
-				margin: 0 0 rem(20) 0;
+				margin: 0;
 
 				@include wider-than(tablet-portrait) {
 					display: block;
@@ -94,6 +94,7 @@
 
 			p {
 				display: none;
+				margin-top: rem(20);
 			}
 		}
 
