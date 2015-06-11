@@ -293,11 +293,6 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 			$instance[ $slug ] = apply_filters( "wds_widget_update_$slug", $new_instance[ $slug ] );
 		}
 
-		// If there are sliders set, don't use the video setting ( unset ).
-		if ( $new_instance['slider_id'] ) {
-			$instance['video'] = false;
-		}
-
 		// Save the slider_id input.
 		$instance[ 'slider_id' ] = apply_filters( 'wds_widget_update_slider_id', $new_instance[ 'slider_id' ] );
 
