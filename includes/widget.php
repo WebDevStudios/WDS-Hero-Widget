@@ -105,6 +105,13 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 		// Text inputs for Hero Widgets.
 		$this->text_inputs = array(
 			array(
+				'label'       => __( 'ID', 'wds-hero-widget' ),
+				'slug'        => 'id',
+				'description' => __( 'Add a unique ID name to this hero', 'wds-hero-widget' ),
+				'placeholder' => 'id-name',
+				'default'     => '',
+			),		
+			array(
 				'label'       => __( 'Classes', 'wds-hero-widget' ),
 				'slug'        => 'class',
 				'description' => __( 'Any additional classes you would like to add to this Hero.', 'wds-hero-widget' ),
@@ -229,6 +236,7 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 			// This function does the magic!
 			$widget .= $this->plugin->wds_hero( array(
 				'type'                  => ( isset( $atts['type'] ) && ! empty( $atts['type'] ) ) ? $atts['type'] : 'primary',
+				'id'                 => ( isset( $atts['id'] ) && ! empty( $atts['id'] ) ) ? $atts['id'] : false,
 				'class'                 => ( isset( $atts['class'] ) && ! empty( $atts['class'] ) ) ? $atts['class'] : false,
 				'image'                 => ( isset( $atts['image'] ) && ! empty( $atts['image'] ) ) ? $atts['image'] : false,
 				'video'                 => ( isset( $atts['video'] ) && ! empty( $atts['video'] ) ) ? $atts['video'] : false,
