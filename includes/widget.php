@@ -236,7 +236,7 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 			// This function does the magic!
 			$widget .= $this->plugin->wds_hero( array(
 				'type'                  => ( isset( $atts['type'] ) && ! empty( $atts['type'] ) ) ? $atts['type'] : 'primary',
-				'id'                 => ( isset( $atts['id'] ) && ! empty( $atts['id'] ) ) ? $atts['id'] : false,
+				'id'                    => ( isset( $atts['id'] ) && ! empty( $atts['id'] ) ) ? $atts['id'] : false,
 				'class'                 => ( isset( $atts['class'] ) && ! empty( $atts['class'] ) ) ? $atts['class'] : false,
 				'image'                 => ( isset( $atts['image'] ) && ! empty( $atts['image'] ) ) ? $atts['image'] : false,
 				'video'                 => ( isset( $atts['video'] ) && ! empty( $atts['video'] ) ) ? $atts['video'] : false,
