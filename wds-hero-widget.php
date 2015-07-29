@@ -151,6 +151,7 @@ class WDS_Hero_Widget {
 	 *
 	 *     <?php wds_hero( array(
 	 *         'type'                  => 'primary',
+	 *         'id'                    => 'id-name',
 	 *         'class'                 => 'my-class',
 	 *         'image'                 => 'https://mysite.com/my-background.png', // Background image
 	 *         'video'                 => 'https://mysite.com/my-video.mp4', // Background video
@@ -167,13 +168,14 @@ class WDS_Hero_Widget {
 	 *
 	 * Shortcode Example:
 	 *
-	 *     [hero type="primary" class="my-class" video="http://mysite.com/my-video.mp4" heading="My Heading" sub_heading="My Sub Heading" button_text="My Button" button_link="http://webdevstudios.com" custom_content_action="my_content_action_filter" image="http://mysite.com/my-image.png" overlay="0.2" overlay_color="#fff" slider_id="2"]
+	 *     [hero type="primary" id="my-id" class="my-class" video="http://mysite.com/my-video.mp4" heading="My Heading" sub_heading="My Sub Heading" button_text="My Button" button_link="http://webdevstudios.com" custom_content_action="my_content_action_filter" image="http://mysite.com/my-image.png" overlay="0.2" overlay_color="#fff" slider_id="2"]
 	 *         Additional Content
 	 *     [/hero]
 	 *
 	 * Argument Defaults:
 	 *
 	 *     'type'                  => 'primary',
+	 *     'id'                    => '',
 	 *     'class'                 => '',
 	 *     'video'                 => false,
 	 *     'image'                 => false,
@@ -210,6 +212,7 @@ class WDS_Hero_Widget {
 		$defaults = array(
 			'button_link'           => false,
 			'button_text'           => false,
+			'id'                    => '',
 			'class'                 => '',
 			'content'               => false,
 			'custom_content_action' => false,
@@ -229,7 +232,7 @@ class WDS_Hero_Widget {
 		ob_start();
 		?>
 
-		<div class="hero <?php echo esc_attr( $args['type'] ); ?>-hero <?php echo esc_attr( $args['class'] ); ?>">
+		<div id="<?php echo esc_attr( $args['id'] ); ?>" class="hero <?php echo esc_attr( $args['type'] ); ?>-hero <?php echo esc_attr( $args['class'] ); ?>">
 
 			<?php if ( $args['slider_id'] ) :
 
