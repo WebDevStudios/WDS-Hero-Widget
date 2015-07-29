@@ -151,7 +151,7 @@ class WDS_Hero_Widget {
 	 *
 	 *     <?php wds_hero( array(
 	 *         'type'                  => 'primary',
-	 *         'id'					   => 'id-name',
+	 *         'id'                    => 'id-name',
 	 *         'class'                 => 'my-class',
 	 *         'image'                 => 'https://mysite.com/my-background.png', // Background image
 	 *         'video'                 => 'https://mysite.com/my-video.mp4', // Background video
@@ -175,7 +175,7 @@ class WDS_Hero_Widget {
 	 * Argument Defaults:
 	 *
 	 *     'type'                  => 'primary',
-	 *	   'id'					   => '',
+	 *     'id'                    => '',
 	 *     'class'                 => '',
 	 *     'video'                 => false,
 	 *     'image'                 => false,
@@ -212,7 +212,7 @@ class WDS_Hero_Widget {
 		$defaults = array(
 			'button_link'           => false,
 			'button_text'           => false,
-			'id'					=> '',
+			'id'                    => '',
 			'class'                 => '',
 			'content'               => false,
 			'custom_content_action' => false,
