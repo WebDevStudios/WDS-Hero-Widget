@@ -253,7 +253,7 @@ class WDS_Hero_Widget {
 						?>
 
 							<div class="slider">
-								<img src="<?php echo $src; ?>" alt="<?php echo $alt; ?>">
+								<img src="<?php echo $src; ?>" alt="<?php echo $alt; ?>" />
 							</div>
 
 						<?php endforeach; ?>
