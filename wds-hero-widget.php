@@ -252,8 +252,8 @@ class WDS_Hero_Widget {
 							$alt = $details['alt'];
 						?>
 
-							<div class="slider" style="background: url(<?php echo $src; ?>) no-repeat; background-size: cover;">
-								<!--<img src="<?php echo $src; ?>" alt="<?php echo $alt; ?>" />-->
+							<div class="slider">
+								<img src="<?php echo $src; ?>" alt="<?php echo $alt; ?>">
 							</div>
 
 						<?php endforeach; ?>
