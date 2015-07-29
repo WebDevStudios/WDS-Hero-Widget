@@ -229,7 +229,7 @@ class WDS_Hero_Widget {
 		ob_start();
 		?>
 
-		<div class="hero <?php echo esc_attr( $args['type'] ); ?>-hero <?php echo esc_attr( $args['class'] ); ?>">
+		<div id="id-<?php echo esc_attr( $args['class'] ); ?>" class="hero <?php echo esc_attr( $args['type'] ); ?>-hero <?php echo esc_attr( $args['class'] ); ?>">
 
 			<?php if ( $args['slider_id'] ) :
 
