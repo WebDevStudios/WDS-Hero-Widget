@@ -12,7 +12,7 @@ Text Domain: wds-hero-widget
 Domain Path: /languages
 */
 
-/**
+/*
  * Copyright (c) 2015 WebDevStudios (email : contact@webdevstudios.com)
  *
  * This program is free software; you can redistribute it and/or modify
