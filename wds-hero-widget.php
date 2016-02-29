@@ -30,10 +30,6 @@ Domain Path: /languages
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-/**
- * Built using generator-plugin-wp
- */
-
 // Exit if accessed directly
 if ( ! defined ( 'ABSPATH' ) ) {
 	exit;
