@@ -112,51 +112,26 @@ if ( ! class_exists( 'WDS_Slider_CPT' ) ) :
 			?>
 
 			<div style="clear: both;">
-				<h2><?php _e( 'Add this as a <a href="widgets.php">Widget</a>, as a <a href="https://github.com/WebDevStudios/WDS-Hero-Widget/blob/master/wds-hero-widget.php#L145" target="_blank">template tag</a>, or using a shortcode:', 'wds-hero-widget' ); ?></h2>
+				<p><?php echo sprintf( __( 'Add this as a %s or using a shortcode.', 'wds-hero-widget' ), '<a href="widgets.php">Widget</a>' ); ?></p>
 
-				<h3><?php _e( 'Primary Hero Example', 'wds-hero-widget' ); ?></h3>
+				<h5><?php _e( 'Primary Hero', 'wds-hero-widget' ); ?></h5>
+				<pre style="padding-left: 10px; white-space: pre-wrap;">[hero slider_id="<?php echo absint( $slider_id ); ?>" type="primary" class="my-class" heading="My Heading" sub_heading="My Sub Heading" button_text="My Button" button_link="#" image="my-image.png"]</pre>
 
-				<p style="background-color: #eee; padding: 20px;">
-					<code>
-						[hero slider_id="<?php echo absint( $slider_id ); ?>" type="<strong>primary</strong>" class="my-class" heading="My Heading" sub_heading="My Sub Heading" button_text="My Button" button_link="#" image="my-image.png"]
-					</code>
-				</p>
+				<h5><?php _e( 'Secondary Hero', 'wds-hero-widget' ); ?></h5>
+				<pre style="padding-left: 10px; white-space: pre-wrap;">[hero slider_id="<?php echo absint( $slider_id ); ?>" type="secondary" class="my-class" video="" heading="My Heading" sub_heading="My Sub Heading" button_text="My Button" button_link="#" image="my-image.png"]</pre>
 
-				<h3><?php _e( 'Secondary Hero Example', 'wds-hero-widget' ); ?></h3>
-
-				<p style="background-color: #eee; padding: 20px;">
-					<code>
-						[hero slider_id="<?php echo absint( $slider_id ); ?>" type="<strong>secondary</strong>" class="my-class" video="" heading="My Heading" sub_heading="My Sub Heading" button_text="My Button" button_link="#" image="my-image.png"]
-					</code>
-				</p>
-
-				<h3><?php _e( 'Parallaxed Horizontal Hero Example', 'wds-hero-widget' ); ?></h3>
-
-				<p style="background-color: #eee; padding: 20px;">
-					<code>
-						[hero slider_id="<?php echo absint( $slider_id ); ?>" type="<strong>secondary-paralaxed</strong>" class="my-class" heading="My Heading" sub_heading="My Sub Heading" button_text="My Button" button_link="#" image="my-image.png"]
-					</code>
-				</p>
+				<h5><?php _e( 'Parallaxed Horizontal Hero', 'wds-hero-widget' ); ?></h5>
+				<pre style="padding-left: 10px; white-space: pre-wrap;">[hero slider_id="<?php echo absint( $slider_id ); ?>" type="secondary-paralaxed" class="my-class" heading="My Heading" sub_heading="My Sub Heading" button_text="My Button" button_link="#" image="my-image.png"]</pre>
 
 				<p><em><?php _e( 'Note that the paralaxed version does not work with video. The layout of this option puts the button on the right, and the Heading on the left w/out the sub-heading.', 'wds-hero-widget' ); ?></em></p>
 
-				<h3><?php _e( 'Adding a Video Example', 'wds-hero-widget' ); ?></h3>
-
-				<p style="background-color: #eee; padding: 20px;">
-					<code>
-						[hero slider_id="<?php echo absint( $slider_id ); ?>" type="primary" class="my-class" <strong>video="http://example.com/wp-content/uploads/2015/05/13/my-video.mp4"</strong> heading="My Heading" sub_heading="My Sub Heading" button_text="My Button" button_link="#"]
-					</code>
-				</p>
+				<h5><?php _e( 'Adding a Video', 'wds-hero-widget' ); ?></h5>
+				<pre style="padding-left: 10px; white-space: pre-wrap;">[hero slider_id="<?php echo absint( $slider_id ); ?>" type="primary" class="my-class" video="http://example.com/wp-content/uploads/2015/05/13/my-video.mp4" heading="My Heading" sub_heading="My Sub Heading" button_text="My Button" button_link="#"]</pre>
 
 				<p><em><?php _e( 'The video is added using HTML5. Using a YouTube video is not supported.', 'wds-hero-widget' ); ?></em></p>
 
-				<h3><?php _e( 'Adding an Overlay', 'wds-hero-widget' ); ?></h3>
-
-				<p style="background-color: #eee; padding: 20px;">
-					<code>
-						[hero slider_id="<?php echo absint( $slider_id ); ?>" type="primary" class="my-class" heading="My Heading" sub_heading="My Sub Heading" button_text="My Button" button_link="#" image="my-image.png" <strong>overlay="0.2" overlay_color="#000"</strong>]
-					</code>
-				</p>
+				<h5><?php _e( 'Adding an Overlay', 'wds-hero-widget' ); ?></h5>
+				<pre style="padding-left: 10px; white-space: pre-wrap;">[hero slider_id="<?php echo absint( $slider_id ); ?>" type="primary" class="my-class" heading="My Heading" sub_heading="My Sub Heading" button_text="My Button" button_link="#" image="my-image.png" overlay="0.2" overlay_color="#000"]</pre>
 			</div>
 
 			<?php
