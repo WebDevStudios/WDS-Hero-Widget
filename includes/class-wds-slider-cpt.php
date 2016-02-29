@@ -109,6 +109,10 @@ if ( ! class_exists( 'WDS_Slider_CPT' ) ) :
 		 * @return string HTML passed back to CMB2
 		 */
 		function slider_instructions( $slider_id ) {
+			if ( ! isset( $_GET['post'] ) ) {
+				return; // Only show on saved posts.
+			}
+
 			ob_start();
 			?>
 
