@@ -1,10 +1,11 @@
 <?php
 
-// Exit if accessed directly
-if ( ! defined ( 'ABSPATH' ) ) {
-	exit;
-}
-
+/**
+ * Handles the Hero Widget for Widget Areas.
+ *
+ * @since  1.0
+ * @package  wds-hero-widget
+ */
 class WDS_Hero_Widget_Widget extends WP_Widget {
 
 	/**
@@ -110,7 +111,7 @@ class WDS_Hero_Widget_Widget extends WP_Widget {
 				'description' => __( 'Add a unique ID name to this hero', 'wds-hero-widget' ),
 				'placeholder' => 'id-name',
 				'default'     => '',
-			),		
+			),
 			array(
 				'label'       => __( 'Classes', 'wds-hero-widget' ),
 				'slug'        => 'class',

@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Creates Slider Custom Post Types.
+ *
+ * @since  1.0
+ * @package  wds-hero-widget
+ */
 class WDS_Slider_CPT {
 	public $core;
 

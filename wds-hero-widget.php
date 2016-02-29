@@ -36,22 +36,26 @@ if ( ! defined ( 'ABSPATH' ) ) {
 }
 
 /**
- * Main initiation class
+ * WDS Hero Widget Base Class.
+ *
+ * @since  1.0
+ * @package  wds-hero-widget
  */
 class WDS_Hero_Widget {
-
-	public    $plugin_headers;
-	public    $version;
-	public    $text_domain;
-	public    $slider_cpt;
+	public $plugin_headers;
+	public $version;
+	public $text_domain;
+	public $slider_cpt;
 
 	protected $url      = '';
 	protected $path     = '';
 	protected $basename = '';
+
 	protected static $single_instance = null;
 
 	/**
-	 * Sets up our plugin
+	 * Sets up our plugin.
+	 *
 	 * @since  1.0.0
 	 */
 	protected function __construct() {
@@ -76,7 +80,9 @@ class WDS_Hero_Widget {
 
 	/**
 	 * Creates or returns an instance of this class.
+	 *
 	 * @since  0.1.0
+	 *
 	 * @return WDS_Hero_Widget A single instance of this class.
 	 */
 	public static function get_instance() {
@@ -89,8 +95,6 @@ class WDS_Hero_Widget {
 
 	/**
 	 * Enqueue JS scripts.
-	 *
-	 * @return void
 	 */
 	public function enqueue_scripts() {
 
@@ -103,8 +107,6 @@ class WDS_Hero_Widget {
 
 	/**
 	 * Enqueue public facing styles.
-	 *
-	 * @return void
 	 */
 	public function enqueue_styles() {
 		wp_enqueue_style( 'wds-hero-widget', plugins_url( 'assets/css/wds-hero-widget.css', __FILE__ ), array(), $this->script_version(), 'screen' );
@@ -201,10 +203,8 @@ class WDS_Hero_Widget {
 	 *
 	 * @param  array $args Arguments to apply to hero.
 	 *
-	 * @return void
 	 */
 	function wds_hero( $args = array(), $content = false ) {
-
 		$defaults = array(
 			'button_link'           => false,
 			'button_text'           => false,
@@ -226,6 +226,7 @@ class WDS_Hero_Widget {
 		$args = wp_parse_args( $args, $defaults );
 
 		ob_start();
+
 		?>
 
 		<div id="<?php echo esc_attr( $args['id'] ); ?>" class="hero <?php echo esc_attr( $args['type'] ); ?>-hero <?php echo esc_attr( $args['class'] ); ?>">
@@ -390,8 +391,6 @@ class WDS_Hero_Widget {
 
 	/**
 	 * Set the plugin header info.
-	 *
-	 * @return void
 	 */
 	function set_plugin_info() {
 		$this->plugin_headers = get_file_data(
@@ -412,8 +411,6 @@ class WDS_Hero_Widget {
 	 * Get a particular header value.
 	 *
 	 * @param  string $key The value of the plugin header.
-	 *
-	 * @return void
 	 */
 	function get_plugin_info( $key ) {
 		return trim( $this->plugin_headers[ $key ] );
@@ -421,6 +418,7 @@ class WDS_Hero_Widget {
 
 	/**
 	 * Attach other plugin classes to the base plugin class.
+	 *
 	 * @since 1.0.0
 	 */
 	function plugin_classes() {
@@ -428,7 +426,8 @@ class WDS_Hero_Widget {
 	}
 
 	/**
-	 * Add hooks and filters
+	 * Add hooks and filters.
+	 *
 	 * @since 1.0.0
 	 */
 	public function hooks() {
@@ -446,13 +445,16 @@ class WDS_Hero_Widget {
 
 	/**
 	 * Register this widget with WordPress.
+	 *
+	 * @since  1.0.0
 	 */
 	function wds_hero_widget_widget() {
 		register_widget( 'WDS_Hero_Widget_Widget' );
 	}
 
 	/**
-	 * Activate the plugin
+	 * Activate the plugin.
+	 *
 	 * @since  1.0.0
 	 */
 	function _activate() {
@@ -461,8 +463,10 @@ class WDS_Hero_Widget {
 	}
 
 	/**
-	 * Deactivate the plugin
+	 * Deactivate the plugin.
+	 *
 	 * Uninstall routines should be in uninstall.php
+	 *
 	 * @since  1.0.0
 	 */
 	function _deactivate() {}
@@ -481,9 +485,9 @@ class WDS_Hero_Widget {
 	}
 
 	/**
-	 * Init hooks
+	 * Init hooks.
+	 *
 	 * @since  1.0.0
-	 * @return null
 	 */
 	public function init() {
 		if ( $this->check_requirements() ) {
@@ -492,7 +496,8 @@ class WDS_Hero_Widget {
 	}
 
 	/**
-	 * Check that all plugin requirements are met
+	 * Check that all plugin requirements are met.
+	 *
 	 * @since  1.0.0
 	 * @return boolean
 	 */
@@ -501,8 +506,8 @@ class WDS_Hero_Widget {
 	}
 
 	/**
-	 * Check if the plugin meets requirements and
-	 * disable it if they are not present.
+	 * Check if the plugin meets requirements and disable it if they are not present.
+	 *
 	 * @since  1.0.0
 	 * @return boolean result of meets_requirements
 	 */
@@ -525,6 +530,7 @@ class WDS_Hero_Widget {
 	 * Magic getter for our object.
 	 *
 	 * @since  1.0.0
+	 *
 	 * @param string $field
 	 * @throws Exception Throws an exception if the field is invalid.
 	 * @return mixed
@@ -546,6 +552,7 @@ class WDS_Hero_Widget {
 
 /**
  * Grab the WDS_Hero_Widget object and return it.
+ *
  * Wrapper for WDS_Hero_Widget::get_instance()
  */
 function wds_hero_widget() {
