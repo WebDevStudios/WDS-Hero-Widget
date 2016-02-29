@@ -38,4 +38,4 @@ to customize Hero's for your site.*
 - Can place Heros on page with heading, sub-heading, and call to action button
 - Can use using [https://github.com/WebDevStudios/WDS-Hero-Widget/blob/master/wds-hero-widget.php#L146](shortcodes, template tags), or Widgets
 - Can configure sliding images to use as the background of the Hero
-- Can customize content through shortcode and [custom filters](https://github.com/WebDevStudios/WDS-Hero-Widget/blob/master/wds-hero-widget.php#L190)
+- Can customize content through shortcode and [custom filters](https://github.com/WebDevStudios/WDS-Hero-Widget/blob/master/class-wds-hero-widget.php#L190)
