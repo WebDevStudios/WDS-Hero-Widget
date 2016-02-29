@@ -40,20 +40,20 @@ if ( ! class_exists( 'WDS_Slider_CPT' ) ) :
 		 */
 		public function register_cpt() {
 			$labels = array(
-				'name'               => _x( 'Hero Sliders', 'post type general name', $this->core->text_domain ),
-				'singular_name'      => _x( 'Hero Slider', 'post type singular name', $this->core->text_domain ),
-				'menu_name'          => _x( 'Hero Sliders', 'admin menu', $this->core->text_domain ),
-				'name_admin_bar'     => _x( 'Hero Slider', 'add new on admin bar', $this->core->text_domain ),
-				'add_new'            => _x( 'Add New', 'book', $this->core->text_domain ),
-				'add_new_item'       => __( 'Add New Hero Slider', $this->core->text_domain ),
-				'new_item'           => __( 'New Hero Slider', $this->core->text_domain ),
-				'edit_item'          => __( 'Edit Hero Slider', $this->core->text_domain ),
-				'view_item'          => __( 'View Hero Slider', $this->core->text_domain ),
-				'all_items'          => __( 'All Hero Sliders', $this->core->text_domain ),
-				'search_items'       => __( 'Search Hero Sliders', $this->core->text_domain ),
-				'parent_item_colon'  => __( 'Parent Hero Sliders:', $this->core->text_domain ),
-				'not_found'          => __( 'No Hero Slider found.', $this->core->text_domain ),
-				'not_found_in_trash' => __( 'No Hero Slider found in Trash.', $this->core->text_domain )
+				'name'               => _x( 'Hero Sliders', 'post type general name', 'wds-hero-widget' ),
+				'singular_name'      => _x( 'Hero Slider', 'post type singular name', 'wds-hero-widget' ),
+				'menu_name'          => _x( 'Hero Sliders', 'admin menu', 'wds-hero-widget' ),
+				'name_admin_bar'     => _x( 'Hero Slider', 'add new on admin bar', 'wds-hero-widget' ),
+				'add_new'            => _x( 'Add New', 'book', 'wds-hero-widget' ),
+				'add_new_item'       => __( 'Add New Hero Slider', 'wds-hero-widget' ),
+				'new_item'           => __( 'New Hero Slider', 'wds-hero-widget' ),
+				'edit_item'          => __( 'Edit Hero Slider', 'wds-hero-widget' ),
+				'view_item'          => __( 'View Hero Slider', 'wds-hero-widget' ),
+				'all_items'          => __( 'All Hero Sliders', 'wds-hero-widget' ),
+				'search_items'       => __( 'Search Hero Sliders', 'wds-hero-widget' ),
+				'parent_item_colon'  => __( 'Parent Hero Sliders:', 'wds-hero-widget' ),
+				'not_found'          => __( 'No Hero Slider found.', 'wds-hero-widget' ),
+				'not_found_in_trash' => __( 'No Hero Slider found in Trash.', 'wds-hero-widget' )
 			);
 
 			$args = array(
@@ -78,7 +78,7 @@ if ( ! class_exists( 'WDS_Slider_CPT' ) ) :
 
 			$box = new_cmb2_box( array(
 				'id'              => 'wds_hero_slider_metabox',
-				'title'           => __( 'Hero Slider', $this->core->text_domain ),
+				'title'           => __( 'Hero Slider', 'wds-hero-widget' ),
 				'object_types'    => array( 'wds-hero-slider', ), // Post type
 				'context'         => 'normal',
 				'priority'        => 'high',
@@ -86,18 +86,18 @@ if ( ! class_exists( 'WDS_Slider_CPT' ) ) :
 			) );
 
 			$box->add_field( array(
-				'name'            => __( 'Images', $this->core->text_domain ),
+				'name'            => __( 'Images', 'wds-hero-widget' ),
 				'id'              => 'wds_hero_slider_images',
 				'type'            => 'file_list',
 				'preview_size'         => array( 200, '200' ),
 			) );
 
 			$box->add_field( array(
-				'name'            => __( 'Slider Speed in Seconds', $this->core->text_domain ),
+				'name'            => __( 'Slider Speed in Seconds', 'wds-hero-widget' ),
 				'id'              => 'wds_hero_slider_speed',
 				'type'            => 'text',
 				'sanitization_cb' => array( $this, 'sanitize_slider_speed' ),
-				'desc'            => __( 'Each image will slide in every <code>&times</code> seconds.', $this->core->text_domain ),
+				'desc'            => __( 'Each image will slide in every <code>&times</code> seconds.', 'wds-hero-widget' ),
 				'after_row'     => $this->slider_instructions( $slider_id ),
 			) );
 		}
@@ -112,9 +112,9 @@ if ( ! class_exists( 'WDS_Slider_CPT' ) ) :
 			?>
 
 			<div style="clear: both;">
-				<h2><?php _e( 'Add this as a <a href="widgets.php">Widget</a>, as a <a href="https://github.com/WebDevStudios/WDS-Hero-Widget/blob/master/wds-hero-widget.php#L145" target="_blank">template tag</a>, or using a shortcode:', $this->core->text_domain ); ?></h2>
+				<h2><?php _e( 'Add this as a <a href="widgets.php">Widget</a>, as a <a href="https://github.com/WebDevStudios/WDS-Hero-Widget/blob/master/wds-hero-widget.php#L145" target="_blank">template tag</a>, or using a shortcode:', 'wds-hero-widget' ); ?></h2>
 
-				<h3><?php _e( 'Primary Hero Example', $this->core->text_domain ); ?></h3>
+				<h3><?php _e( 'Primary Hero Example', 'wds-hero-widget' ); ?></h3>
 
 				<p style="background-color: #eee; padding: 20px;">
 					<code>
@@ -122,7 +122,7 @@ if ( ! class_exists( 'WDS_Slider_CPT' ) ) :
 					</code>
 				</p>
 
-				<h3><?php _e( 'Secondary Hero Example', $this->core->text_domain ); ?></h3>
+				<h3><?php _e( 'Secondary Hero Example', 'wds-hero-widget' ); ?></h3>
 
 				<p style="background-color: #eee; padding: 20px;">
 					<code>
@@ -130,7 +130,7 @@ if ( ! class_exists( 'WDS_Slider_CPT' ) ) :
 					</code>
 				</p>
 
-				<h3><?php _e( 'Parallaxed Horizontal Hero Example', $this->core->text_domain ); ?></h3>
+				<h3><?php _e( 'Parallaxed Horizontal Hero Example', 'wds-hero-widget' ); ?></h3>
 
 				<p style="background-color: #eee; padding: 20px;">
 					<code>
@@ -138,9 +138,9 @@ if ( ! class_exists( 'WDS_Slider_CPT' ) ) :
 					</code>
 				</p>
 
-				<p><em><?php _e( 'Note that the paralaxed version does not work with video. The layout of this option puts the button on the right, and the Heading on the left w/out the sub-heading.', $this->core->text_domain ); ?></em></p>
+				<p><em><?php _e( 'Note that the paralaxed version does not work with video. The layout of this option puts the button on the right, and the Heading on the left w/out the sub-heading.', 'wds-hero-widget' ); ?></em></p>
 
-				<h3><?php _e( 'Adding a Video Example', $this->core->text_domain ); ?></h3>
+				<h3><?php _e( 'Adding a Video Example', 'wds-hero-widget' ); ?></h3>
 
 				<p style="background-color: #eee; padding: 20px;">
 					<code>
@@ -148,9 +148,9 @@ if ( ! class_exists( 'WDS_Slider_CPT' ) ) :
 					</code>
 				</p>
 
-				<p><em><?php _e( 'The video is added using HTML5. Using a YouTube video is not supported.', $this->core->text_domain ); ?></em></p>
+				<p><em><?php _e( 'The video is added using HTML5. Using a YouTube video is not supported.', 'wds-hero-widget' ); ?></em></p>
 
-				<h3><?php _e( 'Adding an Overlay', $this->core->text_domain ); ?></h3>
+				<h3><?php _e( 'Adding an Overlay', 'wds-hero-widget' ); ?></h3>
 
 				<p style="background-color: #eee; padding: 20px;">
 					<code>
