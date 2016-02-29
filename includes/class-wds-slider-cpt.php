@@ -89,11 +89,12 @@ if ( ! class_exists( 'WDS_Slider_CPT' ) ) :
 				'name'            => __( 'Images', 'wds-hero-widget' ),
 				'id'              => 'wds_hero_slider_images',
 				'type'            => 'file_list',
+				'desc'            => __( 'You do not need to create a slider if you intend to use a single image in your hero.', 'wds-hero-widget' ),
 				'preview_size'         => array( 200, '200' ),
 			) );
 
 			$box->add_field( array(
-				'name'            => __( 'Slider Speed in Seconds', 'wds-hero-widget' ),
+				'name'            => __( 'Slider speed in seconds', 'wds-hero-widget' ),
 				'id'              => 'wds_hero_slider_speed',
 				'type'            => 'text',
 				'sanitization_cb' => array( $this, 'sanitize_slider_speed' ),
