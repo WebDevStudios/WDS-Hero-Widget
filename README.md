@@ -23,8 +23,9 @@ and sometimes content is in them.
 This plugin is intended to place basic Hero's on your site intended for
 additional styling by a developer.
 
-*Though this plugin provides some basic styling, additional CSS will be required
-to customize Hero's for your site.*
+Though this plugin provides some basic styling, additional CSS will be required
+to customize Hero's for your site. Headings in heroes, for instance, may have margins
+inherited from the theme that cause centering to be off.
 
 ### The plugin should provide:
 
