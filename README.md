@@ -59,7 +59,9 @@ add_filter( 'disable_wds_slider_cpt', '__return_true' );
 
 ## 1.0-dev (Currently in Development)
 
-- Can place Heros on page with heading, sub-heading, and call to action button
-- Can use using [https://github.com/WebDevStudios/WDS-Hero-Widget/blob/master/wds-hero-widget.php#L146](shortcodes, template tags), or Widgets
-- Can configure sliding images to use as the background of the Hero
-- Can customize content through shortcode and [custom filters](https://github.com/WebDevStudios/WDS-Hero-Widget/blob/master/class-wds-hero-widget.php#L190)
+- Sliders now use `background-size: cover` to fit images in the container
+- Disable Slider CPT/Sliders and Widget UI using filters
+- Place Heros on page with heading, sub-heading, and call to action button
+- Use shortcodes, template tags, or Widget UI
+- Configure sliding images to use as the background of the Hero
+- Customize content through shortcodes and custom filters
