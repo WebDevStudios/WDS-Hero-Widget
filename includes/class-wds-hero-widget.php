@@ -382,23 +382,25 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 				</p>
 
 				<!-- Sliders -->
-				<p>
-					<label for="<?php echo esc_attr( $this->get_field_id( 'slider_id' ) ); ?>">
-						<?php _e( 'Choose Hero Slider:', $this->plugin->text_domain ); ?>
-					</label>
-					<select id="<?php echo esc_attr( $this->get_field_id( 'slider_id' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'slider_id' ) ); ?>" style="max-width: 100%; min-width: 100%;">
-						<option><?php _e( '&mdash; None &mdash;', $this->plugin->text_domain ); ?></option>
+				<?php if ( ! apply_filters( 'disable_wds_slider_cpt', false ) ) : ?>
+					<p>
+						<label for="<?php echo esc_attr( $this->get_field_id( 'slider_id' ) ); ?>">
+							<?php _e( 'Choose Hero Slider:', $this->plugin->text_domain ); ?>
+						</label>
+						<select id="<?php echo esc_attr( $this->get_field_id( 'slider_id' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'slider_id' ) ); ?>" style="max-width: 100%; min-width: 100%;">
+							<option><?php _e( '&mdash; None &mdash;', $this->plugin->text_domain ); ?></option>
 
-						<!-- Logo Train ID -->
-						<?php if ( is_array( $sliders ) ) : ?>
-							<?php foreach( $sliders as $slider_id ) : ?>
-								<option value="<?php echo esc_attr( $slider_id ); ?>" <?php selected( $slider_id, $instance['slider_id'] ); ?>><?php echo get_the_title( $slider_id ); ?></option>
-							<?php endforeach; ?>
-						<?php endif; ?>
-					</select>
-				</p>
+							<!-- Logo Train ID -->
+							<?php if ( is_array( $sliders ) ) : ?>
+								<?php foreach( $sliders as $slider_id ) : ?>
+									<option value="<?php echo esc_attr( $slider_id ); ?>" <?php selected( $slider_id, $instance['slider_id'] ); ?>><?php echo get_the_title( $slider_id ); ?></option>
+								<?php endforeach; ?>
+							<?php endif; ?>
+						</select>
+					</p>
 
-				<p class="description"><?php _e( 'Uses any <em>Hero Slider</em> to slide images in the background.', $this->plugin->text_domain ) ?></p>
+					<p class="description"><?php _e( 'Uses any <em>Hero Slider</em> to slide images in the background.', $this->plugin->text_domain ) ?></p>
+				<?php endif; ?>
 
 				<!-- Text inputs -->
 				<?php foreach( $this->text_inputs as $input ): ?>
