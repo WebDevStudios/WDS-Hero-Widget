@@ -9,6 +9,7 @@ html {
 .hero {
   overflow: hidden;
   position: relative;
+  margin-bottom: 1em;
 }
 
 .hero .content-wrapper {

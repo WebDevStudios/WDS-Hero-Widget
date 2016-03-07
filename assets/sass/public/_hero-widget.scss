@@ -1,10 +1,14 @@
 //--------------------------------------------------------------
 // Hero Widget Styles
+//
+// Do NOT change the SASS here, add your CSS in a separate
+// stylesheet or use a CSS plugin to override styles here.
 //--------------------------------------------------------------
 
 .hero {
 	overflow: hidden;
 	position: relative;
+	margin-bottom: 1em;
 
 	.content-wrapper {
 		position: relative;
