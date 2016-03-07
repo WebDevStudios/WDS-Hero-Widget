@@ -31,6 +31,30 @@ to customize Hero's for your site.*
 - A large Hero area with whatever background, video, or slider you setup as the background
 - A heading, sub-heading, and a call to action button
 
+## Disabling Things
+
+This plugin is designed, mainly, for the developer as a toolkit for heroes. So,
+you may want to disable things on a per-project basis. This is how you disable
+things.
+
+### Disable Widget UI
+
+You may want to place heroes manually and not give the user any
+UI to do so. To disable the Widget UI add this to `wp-config.php`:
+
+```
+add_filter( 'disable_wds_hero_widget', '__return_true' );
+```
+
+### Disable Sliders CPT
+
+If you aren't planning on using sliders, you can disable them completely using
+the following in your `wp-config.php`:
+
+```
+add_filter( 'disable_wds_slider_cpt', '__return_true' );
+```
+
 # Changelog
 
 ## 1.0-dev (Currently in Development)
