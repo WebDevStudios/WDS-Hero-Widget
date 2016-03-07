@@ -18,6 +18,81 @@ and sometimes content is in them.
 
 *That is a hero!*
 
+## Shortcode Example
+
+```
+[hero type="primary" id="my-id" class="my-class" video="http://mysite.com/my-video.mp4" heading="My Heading" sub_heading="My Sub Heading" button_text="My Button" button_link="http://webdevstudios.com" custom_content_action="my_content_action_filter" image="http://mysite.com/my-image.png" overlay="0.2" overlay_color="#fff" slider_id="2"]
+    Additional Content
+[/hero]
+```
+
+### Shortcode & Template Tag Arguments:
+
+`type: primary|secondary|secondary-paralax`
+
+The type of the hero. As of 1.0 we have 3: `primary`, `secondary`, and `secondary-paralax`.
+
+`id: my-id`
+
+Gives your heroes ID attributes:
+
+```
+<div id="my-id"...
+```
+
+`class: my-class`
+
+Add classes to your heroes:
+
+```
+<div id="my-id" class="my-class"...
+```
+
+`video: http://mysite.com/my-video.mp4`
+
+Place web-able videos in your heroes. Video must be a web-playable format.
+
+`heading: My Heading`
+
+Set the main heading.
+
+`sub_heading: My Sub Heading`
+
+Set the sub-heading.
+
+`button_text: My Button`
+
+Set the button text.
+
+`button_link: http://webdevstudios.com`
+
+Set the button link (opens in current window).
+
+`custom_content_action: my_action`
+
+Set the action that is performed within the hero. You can then add actions
+to this and add additional content within your hero.
+
+```
+add_action( 'my_action', 'do_this_thing_func' );
+```
+
+`image: http://mysite.com/my-image.png`
+
+Set the background image of your hero.
+
+`overlay: 0.2`
+
+Set the overlay transparency.
+
+`overlay_color: #fff`
+
+Set the overlay color.
+
+`slider_id: 2`
+
+Set the slider post ID to pull in slider images.
+
 ## Styling
 
 This plugin is intended to place basic Hero's on your site intended for

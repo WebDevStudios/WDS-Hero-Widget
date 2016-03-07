@@ -129,7 +129,7 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 		 *         'sub_heading'           => __( 'My Sub heading', 'text-domain' ),
 		 *         'button_text'           => __( 'My Button', 'text-domain' ),
 		 *         'button_link'           => 'http://webdevstudios.com',
-		 *         'custom_content_action' => 'my_content_action_filter',
+		 *         'custom_content_action' => 'hero_action',
 		 *         'overlay'               => 0.2, // Sets an overlay to 0.2 (20%)
 		 *         'overlay_color'         => '#000', // Black
 		 *         'slider_id'             => false, // The slider post id of the CPT "Hero Sliders."
@@ -137,7 +137,7 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 		 *
 		 * Shortcode Example:
 		 *
-		 *     [hero type="primary" id="my-id" class="my-class" video="http://mysite.com/my-video.mp4" heading="My Heading" sub_heading="My Sub Heading" button_text="My Button" button_link="http://webdevstudios.com" custom_content_action="my_content_action_filter" image="http://mysite.com/my-image.png" overlay="0.2" overlay_color="#fff" slider_id="2"]
+		 *     [hero type="primary" id="my-id" class="my-class" video="http://mysite.com/my-video.mp4" heading="My Heading" sub_heading="My Sub Heading" button_text="My Button" button_link="http://webdevstudios.com" custom_content_action="hero_action" image="http://mysite.com/my-image.png" overlay="0.2" overlay_color="#fff" slider_id="2"]
 		 *         Additional Content
 		 *     [/hero]
 		 *
@@ -168,7 +168,7 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 		 *     }
 		 *
 		 *     // In order for the action to work, you must define custom_content_action
-		 *     add_action( 'my_content_action_filter' , 'my_content' );
+		 *     add_action( 'hero_action' , 'my_content' );
 		 *
 		 *     ?>
 		 *
@@ -265,8 +265,6 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 						<?php if ( $content ) : ?>
 							<?php echo wp_kses_post( $content ); ?>
 						<?php endif; ?>
-
-
 					</span>
 				</div>
 
