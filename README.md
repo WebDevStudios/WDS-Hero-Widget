@@ -119,7 +119,7 @@ You may want to place heroes manually and not give the user any
 UI to do so. To disable the Widget UI add this to `wp-config.php`:
 
 ```
-add_filter( 'disable_wds_hero_widget', '__return_true' );
+define( 'DISABLE_WDS_HERO_WIDGET', true );
 ```
 
 ### Disable Sliders CPT
@@ -128,7 +128,7 @@ If you aren't planning on using sliders, you can disable them completely using
 the following in your `wp-config.php`:
 
 ```
-add_filter( 'disable_wds_slider_cpt', '__return_true' );
+define( 'DISABLE_WDS_SLIDER_CPT', true );
 ```
 
 # Changelog

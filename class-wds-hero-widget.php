@@ -406,7 +406,7 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 			add_action( 'init', array( $this, 'init' ) );
 
 			// Widget
-			if ( true === apply_filters( 'disable_wds_hero_widget', false ) ) {
+			if ( ! defined( 'DISABLE_WDS_HERO_WIDGET' ) || false === DISABLE_WDS_HERO_WIDGET  ) {
 				add_action( 'widgets_init', array( $this, 'wds_hero_widget_widget' ) );
 			}
 

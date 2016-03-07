@@ -23,7 +23,7 @@ if ( ! class_exists( 'WDS_Slider_CPT' ) ) :
 		public $core;
 
 		function __construct( $core ) {
-			if ( true === apply_filters( 'disable_wds_slider_cpt', false ) ) {
+			if ( defined( 'DISABLE_WDS_SLIDER_CPT' ) && true === DISABLE_WDS_SLIDER_CPT ) {
 				return; // Allows developers to disable Slider CPT.
 			}
 
