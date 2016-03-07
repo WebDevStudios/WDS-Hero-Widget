@@ -211,7 +211,7 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 					$speed = $speed_meta ? absint( $speed_meta ) : 5000;
 				?>
 					<div class="sliders" data-slider-speed="<?php echo esc_attr( $speed ); ?>">
-						<?php if( isset( $images ) && is_array( $images ) ) : ?>
+						<?php if ( isset( $images ) && is_array( $images ) ) : ?>
 							<?php foreach ( $images as $attachment_id => $src ) :
 
 								// Attachment details.
@@ -244,7 +244,7 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 
 					<span class="content-button">
 						<?php if ( $args['button_text'] ) : ?>
-							<?php if( $args['button_link'] ) : ?><a href="<?php echo esc_url( $args['button_link'] ); ?>"><?php endif; ?><button><?php echo esc_html( $args['button_text'] ); ?></button><?php if ( $args['button_link'] ) : ?></a><?php endif; ?>
+							<?php if ( $args['button_link'] ) : ?><a href="<?php echo esc_url( $args['button_link'] ); ?>"><?php endif; ?><button><?php echo esc_html( $args['button_text'] ); ?></button><?php if ( $args['button_link'] ) : ?></a><?php endif; ?>
 						<?php endif; ?>
 					</span>
 

@@ -382,7 +382,7 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 				</p>
 
 				<!-- Sliders -->
-				<?php if ( ! apply_filters( 'disable_wds_slider_cpt', false ) ) : ?>
+				<?php if ( true === apply_filters( 'disable_wds_slider_cpt', false ) ) : ?>
 					<p>
 						<label for="<?php echo esc_attr( $this->get_field_id( 'slider_id' ) ); ?>">
 							<?php _e( 'Choose Hero Slider:', $this->plugin->text_domain ); ?>
