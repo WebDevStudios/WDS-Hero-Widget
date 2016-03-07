@@ -61,13 +61,6 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 		protected $types;
 
 		/**
-		 * The plugin.
-		 *
-		 * @var object
-		 */
-		public $plugin;
-
-		/**
 		 * Contruct widget.
 		 */
 		public function __construct( $widget_name = false ) {
