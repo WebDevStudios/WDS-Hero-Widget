@@ -5,10 +5,10 @@
 		var speed = $( this ).attr( 'data-slider-speed' );
 
 		$( this ).slick( {
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			autoplay: true,
-			autoplaySpeed: speed * 1000,
+			slidesToShow:    1,
+			slidesToScroll:  1,
+			autoplay:        true,
+			autoplaySpeed:   speed * 1000,
 		} );
 	} );
 
