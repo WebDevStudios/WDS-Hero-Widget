@@ -408,7 +408,9 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 			add_action( 'init', array( $this, 'init' ) );
 
 			// Widget
-			add_action( 'widgets_init', array( $this, 'wds_hero_widget_widget' ) );
+			if ( true === apply_filters( 'disable_wds_hero_widget', false ) ) {
+				add_action( 'widgets_init', array( $this, 'wds_hero_widget_widget' ) );
+			}
 
 			// Template tag shortcode
 			add_shortcode( 'hero', array( $this, 'wds_hero' ) );
