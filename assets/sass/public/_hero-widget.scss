@@ -206,8 +206,21 @@
 			margin-left: auto;
 		}
 
-		img {
+		&,
+		.slick-track,
+		.slick-list {
+			height: 100%;
+		}
+
+		.slider {
+			height: 100%;
 			width: 100%;
+			background-size: cover;
+			background-position: center center;
+		}
+
+		img {
+			display: none;
 		}
 	}
 }

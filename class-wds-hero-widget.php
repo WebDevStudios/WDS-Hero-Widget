@@ -220,7 +220,7 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 								$alt = $details['alt'];
 							?>
 
-								<div class="slider">
+								<div class="slider" style="background-image: url(<?php echo $src; ?>);">
 									<img src="<?php echo $src; ?>" alt="<?php echo $alt; ?>" />
 								</div>
 

@@ -2,9 +2,7 @@ html {
   box-sizing: border-box;
 }
 
-*,
-*::after,
-*::before {
+*, *::after, *::before {
   box-sizing: inherit;
 }
 
@@ -161,21 +159,18 @@ html {
   z-index: -1;
 }
 
-.hero.secondary-hero,
-.hero.secondary-paralaxed-hero {
+.hero.secondary-hero, .hero.secondary-paralaxed-hero {
   padding: 4.6875rem;
   text-align: center;
 }
 
 @media (min-width: 49em) {
-  .hero.secondary-hero,
-  .hero.secondary-paralaxed-hero {
+  .hero.secondary-hero, .hero.secondary-paralaxed-hero {
     padding: 6.25rem;
   }
 }
 
-.hero.secondary-hero h2,
-.hero.secondary-paralaxed-hero h2 {
+.hero.secondary-hero h2, .hero.secondary-paralaxed-hero h2 {
   color: #fff;
   font-size: 1.5rem;
   font-weight: 700;
@@ -184,15 +179,13 @@ html {
 }
 
 @media (min-width: 49em) {
-  .hero.secondary-hero h2,
-  .hero.secondary-paralaxed-hero h2 {
+  .hero.secondary-hero h2, .hero.secondary-paralaxed-hero h2 {
     font-size: 3rem;
     line-height: 45px;
   }
 }
 
-.hero.secondary-hero p,
-.hero.secondary-paralaxed-hero p {
+.hero.secondary-hero p, .hero.secondary-paralaxed-hero p {
   color: #f7f8f8;
   font-size: 1rem;
   font-weight: 400;
@@ -202,8 +195,7 @@ html {
 }
 
 @media (min-width: 49em) {
-  .hero.secondary-hero p,
-  .hero.secondary-paralaxed-hero p {
+  .hero.secondary-hero p, .hero.secondary-paralaxed-hero p {
     font-size: 1.5rem;
     line-height: 30px;
   }
@@ -258,8 +250,21 @@ html {
   }
 }
 
-.hero .sliders img {
+.hero .sliders,
+.hero .sliders .slick-track,
+.hero .sliders .slick-list {
+  height: 100%;
+}
+
+.hero .sliders .slider {
+  height: 100%;
   width: 100%;
+  background-size: cover;
+  background-position: center center;
+}
+
+.hero .sliders img {
+  display: none;
 }
 
 /*# sourceMappingURL=wds-hero-widget.css.map */

@@ -13,10 +13,16 @@ if ( ! class_exists( 'WDS_Slider_CPT' ) ) :
 	 * @package  wds-hero-widget
 	 */
 	class WDS_Slider_CPT {
+		/**
+		 * Core access.
+		 *
+		 * This is where the base plugin is stored.
+		 *
+		 * @var object
+		 */
 		public $core;
 
 		function __construct( $core ) {
-
 			if ( ! apply_filters( 'disable_wds_slider_cpt', false ) ) {
 				return; // Allows developers to disable Slider CPT.
 			}
