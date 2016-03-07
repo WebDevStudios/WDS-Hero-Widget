@@ -133,7 +133,7 @@ define( 'DISABLE_WDS_SLIDER_CPT', true );
 
 # Changelog
 
-## 1.0-dev (Currently in Development)
+## 1.0
 
 - Sliders now use `background-size: cover` to fit images in the container
 - Disable Slider CPT/Sliders and Widget UI using filters
