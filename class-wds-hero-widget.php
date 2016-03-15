@@ -10,6 +10,7 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 	 * WDS Hero Widget Base Class.
 	 *
 	 * @since  1.0.0
+	 *
 	 * @package  wds-hero-widget
 	 */
 	class WDS_Hero_Widget {
@@ -17,6 +18,7 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 		 * Plugin Header Information.
 		 *
 		 * @since  1.0.0
+		 *
 		 * @var array
 		 */
 		public $plugin_headers;
@@ -25,6 +27,7 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 		 * Slider CPT Class.
 		 *
 		 * @since  1.0.0
+		 *
 		 * @var object WDS_Slider_CPT
 		 */
 		public $slider_cpt;
@@ -33,6 +36,7 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 		 * Single instance plugin.
 		 *
 		 * @since  1.0.0
+		 *
 		 * @var null
 		 */
 		protected static $single_instance = null;
