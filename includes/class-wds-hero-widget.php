@@ -9,7 +9,7 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 	/**
 	 * Handles the Hero Widget for Widget Areas.
 	 *
-	 * @since  1.0
+	 * @since  1.0.0
 	 * @package  wds-hero-widget
 	 */
 	class WDS_Hero_Widget_Widget extends WP_Widget {
@@ -19,6 +19,8 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 		 *
 		 * Will also serve as the widget class.
 		 *
+		 * @since  1.0.0
+		 *
 		 * @var string
 		 */
 		protected $widget_slug = 'wds-hero-widget';
@@ -26,6 +28,8 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 		/**
 		 * Widget name displayed in Widgets dashboard.
 		 * Set in __construct since __() shouldn't take a variable.
+		 *
+		 * @since  1.0.0
 		 *
 		 * @var string
 		 */
@@ -35,12 +39,16 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 		 * Default widget title displayed in Widgets dashboard.
 		 * Set in __construct since __() shouldn't take a variable.
 		 *
+		 * @since  1.0.0
+		 *
 		 * @var string
 		 */
 		protected $default_widget_title = '';
 
 		/**
 		 * Shortcode name for this widget
+		 *
+		 * @since  1.0.0
 		 *
 		 * @var string
 		 */
@@ -49,6 +57,8 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 		/**
 		 * All the text inputs used in the Widget
 		 *
+		 * @since  1.0.0
+		 *
 		 * @var array
 		 */
 		protected $text_inputs;
@@ -56,12 +66,16 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 		/**
 		 * All the types of Hero's
 		 *
+		 * @since  1.0.0
+		 *
 		 * @var array
 		 */
 		protected $types;
 
 		/**
-		 * Contruct widget.
+		 * Construct.
+		 *
+		 * @since  1.0.0
 		 */
 		public function __construct( $widget_name = false ) {
 
@@ -182,6 +196,8 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 		 *
 		 * Note: Could also delete any transients
 		 * delete_transient( 'some-transient-generated-by-this-widget' );
+		 *
+		 * @since  1.0.0
 		 */
 		public function flush_widget_cache() {
 			wp_cache_delete( $this->widget_slug, 'widget' );
@@ -189,6 +205,8 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 
 		/**
 		 * Front-end display of widget.
+		 *
+		 * @since  1.0.0
 		 *
 		 * @param  array  $args      The widget arguments set up when a sidebar is registered.
 		 * @param  array  $instance  The widget settings as set by user.
@@ -223,6 +241,8 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 
 		/**
 		 * Return the widget/shortcode output.
+		 *
+		 * @since  1.0.0
 		 *
 		 * @param  array  $atts Array of widget/shortcode attributes/args
 		 * @return string       Widget output
@@ -265,6 +285,8 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 		/**
 		 * Condenses all the inputs into a simple array of slugs.
 		 *
+		 * @since  1.0.0
+		 *
 		 * @return array Simplified inputs
 		 */
 		function get_all_the_input_slugs() {
@@ -277,6 +299,8 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 
 		/**
 		 * Update form values as they are saved.
+		 *
+		 * @since  1.0.0
 		 *
 		 * @param  array  $new_instance  New settings for this instance as input by the user.
 		 * @param  array  $old_instance  Old settings for this instance.
@@ -312,6 +336,8 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 		/**
 		 * Makes sure we set a float for transparency.
 		 *
+		 * @since  1.0.0
+		 *
 		 * @param  string $overlay The string set by the user
 		 *
 		 * @return float           The decimal value it should use instead.
@@ -329,6 +355,8 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 		/**
 		 * Make sure we're storing a sanitized URL in the DB.
 		 *
+		 * @since  1.0.0
+		 *
 		 * @param  string $url The URL set by the user.
 		 *
 		 * @return string      Sanitized URL going to the DB.
@@ -339,6 +367,8 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 
 		/**
 		 * Back-end widget form with defaults.
+		 *
+		 * @since  1.0.0
 		 *
 		 * @param  array  $instance  Current settings.
 		 */
