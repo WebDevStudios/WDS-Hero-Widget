@@ -14,21 +14,12 @@ if ( ! class_exists( 'WDS_Slider_CPT' ) ) :
 	 */
 	class WDS_Slider_CPT {
 		/**
-		 * Core access.
-		 *
-		 * This is where the base plugin is stored.
-		 *
-		 * @var object
+		 * Construct.
 		 */
-		public $core;
-
-		function __construct( $core ) {
+		function __construct() {
 			if ( defined( 'DISABLE_WDS_SLIDER_CPT' ) && true === DISABLE_WDS_SLIDER_CPT ) {
 				return; // Allows developers to disable Slider CPT.
 			}
-
-			// Assign core to this instance.
-			$this->core = $core;
 
 			// Add Custom Meta Boxes
 			add_action( 'cmb2_init', array( $this, 'images_cmb2_init' ) );

@@ -390,7 +390,7 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 		 * @since 1.0.0
 		 */
 		function plugin_classes() {
-			$this->slider_cpt = new WDS_Slider_CPT( $this );
+			$this->slider_cpt = new WDS_Slider_CPT();
 		}
 
 		/**
