@@ -9,24 +9,38 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 	/**
 	 * WDS Hero Widget Base Class.
 	 *
-	 * @since  1.0
+	 * @since  1.0.0
 	 * @package  wds-hero-widget
 	 */
 	class WDS_Hero_Widget {
+		/**
+		 * Plugin Header Information.
+		 *
+		 * @since  1.0.0
+		 * @var array
+		 */
 		public $plugin_headers;
-		public $version;
+
+		/**
+		 * Slider CPT Class.
+		 *
+		 * @since  1.0.0
+		 * @var object WDS_Slider_CPT
+		 */
 		public $slider_cpt;
 
-		protected $url      = '';
-		protected $path     = '';
-		protected $basename = '';
-
+		/**
+		 * Single instance plugin.
+		 *
+		 * @since  1.0.0
+		 * @var null
+		 */
 		protected static $single_instance = null;
 
 		/**
 		 * Creates or returns an instance of this class.
 		 *
-		 * @since  0.1.0
+		 * @since  1.0.0
 		 *
 		 * @return WDS_Hero_Widget A single instance of this class.
 		 */
@@ -46,28 +60,36 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 		protected function __construct() {
 			// Includes more files.
 			$this->includes();
-
-			$this->basename = plugin_basename( __FILE__ );
-			$this->url      = plugin_dir_url( __FILE__ );
-			$this->path     = plugin_dir_path( __FILE__ );
-
-			$this->plugin_classes();
-			$this->hooks();
-
 			$this->set_plugin_info();
-			$this->version = $this->get_plugin_info( 'Version' );
-			$this->text_domain = $this->get_plugin_info( 'Text Domain' );
+
+			// Slider CPT.
+			$this->slider_cpt = new WDS_Slider_CPT();
+
+			// Activate
+			register_activation_hook( __FILE__, array( $this, '_activate' ) );
 
 			// Enqueue styles
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+
+			// s
+			add_action( 'init', array( $this, 'load_text_domain' ) );
+
+			// Widget
+			if ( ! defined( 'DISABLE_WDS_HERO_WIDGET' ) || false === DISABLE_WDS_HERO_WIDGET  ) {
+				add_action( 'widgets_init', array( $this, 'wds_hero_widget_widget' ) );
+			}
+
+			// Template tag shortcode
+			add_shortcode( 'hero', array( $this, 'wds_hero' ) );
 		}
 
 		/**
 		 * Enqueue JS scripts.
+		 *
+		 * @since  1.0.0
 		 */
 		public function enqueue_scripts() {
-
 			// Slick animations.
 			wp_enqueue_script( 'slick-js', plugins_url( 'assets/bower/slick.js/slick/slick.js', __FILE__ ), array( 'jquery' ), $this->script_version(), true );
 
@@ -76,7 +98,9 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 		}
 
 		/**
-		 * Enqueue public facing styles.
+		 * Enqueue public facing styles.\
+		 *
+		 * @since  1.0.0
 		 */
 		public function enqueue_styles() {
 			wp_enqueue_style( 'wds-hero-widget', plugins_url( 'assets/css/wds-hero-widget.css', __FILE__ ), array(), $this->script_version(), 'screen' );
@@ -89,12 +113,13 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 		/**
 		 * Get the details of a logo (attachment).
 		 *
+		 * @since  1.0.0
+		 *
 		 * @param  int $attachment_id   The ID of the attachment.
 		 *
 		 * @return array                Details for the attachment/logo.
 		 */
 		function get_attachment_details( $attachment_id, $size = 'large' ) {
-
 			// Get the desired attachment src for the size we want.
 			$details['src'] = wp_get_attachment_image_src( $attachment_id, $size );
 
@@ -316,6 +341,8 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 		/**
 		 * Sets the inline CSS for opacity.
 		 *
+		 * @since 1.0.0
+		 *
 		 * @param  string $opacity URL of the background image.
 		 *
 		 * @return string                 CSS opacity set to $opacity
@@ -338,7 +365,7 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 		/**
 		 * Include a file from the includes directory
 		 *
-		 * @since  1.0
+		 * @since  1.0.0
 		 */
 		public function includes() {
 			$files = array(
@@ -359,10 +386,13 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 
 		/**
 		 * Set the plugin header info.
+		 *
+		 * @since  1.0.0
 		 */
 		function set_plugin_info() {
+			$headers_file = trailingslashit( dirname( __FILE__ ) ) . 'wds-hero-widget.php';
 			$this->plugin_headers = get_file_data(
-				__FILE__, array(
+				$headers_file, array(
 					'Plugin Name' => 'Plugin Name',
 					'Plugin URI'  => 'Plugin URI',
 					'Version'     => 'Version',
@@ -378,39 +408,12 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 		/**
 		 * Get a particular header value.
 		 *
+		 * @since  1.0.0
+		 *
 		 * @param  string $key The value of the plugin header.
 		 */
 		function get_plugin_info( $key ) {
 			return trim( $this->plugin_headers[ $key ] );
-		}
-
-		/**
-		 * Attach other plugin classes to the base plugin class.
-		 *
-		 * @since 1.0.0
-		 */
-		function plugin_classes() {
-			$this->slider_cpt = new WDS_Slider_CPT();
-		}
-
-		/**
-		 * Add hooks and filters.
-		 *
-		 * @since 1.0.0
-		 */
-		public function hooks() {
-			register_activation_hook( __FILE__, array( $this, '_activate' ) );
-			register_deactivation_hook( __FILE__, array( $this, '_deactivate' ) );
-
-			add_action( 'init', array( $this, 'init' ) );
-
-			// Widget
-			if ( ! defined( 'DISABLE_WDS_HERO_WIDGET' ) || false === DISABLE_WDS_HERO_WIDGET  ) {
-				add_action( 'widgets_init', array( $this, 'wds_hero_widget_widget' ) );
-			}
-
-			// Template tag shortcode
-			add_shortcode( 'hero', array( $this, 'wds_hero' ) );
 		}
 
 		/**
@@ -433,16 +436,9 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 		}
 
 		/**
-		 * Deactivate the plugin.
-		 *
-		 * Uninstall routines should be in uninstall.php
+		 * When debugging, disabled cache.
 		 *
 		 * @since  1.0.0
-		 */
-		function _deactivate() {}
-
-		/**
-		 * When debugging, disabled cache.
 		 *
 		 * @return string Timestamp when debugging, actual version when not.
 		 */
@@ -450,72 +446,17 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 			if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
 				return time();
 			} else {
-				return $this->version;
+				return $this->get_plugin_info( 'Version' );
 			}
 		}
 
 		/**
-		 * Init hooks.
+		 * Load Plugin Language files.
 		 *
-		 * @since  1.0.0
+		 * @since 1.1 Rewritten to just load the text domain language files.
 		 */
-		public function init() {
-			if ( $this->check_requirements() ) {
-				load_plugin_textdomain( 'wds-hero-widget', false, dirname( $this->basename ) . '/languages/' );
-			}
-		}
-
-		/**
-		 * Check that all plugin requirements are met.
-		 *
-		 * @since  1.0.0
-		 * @return boolean
-		 */
-		public static function meets_requirements() {
-			return true;
-		}
-
-		/**
-		 * Check if the plugin meets requirements and disable it if they are not present.
-		 *
-		 * @since  1.0.0
-		 * @return boolean result of meets_requirements
-		 */
-		public function check_requirements() {
-			if ( ! $this->meets_requirements() ) {
-				// Display our error
-				echo '<div id="message" class="error">';
-					echo '<p>' . sprintf( __( 'WDS Hero Widget is missing requirements and has been <a href="%s">deactivated</a>. Please make sure all requirements are available.', 'wds-hero-widget' ), admin_url( 'plugins.php' ) ) . '</p>';
-				echo '</div>';
-				// Deactivate our plugin
-				deactivate_plugins( $this->basename );
-
-				return false;
-			}
-
-			return true;
-		}
-
-		/**
-		 * Magic getter for our object.
-		 *
-		 * @since  1.0.0
-		 *
-		 * @param string $field
-		 * @throws Exception Throws an exception if the field is invalid.
-		 * @return mixed
-		 */
-		public function __get( $field ) {
-			switch ( $field ) {
-				case 'version':
-					return self::$this->version;
-				case 'basename':
-				case 'url':
-				case 'path':
-					return $this->$field;
-				default:
-					throw new Exception( 'Invalid '. __CLASS__ .' property: ' . $field );
-			}
+		public function load_text_domain() {
+			load_plugin_textdomain( 'wds-hero-widget', false, dirname( __FILE__ ) . '../languages/' );
 		}
 	} // WDS_Hero_Widget Class.
 
@@ -523,6 +464,7 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 	 * Access WDS_Hero_Widget.
 	 *
 	 * @since  1.1
+	 *
 	 * @return object WDS_Hero_Widget.
 	 */
 	function wds_hero_widget() {
