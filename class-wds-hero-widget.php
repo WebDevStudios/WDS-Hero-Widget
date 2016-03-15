@@ -519,19 +519,16 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 		}
 	} // WDS_Hero_Widget Class.
 
-	// Make the base class instance.
-	$wds_hero_widget = WDS_Hero_Widget::get_instance();
-
 	/**
-	 * Grab the WDS_Hero_Widget object and return it.
+	 * Access WDS_Hero_Widget.
 	 *
-	 * Wrapper for WDS_Hero_Widget::get_instance()
+	 * @since  1.1
+	 * @return object WDS_Hero_Widget.
 	 */
 	function wds_hero_widget() {
-		global $wds_hero_widget;
-
-		if ( isset( $wds_hero_widget ) ) {
-			return $wds_hero_widget;
-		}
+		return WDS_Hero_Widget::get_instance();
 	}
+
+	// Kick off!
+	wds_hero_widget();
 endif;
