@@ -423,7 +423,7 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 						</select>
 					</p>
 
-					<p class="description"><?php _e( 'Uses any <em>Hero Slider</em> to slide images in the background.', 'wds-hero-widget' ) ?></p>
+					<p class="description"><?php echo sprintf( __( 'Uses any %sHero Slider%s to slide images in the background.', 'wds-hero-widget' ), '<em>', '</em>' ); ?></p>
 				<?php endif; ?>
 
 				<!-- Text inputs -->

@@ -2,9 +2,9 @@
 # This file is distributed under the GPLv2.
 msgid ""
 msgstr ""
-"Project-Id-Version: WDS Hero Widget 1.0\n"
+"Project-Id-Version: WDS Hero Widget 1.1-dev\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/WDS-Hero-Widget\n"
-"POT-Creation-Date: 2016-03-07 16:00:39+00:00\n"
+"POT-Creation-Date: 2016-03-15 15:44:21+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -13,222 +13,215 @@ msgstr ""
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 0.5.4\n"
 
-#: class-wds-hero-widget.php:489
-msgid ""
-"WDS Hero Widget is missing requirements and has been <a "
-"href=\"%s\">deactivated</a>. Please make sure all requirements are "
-"available."
-msgstr ""
-
-#: includes/class-wds-hero-widget.php:73 includes/class-wds-hero-widget.php:74
+#: includes/class-wds-hero-widget.php:83 includes/class-wds-hero-widget.php:84
 msgid "Hero"
 msgstr ""
 
-#: includes/class-wds-hero-widget.php:86
+#: includes/class-wds-hero-widget.php:96
 msgid "Hero widget."
 msgstr ""
 
-#: includes/class-wds-hero-widget.php:108
+#: includes/class-wds-hero-widget.php:118
 msgid "ID"
 msgstr ""
 
-#: includes/class-wds-hero-widget.php:110
+#: includes/class-wds-hero-widget.php:120
 msgid "Add a unique ID name to this hero"
 msgstr ""
 
-#: includes/class-wds-hero-widget.php:115
+#: includes/class-wds-hero-widget.php:125
 msgid "Classes"
 msgstr ""
 
-#: includes/class-wds-hero-widget.php:117
+#: includes/class-wds-hero-widget.php:127
 msgid "Any additional classes you would like to add to this Hero."
 msgstr ""
 
-#: includes/class-wds-hero-widget.php:122
+#: includes/class-wds-hero-widget.php:132
 msgid "Background Image URL"
 msgstr ""
 
-#: includes/class-wds-hero-widget.php:124
+#: includes/class-wds-hero-widget.php:134
 msgid "The image to apply as the background image."
 msgstr ""
 
-#: includes/class-wds-hero-widget.php:129
+#: includes/class-wds-hero-widget.php:139
 msgid "Background Video URL"
 msgstr ""
 
-#: includes/class-wds-hero-widget.php:131
+#: includes/class-wds-hero-widget.php:141
 msgid "Must be a .mp4 video."
 msgstr ""
 
-#: includes/class-wds-hero-widget.php:136
+#: includes/class-wds-hero-widget.php:146
 msgid "Primary Heading"
 msgstr ""
 
-#: includes/class-wds-hero-widget.php:138
+#: includes/class-wds-hero-widget.php:148
 msgid "Large Heading (top)"
 msgstr ""
 
-#: includes/class-wds-hero-widget.php:139
+#: includes/class-wds-hero-widget.php:149
 msgid "My Heading"
 msgstr ""
 
-#: includes/class-wds-hero-widget.php:143
-#: includes/class-wds-hero-widget.php:146
+#: includes/class-wds-hero-widget.php:153
+#: includes/class-wds-hero-widget.php:156
 msgid "Sub Heading"
 msgstr ""
 
-#: includes/class-wds-hero-widget.php:145
+#: includes/class-wds-hero-widget.php:155
 msgid "Smaller Heading (below primary)"
 msgstr ""
 
-#: includes/class-wds-hero-widget.php:150
-#: includes/class-wds-hero-widget.php:153
+#: includes/class-wds-hero-widget.php:160
+#: includes/class-wds-hero-widget.php:163
 msgid "Button Text"
 msgstr ""
 
-#: includes/class-wds-hero-widget.php:152
+#: includes/class-wds-hero-widget.php:162
 msgid "Displayed below headings."
 msgstr ""
 
-#: includes/class-wds-hero-widget.php:157
+#: includes/class-wds-hero-widget.php:167
 msgid "Button URL"
 msgstr ""
 
-#: includes/class-wds-hero-widget.php:159
+#: includes/class-wds-hero-widget.php:169
 msgid "What URL should the button open?"
 msgstr ""
 
-#: includes/class-wds-hero-widget.php:164
+#: includes/class-wds-hero-widget.php:174
 msgid "Overlay Transparency"
 msgstr ""
 
-#: includes/class-wds-hero-widget.php:166
+#: includes/class-wds-hero-widget.php:176
 msgid "Will automatically calculate CSS safe value."
 msgstr ""
 
-#: includes/class-wds-hero-widget.php:171
+#: includes/class-wds-hero-widget.php:181
 msgid "Overlay Color"
 msgstr ""
 
-#: includes/class-wds-hero-widget.php:173
+#: includes/class-wds-hero-widget.php:183
 msgid "The color of the overlay. Include # or use colors like \"red\""
 msgstr ""
 
-#: includes/class-wds-hero-widget.php:375
+#: includes/class-wds-hero-widget.php:399
 msgid "Hero Type"
 msgstr ""
 
-#: includes/class-wds-hero-widget.php:388
+#: includes/class-wds-hero-widget.php:412
 msgid "Choose Hero Slider:"
 msgstr ""
 
-#: includes/class-wds-hero-widget.php:391
-msgid "&mdash; None &mdash;"
+#: includes/class-wds-hero-widget.php:415
+msgid "%s None %s"
 msgstr ""
 
-#: includes/class-wds-hero-widget.php:402
-msgid "Uses any <em>Hero Slider</em> to slide images in the background."
+#: includes/class-wds-hero-widget.php:426
+msgid "Uses any %sHero Slider%s to slide images in the background."
 msgstr ""
 
-#: includes/class-wds-slider-cpt.php:58
+#: includes/class-wds-slider-cpt.php:52
 msgid "Add New Hero Slider"
 msgstr ""
 
-#: includes/class-wds-slider-cpt.php:59
+#: includes/class-wds-slider-cpt.php:53
 msgid "New Hero Slider"
 msgstr ""
 
-#: includes/class-wds-slider-cpt.php:60
+#: includes/class-wds-slider-cpt.php:54
 msgid "Edit Hero Slider"
 msgstr ""
 
-#: includes/class-wds-slider-cpt.php:61
+#: includes/class-wds-slider-cpt.php:55
 msgid "View Hero Slider"
 msgstr ""
 
-#: includes/class-wds-slider-cpt.php:62
+#: includes/class-wds-slider-cpt.php:56
 msgid "All Hero Sliders"
 msgstr ""
 
-#: includes/class-wds-slider-cpt.php:63
+#: includes/class-wds-slider-cpt.php:57
 msgid "Search Hero Sliders"
 msgstr ""
 
-#: includes/class-wds-slider-cpt.php:64
+#: includes/class-wds-slider-cpt.php:58
 msgid "Parent Hero Sliders:"
 msgstr ""
 
-#: includes/class-wds-slider-cpt.php:65
+#: includes/class-wds-slider-cpt.php:59
 msgid "No Hero Slider found."
 msgstr ""
 
-#: includes/class-wds-slider-cpt.php:66
+#: includes/class-wds-slider-cpt.php:60
 msgid "No Hero Slider found in Trash."
 msgstr ""
 
-#: includes/class-wds-slider-cpt.php:91
+#: includes/class-wds-slider-cpt.php:80
 msgid "Hero Slider"
 msgstr ""
 
-#: includes/class-wds-slider-cpt.php:99
+#: includes/class-wds-slider-cpt.php:88
 msgid "Images"
 msgstr ""
 
-#: includes/class-wds-slider-cpt.php:102
+#: includes/class-wds-slider-cpt.php:91
 msgid ""
 "You do not need to create a slider if you intend to use a single image in "
 "your hero."
 msgstr ""
 
-#: includes/class-wds-slider-cpt.php:107
+#: includes/class-wds-slider-cpt.php:96
 msgid "Slider speed in seconds"
 msgstr ""
 
-#: includes/class-wds-slider-cpt.php:111
-msgid "Each image will slide in every <code>&times</code> seconds."
+#: includes/class-wds-slider-cpt.php:100
+msgid "Each image will slide in every %s seconds."
 msgstr ""
 
-#: includes/class-wds-slider-cpt.php:130
+#: includes/class-wds-slider-cpt.php:121
 msgid "Add this as a %s or using a shortcode."
 msgstr ""
 
-#: includes/class-wds-slider-cpt.php:132
+#: includes/class-wds-slider-cpt.php:123
 msgid "Primary Hero"
 msgstr ""
 
-#: includes/class-wds-slider-cpt.php:135
+#: includes/class-wds-slider-cpt.php:126
 msgid "Secondary Hero"
 msgstr ""
 
-#: includes/class-wds-slider-cpt.php:138
+#: includes/class-wds-slider-cpt.php:129
 msgid "Parallaxed Horizontal Hero"
 msgstr ""
 
-#: includes/class-wds-slider-cpt.php:141
+#: includes/class-wds-slider-cpt.php:132
 msgid ""
 "Note that the paralaxed version does not work with video. The layout of "
 "this option puts the button on the right, and the Heading on the left w/out "
 "the sub-heading."
 msgstr ""
 
-#: includes/class-wds-slider-cpt.php:143
+#: includes/class-wds-slider-cpt.php:134
 msgid "Adding a Video"
 msgstr ""
 
-#: includes/class-wds-slider-cpt.php:146
+#: includes/class-wds-slider-cpt.php:137
 msgid "The video is added using HTML5. Using a YouTube video is not supported."
 msgstr ""
 
-#: includes/class-wds-slider-cpt.php:148
+#: includes/class-wds-slider-cpt.php:139
 msgid "Adding an Overlay"
 msgstr ""
 
-#: includes/class-wds-slider-cpt.php:220
+#: includes/class-wds-slider-cpt.php:222
 #: includes/cmb2/includes/helper-functions.php:249
 msgid "Save"
 msgstr ""
 
-#: includes/class-wds-slider-cpt.php:223
+#: includes/class-wds-slider-cpt.php:225
 msgid "Saved"
 msgstr ""
 
@@ -716,27 +709,27 @@ msgstr ""
 msgid "WebDevStudios"
 msgstr ""
 
-#: includes/class-wds-slider-cpt.php:53
+#: includes/class-wds-slider-cpt.php:47
 msgctxt "post type general name"
 msgid "Hero Sliders"
 msgstr ""
 
-#: includes/class-wds-slider-cpt.php:54
+#: includes/class-wds-slider-cpt.php:48
 msgctxt "post type singular name"
 msgid "Hero Slider"
 msgstr ""
 
-#: includes/class-wds-slider-cpt.php:55
+#: includes/class-wds-slider-cpt.php:49
 msgctxt "admin menu"
 msgid "Hero Sliders"
 msgstr ""
 
-#: includes/class-wds-slider-cpt.php:56
+#: includes/class-wds-slider-cpt.php:50
 msgctxt "add new on admin bar"
 msgid "Hero Slider"
 msgstr ""
 
-#: includes/class-wds-slider-cpt.php:57
+#: includes/class-wds-slider-cpt.php:51
 msgctxt "book"
 msgid "Add New"
 msgstr ""
