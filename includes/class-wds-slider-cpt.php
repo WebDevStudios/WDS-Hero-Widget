@@ -97,7 +97,7 @@ if ( ! class_exists( 'WDS_Slider_CPT' ) ) :
 				'id'              => 'wds_hero_slider_speed',
 				'type'            => 'text',
 				'sanitization_cb' => array( $this, 'sanitize_slider_speed' ),
-				'desc'            => __( 'Each image will slide in every <code>&times</code> seconds.', 'wds-hero-widget' ),
+				'desc'            => sprintf( __( 'Each image will slide in every %s seconds.', 'wds-hero-widget' ), '<code>&times</code>' ),
 				'after_row'     => $this->slider_instructions( $slider_id ),
 			) );
 		}
