@@ -31,6 +31,5 @@ Domain Path: /languages
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
  */
 
-if ( ! isset( $wds_hero_widget ) ) {
-	require_once( 'class-wds-hero-widget.php' );
-}
+// Load it!
+require_once( 'class-wds-hero-widget.php' );
