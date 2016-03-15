@@ -15,6 +15,8 @@ if ( ! class_exists( 'WDS_Slider_CPT' ) ) :
 	class WDS_Slider_CPT {
 		/**
 		 * Construct.
+		 *
+		 * @since  1.0.0
 		 */
 		function __construct() {
 			if ( defined( 'DISABLE_WDS_SLIDER_CPT' ) && true === DISABLE_WDS_SLIDER_CPT ) {
@@ -37,42 +39,38 @@ if ( ! class_exists( 'WDS_Slider_CPT' ) ) :
 		/**
 		 * Registers Hero Slider CPT.
 		 *
-		 * @return void
+		 * @since  1.0.0
 		 */
 		public function register_cpt() {
-			$labels = array(
-				'name'               => _x( 'Hero Sliders', 'post type general name', 'wds-hero-widget' ),
-				'singular_name'      => _x( 'Hero Slider', 'post type singular name', 'wds-hero-widget' ),
-				'menu_name'          => _x( 'Hero Sliders', 'admin menu', 'wds-hero-widget' ),
-				'name_admin_bar'     => _x( 'Hero Slider', 'add new on admin bar', 'wds-hero-widget' ),
-				'add_new'            => _x( 'Add New', 'book', 'wds-hero-widget' ),
-				'add_new_item'       => __( 'Add New Hero Slider', 'wds-hero-widget' ),
-				'new_item'           => __( 'New Hero Slider', 'wds-hero-widget' ),
-				'edit_item'          => __( 'Edit Hero Slider', 'wds-hero-widget' ),
-				'view_item'          => __( 'View Hero Slider', 'wds-hero-widget' ),
-				'all_items'          => __( 'All Hero Sliders', 'wds-hero-widget' ),
-				'search_items'       => __( 'Search Hero Sliders', 'wds-hero-widget' ),
-				'parent_item_colon'  => __( 'Parent Hero Sliders:', 'wds-hero-widget' ),
-				'not_found'          => __( 'No Hero Slider found.', 'wds-hero-widget' ),
-				'not_found_in_trash' => __( 'No Hero Slider found in Trash.', 'wds-hero-widget' )
-			);
-
-			$args = array(
-				'labels'    => $labels,
+			register_post_type( 'wds-hero-slider', array(
+				'labels'    => array(
+					'name'               => _x( 'Hero Sliders', 'post type general name', 'wds-hero-widget' ),
+					'singular_name'      => _x( 'Hero Slider', 'post type singular name', 'wds-hero-widget' ),
+					'menu_name'          => _x( 'Hero Sliders', 'admin menu', 'wds-hero-widget' ),
+					'name_admin_bar'     => _x( 'Hero Slider', 'add new on admin bar', 'wds-hero-widget' ),
+					'add_new'            => _x( 'Add New', 'book', 'wds-hero-widget' ),
+					'add_new_item'       => __( 'Add New Hero Slider', 'wds-hero-widget' ),
+					'new_item'           => __( 'New Hero Slider', 'wds-hero-widget' ),
+					'edit_item'          => __( 'Edit Hero Slider', 'wds-hero-widget' ),
+					'view_item'          => __( 'View Hero Slider', 'wds-hero-widget' ),
+					'all_items'          => __( 'All Hero Sliders', 'wds-hero-widget' ),
+					'search_items'       => __( 'Search Hero Sliders', 'wds-hero-widget' ),
+					'parent_item_colon'  => __( 'Parent Hero Sliders:', 'wds-hero-widget' ),
+					'not_found'          => __( 'No Hero Slider found.', 'wds-hero-widget' ),
+					'not_found_in_trash' => __( 'No Hero Slider found in Trash.', 'wds-hero-widget' )
+				),
 				'public'    => false,
 				'show_ui'   => true,
 				'supports'  => array( 'title' ),
 				'rewrite'   => false,
 				'menu_icon' => 'dashicons-images-alt2',
-			);
-
-			register_post_type( 'wds-hero-slider', $args );
+			) );
 		}
 
 		/**
 		 * Add a way to add multiple images (or images) to CPT.
 		 *
-		 * @return void
+		 * @since  1.0.0
 		 */
 		public function images_cmb2_init() {
 			$slider_id = ( isset( $_GET['post'] ) ) ? $_GET['post'] : '0';
@@ -106,6 +104,8 @@ if ( ! class_exists( 'WDS_Slider_CPT' ) ) :
 
 		/**
 		 * Output's some basic instructions on how to get the slider on a page.
+		 *
+		 * @since  1.0.0
 		 *
 		 * @return string HTML passed back to CMB2
 		 */
@@ -146,6 +146,14 @@ if ( ! class_exists( 'WDS_Slider_CPT' ) ) :
 			return $html;
 		}
 
+		/**
+		 * Sanitize slider speed value.
+		 *
+		 * @since  1.0.0
+		 *
+		 * @param  string|int $value The value.
+		 * @return int        Absint value.
+		 */
 		function sanitize_slider_speed( $value ) {
 			return absint( $value );
 		}
@@ -153,7 +161,7 @@ if ( ! class_exists( 'WDS_Slider_CPT' ) ) :
 		/**
 		 * Hides the publishing options since they aren't relevant here.
 		 *
-		 * @return void
+		 * @since  1.0.0
 		 */
 		public function hide_visibility_screen() {
 				if( 'wds-hero-slider' == get_post_type() ){
@@ -172,12 +180,13 @@ if ( ! class_exists( 'WDS_Slider_CPT' ) ) :
 		/**
 		 * Removes the Quick Edit from the bulk list options.
 		 *
+		 * @since  1.0.0
+		 *
 		 * @param  array $actions Default Actions
 		 *
 		 * @return array          Actions with any inline actions removed.
 		 */
 		public function remove_quick_edit( $actions ) {
-
 			global $current_screen;
 
 			if ( ! $current_screen ) {
@@ -197,6 +206,8 @@ if ( ! class_exists( 'WDS_Slider_CPT' ) ) :
 
 		/**
 		 * Changes default text to text that makes more sense for this plugin.
+		 *
+		 * @since  1.0.0
 		 *
 		 * @param  string $translated_text The un-translated text.
 		 * @param  string $text            The original translated text.
