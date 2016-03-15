@@ -78,10 +78,6 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 		 * @since  1.0.0
 		 */
 		public function __construct( $widget_name = false ) {
-
-			// The plugin.
-			$this->plugin = wds_hero_widget();
-
 			// For backwards compatibility.
 			if ( ! $widget_name ) {
 				$this->widget_name          = esc_html__( 'Hero', 'wds-hero-widget' );
@@ -254,7 +250,7 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 			$widget .= $atts['before_widget'];
 
 				// This function does the magic!
-				$widget .= $this->plugin->wds_hero( array(
+				$widget .= wds_hero_widget()->wds_hero( array(
 					'type'                  => ( isset( $atts['type'] ) && ! empty( $atts['type'] ) ) ? $atts['type'] : 'primary',
 					'id'                    => ( isset( $atts['id'] ) && ! empty( $atts['id'] ) ) ? $atts['id'] : false,
 					'class'                 => ( isset( $atts['class'] ) && ! empty( $atts['class'] ) ) ? $atts['class'] : false,
