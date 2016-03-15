@@ -170,7 +170,7 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 				array(
 					'label'       => __( 'Overlay Color', 'wds-hero-widget' ),
 					'slug'        => 'overlay_color',
-					'description' => __( 'The color of the overlay. Include # or use colors like "red"', 'wds-hero-widget' ),
+					'description' => esc_html__( 'The color of the overlay. Include # or use colors like "red"', 'wds-hero-widget' ),
 					'placeholder' => '#000',
 					'default'     => '#000',
 				),
@@ -212,10 +212,10 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 			}
 
 			// Add the slider_id
-			if ( isset( $instance[ 'slider_id' ] ) ) {
-				$args[ 'slider_id' ] = $instance[ 'slider_id' ];
+			if ( isset( $instance['slider_id'] ) ) {
+				$args['slider_id'] = $instance['slider_id'];
 			} else {
-				$args[ 'slider_id' ] = false;
+				$args['slider_id'] = false;
 			}
 
 			echo $this->get_widget( $args );
@@ -283,7 +283,6 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 		 * @return array  Settings to save or bool false to cancel saving.
 		 */
 		public function update( $new_instance, $old_instance ) {
-
 			// Previously saved values
 			$instance = $old_instance;
 
@@ -308,7 +307,6 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 			$this->flush_widget_cache();
 
 			return $instance;
-
 		}
 
 		/**
@@ -385,10 +383,10 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 				<?php if ( ! defined( 'DISABLE_WDS_SLIDER_CPT' ) || false === DISABLE_WDS_SLIDER_CPT ) : ?>
 					<p>
 						<label for="<?php echo esc_attr( $this->get_field_id( 'slider_id' ) ); ?>">
-							<?php _e( 'Choose Hero Slider:', $this->plugin->text_domain ); ?>
+							<?php _e( 'Choose Hero Slider:', 'wds-hero-widget' ); ?>
 						</label>
 						<select id="<?php echo esc_attr( $this->get_field_id( 'slider_id' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'slider_id' ) ); ?>" style="max-width: 100%; min-width: 100%;">
-							<option><?php _e( '&mdash; None &mdash;', $this->plugin->text_domain ); ?></option>
+							<option><?php _e( '&mdash; None &mdash;', 'wds-hero-widget' ); ?></option>
 
 							<!-- Logo Train ID -->
 							<?php if ( is_array( $sliders ) ) : ?>
@@ -399,7 +397,7 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 						</select>
 					</p>
 
-					<p class="description"><?php _e( 'Uses any <em>Hero Slider</em> to slide images in the background.', $this->plugin->text_domain ) ?></p>
+					<p class="description"><?php _e( 'Uses any <em>Hero Slider</em> to slide images in the background.', 'wds-hero-widget' ) ?></p>
 				<?php endif; ?>
 
 				<!-- Text inputs -->
