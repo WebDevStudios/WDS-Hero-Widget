@@ -412,7 +412,7 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 							<?php _e( 'Choose Hero Slider:', 'wds-hero-widget' ); ?>
 						</label>
 						<select id="<?php echo esc_attr( $this->get_field_id( 'slider_id' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'slider_id' ) ); ?>" style="max-width: 100%; min-width: 100%;">
-							<option><?php _e( '&mdash; None &mdash;', 'wds-hero-widget' ); ?></option>
+							<option><?php echo sprintf( __( '%s None %s', 'wds-hero-widget' ), '&mdash;', '&mdash;' ); ?></option>
 
 							<!-- Logo Train ID -->
 							<?php if ( is_array( $sliders ) ) : ?>
