@@ -4,7 +4,7 @@
 Plugin Name: WDS Hero Widget
 Plugin URI:  http://webdevstudios.com
 Description: Allows you to add Hero images and videos using Widgets, Shortcodes and Template Tags!
-Version:     1.0
+Version:     1.1-dev
 Author:      WebDevStudios
 Author URI:  http://webdevstudios.com
 Donate link: http://webdevstudios.com

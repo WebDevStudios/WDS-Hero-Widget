@@ -15,7 +15,6 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 	class WDS_Hero_Widget {
 		public $plugin_headers;
 		public $version;
-		public $text_domain;
 		public $slider_cpt;
 
 		protected $url      = '';
@@ -23,6 +22,21 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 		protected $basename = '';
 
 		protected static $single_instance = null;
+
+		/**
+		 * Creates or returns an instance of this class.
+		 *
+		 * @since  0.1.0
+		 *
+		 * @return WDS_Hero_Widget A single instance of this class.
+		 */
+		public static function get_instance() {
+			if ( null === self::$single_instance ) {
+				self::$single_instance = new self();
+			}
+
+			return self::$single_instance;
+		}
 
 		/**
 		 * Sets up our plugin.
@@ -47,21 +61,6 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 			// Enqueue styles
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
 			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
-		}
-
-		/**
-		 * Creates or returns an instance of this class.
-		 *
-		 * @since  0.1.0
-		 *
-		 * @return WDS_Hero_Widget A single instance of this class.
-		 */
-		public static function get_instance() {
-			if ( null === self::$single_instance ) {
-				self::$single_instance = new self();
-			}
-
-			return self::$single_instance;
 		}
 
 		/**
