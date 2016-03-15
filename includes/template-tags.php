@@ -8,6 +8,8 @@ if ( ! defined ( 'ABSPATH' ) ) {
 /**
  * Template tag wrapper for WDS_Hero_Widget::mcf_hero().
  *
+ * @since  1.0.0
+ *
  * @see WDS_Hero_Widget::mcf_hero() Argument defaults, etc.
  */
 function wds_hero( $args = array(), $content = false ) {
