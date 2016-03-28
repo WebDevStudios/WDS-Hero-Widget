@@ -73,6 +73,15 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 		protected $types;
 
 		/**
+		 * Whether or not fields have been mediaifed.
+		 *
+		 * @since  1.1
+		 *
+		 * @var boolean
+		 */
+		private $fields_mediafied = false;
+
+		/**
 		 * Construct.
 		 *
 		 * @since  1.0.0
@@ -83,8 +92,8 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 				$this->widget_name          = esc_html__( 'Hero', 'wds-hero-widget' );
 				$this->default_widget_title = esc_html__( 'Hero', 'wds-hero-widget' );
 			} else {
-				$this->widget_name          = esc_html__( $widget_name, 'wds-hero-widget' );
-				$this->default_widget_title = esc_html__( $widget_name, 'wds-hero-widget' );
+				$this->widget_name          = esc_html( $widget_name );
+				$this->default_widget_title = esc_html( $widget_name );
 			}
 
 			// WordPress Widget startup!
@@ -129,18 +138,26 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 					'default'     => '',
 				),
 				array(
-					'label'       => __( 'Background Image URL', 'wds-hero-widget' ),
+					'label'       => __( 'Background Image', 'wds-hero-widget' ),
 					'slug'        => 'image',
 					'description' => __( 'The image to apply as the background image.', 'wds-hero-widget' ),
 					'placeholder' => 'http://example.com/background-image.png',
 					'default'     => '',
+
+					// Mediafy
+					'media_label' => __( 'Image', 'wds-hero-widget' ),
+					'media'       => true, // Is a media file, so use media uploader.
 				),
 				array(
-					'label'       => __( 'Background Video URL', 'wds-hero-widget' ),
+					'label'       => __( 'Background Video', 'wds-hero-widget' ),
 					'slug'        => 'video',
 					'description' => __( 'Must be a .mp4 video.', 'wds-hero-widget' ),
 					'placeholder' => 'http://example.com/background-video.mp4',
 					'default'     => '',
+
+					// Mediafy
+					'media_label' => __( 'Video', 'wds-hero-widget' ),
+					'media'       => true, // Is a media file, so use media uploader.
 				),
 				array(
 					'label'       => __( 'Primary Heading', 'wds-hero-widget' ),
@@ -185,6 +202,28 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 					'default'     => '#000',
 				),
 			);
+		}
+
+		/**
+		 * Add media component to the input.
+		 *
+		 * @since  1.1
+		 * @return  void Early exit if mediafied already.
+		 */
+		private function mediafy_fields() {
+			if ( $this->fields_mediafied ) {
+				return;
+			}
+
+			foreach ( $this->text_inputs as &$input ) {
+				if ( isset( $input['media'] ) && $input['media'] ) {
+					$_input = new WDS_Hero_Widget_Media( $input, $input['media_label'] );
+					$input['description'] = "{$input['description']} {$_input->media_description()}";
+				}
+			}
+
+			// Don't do again.
+			$this->fields_mediafied = true;
 		}
 
 		/**
@@ -369,6 +408,8 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 		 * @param  array  $instance  Current settings.
 		 */
 		public function form( $instance ) {
+			// Make media inputs use the media library.
+			$this->mediafy_fields();
 
 			// Condense Meta & Defaults
 			$widget_meta = array();
@@ -436,7 +477,7 @@ if ( ! class_exists( 'WDS_Hero_Widget_Widget' ) ) :
 					</p>
 
 					<?php if ( $input['description'] ): ?>
-						<p class="description"><?php echo esc_html( $input['description' ] ); ?></p>
+						<p class="description" data-input-id="<?php echo esc_attr( $this->get_field_id( $input['slug'] ) ); ?>"><?php echo $input['description']; // Not escaped purposefully. ?></p>
 					<?php endif; ?>
 				<?php endforeach; ?>
 
