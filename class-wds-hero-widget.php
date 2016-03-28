@@ -73,8 +73,9 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 			register_activation_hook( __FILE__, array( $this, '_activate' ) );
 
 			// Enqueue styles
-			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ) );
-			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+			add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_styles' ) );
+			add_action( 'wp_enqueue_scripts', array( $this, 'wp_enqueue_scripts' ) );
+			add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 
 			// s
 			add_action( 'init', array( $this, 'load_text_domain' ) );
@@ -89,16 +90,32 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 		}
 
 		/**
+		 * Enqueue Admin JS
+		 *
+		 * @since  1.1.0
+		 */
+		public function admin_enqueue_scripts() {
+			wp_enqueue_media();
+			wp_enqueue_script( 'wds-hero-widget-admin', plugins_url( 'assets/js/wds-hero-widget-admin.js', __FILE__ ), array( 'jquery' ), $this->script_version(), true );
+			wp_localize_script( 'wds-hero-widget-admin', 'WDS_Hero_Widget_l10n', array(
+				'media' => array(
+					'title'  => __( 'Open', 'wds-hero-widget' ),
+					'button' => __( 'Use', 'wds-hero-widget' ),
+				),
+			) );
+		}
+
+		/**
 		 * Enqueue JS scripts.
 		 *
 		 * @since  1.0.0
 		 */
-		public function enqueue_scripts() {
+		public function wp_enqueue_scripts() {
 			// Slick animations.
 			wp_enqueue_script( 'slick-js', plugins_url( 'assets/bower/slick.js/slick/slick.js', __FILE__ ), array( 'jquery' ), $this->script_version(), true );
 
 			// Setup slick on sliders.
-			wp_enqueue_script( 'wds-hero-widget', plugins_url( 'assets/js/wds-hero-widget.js', __FILE__ ), array( 'jquery', 'slick-js' ), $this->script_version(), true );
+			wp_enqueue_script( 'wds-hero-widget-public', plugins_url( 'assets/js/wds-hero-widget-public.js', __FILE__ ), array( 'jquery', 'slick-js' ), $this->script_version(), true );
 		}
 
 		/**
@@ -106,7 +123,7 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 		 *
 		 * @since  1.0.0
 		 */
-		public function enqueue_styles() {
+		public function wp_enqueue_styles() {
 			wp_enqueue_style( 'wds-hero-widget', plugins_url( 'assets/css/wds-hero-widget.css', __FILE__ ), array(), $this->script_version(), 'screen' );
 
 			// Slick animations.
@@ -373,6 +390,7 @@ if ( ! class_exists( 'WDS_Hero_Widget' ) ) :
 		 */
 		public function includes() {
 			$files = array(
+				'includes/class-wds-hero-widget-media.php',
 				'includes/class-wds-slider-cpt.php',
 				'includes/class-wds-hero-widget.php',
 				'includes/template-tags.php',
